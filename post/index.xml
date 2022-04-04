@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on tack41&#39;s blog</title>
-    <link>https://blog.tack41.com/post/</link>
+    <link>https://blog.tack41.net/post/</link>
     <description>Recent content in Posts on tack41&#39;s blog</description>
     <image>
-      <url>https://blog.tack41.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://blog.tack41.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 29 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>It&#39;s raining cats and dogs!</title>
-      <link>https://blog.tack41.com/post/2022/4/04_01/</link>
+      <link>https://blog.tack41.net/post/2022/4/04_01/</link>
       <pubDate>Sun, 29 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.tack41.com/post/2022/4/04_01/</guid>
+      <guid>https://blog.tack41.net/post/2022/4/04_01/</guid>
       <description>When the rain begins to fall&amp;hellip;</description>
     </item>
     
