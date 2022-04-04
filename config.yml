@@ -1,5 +1,5 @@
-baseURL: "https://examplesite.com/"
-title: ExampleSite
+baseURL: "https://blog.tack41.com/"
+title: "tack41's blog"
 paginate: 5
 theme: PaperMod
 
@@ -7,9 +7,8 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-publishDir: docs
 
-googleAnalytics: UA-123-45
+googleAnalytics: G-DNWENV5G0J
 
 minify:
   disableXML: true
@@ -17,10 +16,10 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
+  title: "tack41's blog"
+  description: "tack41's blog"
   keywords: [Blog, Portfolio, PaperMod]
-  author: Me
+  author: tack41
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
@@ -57,7 +56,7 @@ params:
   # profile-mode
   profileMode:
     enabled: false # needs to be explicitly set
-    title: ExampleSite
+    title: "tack41's blog"
     subtitle: "This is subtitle"
     imageUrl: "<img location>"
     imageWidth: 120
@@ -75,12 +74,8 @@ params:
     Content: Welcome to my blog
 
   socialIcons:
-    - name: twitter
-      url: "https://twitter.com/"
-    - name: stackoverflow
-      url: "https://stackoverflow.com"
     - name: github
-      url: "https://github.com/"
+      url: "https://github.com/tack41"
 
   analytics:
     google:
@@ -96,7 +91,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/tack41/content"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
@@ -120,9 +115,9 @@ menu:
       name: tags
       url: /tags/
       weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
+    - identifier: tack41
+      name: tack41.net
+      url: https://blog.tack41.net
       weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
