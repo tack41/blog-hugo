@@ -8,10 +8,10 @@
     <loc>https://blog.tack41.net/categories/</loc>
     <lastmod>2021-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.tack41.net/post/2022/4/04_01/</loc>
+    <loc>https://blog.tack41.net/posts/2022/4/04_01/</loc>
     <lastmod>2021-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.tack41.net/post/</loc>
+    <loc>https://blog.tack41.net/posts/</loc>
     <lastmod>2021-08-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/</loc>
@@ -22,5 +22,14 @@
   </url><url>
     <loc>https://blog.tack41.net/categories/uncategorized/</loc>
     <lastmod>2021-08-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/scom/</loc>
+    <lastmod>2012-01-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/2012/1/09_01/</loc>
+    <lastmod>2012-01-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/categories/tech/</loc>
+    <lastmod>2012-01-09T00:00:00+00:00</lastmod>
   </url>
 </urlset>
