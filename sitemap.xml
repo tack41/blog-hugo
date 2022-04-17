@@ -2,34 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.tack41.net/tags/adempiere/</loc>
+    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/2012/4/01_01/</loc>
+    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/categories/</loc>
+    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/centos/</loc>
+    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/</loc>
+    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/</loc>
+    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/</loc>
+    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/categories/tech/</loc>
+    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.tack41.net/tags/android/</loc>
     <lastmod>2012-01-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2012/1/28_02/</loc>
     <lastmod>2012-01-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.tack41.net/categories/</loc>
-    <lastmod>2012-01-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/centos/</loc>
-    <lastmod>2012-01-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.tack41.net/tags/oracle/</loc>
     <lastmod>2012-01-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2012/1/28_01/</loc>
-    <lastmod>2012-01-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/posts/</loc>
-    <lastmod>2012-01-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/</loc>
-    <lastmod>2012-01-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/</loc>
-    <lastmod>2012-01-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/categories/tech/</loc>
     <lastmod>2012-01-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/tags/scom/</loc>
