@@ -2,28 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.tack41.net/categories/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/hyperv/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/kvm/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/categories/tech/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/ubuntu/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/2012/11/29_02/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/virtualbox/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/vmware/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/2012/11/29_01/</loc>
+    <lastmod>2012-11-29T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.tack41.net/tags/adempiere/</loc>
     <lastmod>2012-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2012/4/01_01/</loc>
     <lastmod>2012-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.tack41.net/categories/</loc>
-    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.tack41.net/tags/centos/</loc>
-    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/posts/</loc>
-    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/</loc>
-    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/</loc>
-    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/categories/tech/</loc>
     <lastmod>2012-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/tags/android/</loc>

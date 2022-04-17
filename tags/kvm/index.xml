@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>kvm on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/kvm/</link>
+    <description>Recent content in kvm on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 29 Nov 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/kvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VMware, Hyper-V, kvm(&#43;VirtualBox)のトリプルブート</title>
+      <link>https://blog.tack41.net/posts/2012/11/29_01/</link>
+      <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/11/29_01/</guid>
+      <description>VMware, Hyper-V, kvm(+VirtualBox)のトリプルブート環境構築時のメモ。 HDD構成は以下を想定、HDDは2TBを使用。
+ HDD1: VMware ESXi 5.1 (2TB) HDD2:  Hyper-V Server (1TB) kvm(+Virtual Box) (1TB)    ブートローダは
+ USBメモリ-VMware HDD2-grub(Hyper-V/Linux)  通常はUSBメモリよりVMwareをブート。Hyper-V or Linuxブートの際にはUSBメモリを抜き、画面よりどちらかを選択する。
+ VMware ESXi 5.1.0をUSBメモリにインストール datastoreにHDD1を追加。当初以下のエラーが表示されていた
+これは日本語化によるバグらしく、起動時に「-locale en_US」とつけることで回避可能。
+ Hyper-V Server 2012のインストール
+ディスクの指定でHDD1の半分程度を指定する。この時点で、  デフォルトでHyper-Vが起動 BIOSにてHDD2を指定するとVMwareが起動
+という状態。ただ、Hyper-VにWindows7で管理するための設定が難しく、ブートはするが使用できない状態…   CentOS 6.3のインストール
+HDD1の後半の空き領域をインストール先に指定し、デフォルトのブートデバイスとしてHDD2を指定。インストールオプションは「Virtual Host」を指定。
+CUIで起動する。VirtualBoxはGUIがないと操作できないので以下のインストールを実施。 yum groupinstall &amp;#34;X Window System&amp;#34; yum groupinstall &amp;#34;Desktop&amp;#34; yum groupinstall &amp;#34;General Purpose Desktop&amp;#34; grubではvmwareに対してはディスクを「(hd1)」と指定する。 Virtual Box
+kernel-devel, gccをインストール後、ホームページよりCentOS6用のrppmをダウンロードしてインストール  </description>
+    </item>
+    
+  </channel>
+</rss>
