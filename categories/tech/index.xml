@@ -11,6 +11,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 Jan 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title></title>
+      <link>https://blog.tack41.net/posts/2012/1/09_04/</link>
+      <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/1/09_04/</guid>
+      <description>スタンドアロンルート証明局を立てて行う。 エンタープライズ証明局の場合は、後述の手順が追加で必要となる。
+A. Workgroup環境のコンピュータにAgentを登録する手順 &amp;lt;管理サーバー&amp;gt;
+ (1)-(a) CA に証明書を要求する。 (2)-(b) 保留中の証明書要求を承認する。 (3)-(c) 証明書を取得する。 (* 4)-(d) 証明書のエクスポート  &amp;lt;エージェントインストール対象のサーバー&amp;gt;
+ (5)-(e) 証明書チェーンをインストールする (6)-(f) 信頼されたルート証明書をローカルコンピュータにコピーする (7)-(a) CA に証明書を要求する。 (8)-(b) 保留中の証明書要求を承認する。 (9)-(c) 証明書を取得する。 (10)-(d) 証明書のエクスポート  &amp;lt;管理サーバー&amp;gt;
+ (11)-(g) MOMCertImport を使用して証明書をインポートする  &amp;lt;エージェントインストール対象のサーバー&amp;gt;
+ (12)-(g) MOMCertImport を使用して証明書をインポートする  (a) CA に証明書を要求する。  証明書をインストールするコンピュータ (管理サーバーやエージェントインストール対象のサーバー) にログオンする。 Internet Explorer を起動し、証明書サービスのホスト コンピュータ (http://&amp;lt;サーバー名&amp;gt;/certsrv など) に接続する。 [Microsoft 証明書サービス] ページで [証明書を要求する] をクリックする。 [証明書の要求] ページで [証明書の要求の詳細設定] をクリックする。 [証明書の要求の詳細設定] ページで [この CA への要求を作成し送信する。] をクリックする。 [証明書の要求の詳細設定] ページで次の処理を行う。  [識別情報] の [名前] フィールドに、証明書の要求対象のコンピュータ(管理サーバーやエージェントインストール対象のサーバー) の完全修飾ドメイン名 (FQDN) を入力します。残りのフィールドに、適切な情報を入力する。</description>
+    </item>
+    
+    <item>
       <title>SCOM 2007 R2 インストール手順</title>
       <link>https://blog.tack41.net/posts/2012/1/09_01/</link>
       <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
@@ -22,6 +36,16 @@ Windows Server 2008 R2ではSQL Server 2008をインストールする際はServ
 ※ SQL Server 2008 R2をインストールする場合、SCOMインストール時に下記URLにあるとおり手動作業が必要となる。 http://engineer-memo.com/blogs/engineer-memo/archive/2010/10/27/sql-server-2008-r2-opsmgr.aspx   役割の追加にて「Webサーバ(IIS)」をインストールし、以下のURLにあるとおり、以下の項目を有効にする。
 http://support.microsoft.com/kb/973451/ja  [役割サービス] ページで、[HTTP 基本機能] を展開し、以下のチェック ボックスをオンにします。  [静的なコンテンツ] [既定のドキュメント] [ディレクトリの参照] [HTTP エラー] [HTTP リダイレクション]   [アプリケーション開発] を展開し、以下のチェック ボックスをオンにします。  [ASP.NET] [.NET 拡張性] [ASP] [ISAPI 拡張] [ISAPI フィルタ]
 注 : 必要な役割サービスを追加するように求めるメッセージが表示されたら、[OK] をクリックします。   [状態と診断] を展開し、以下のチェック ボックスをオンにします。  [HTTP ログ] [要求の監視] [セキュリティ] を展開し、以下のチェック ボックスをオンにします。 [Windows 認証] [要求フィルタ]   [管理ツール] を展開し、以下のチェック ボックスをオンにします。  [IIS 管理コンソール] [IIS 6 管理互換]   さらに [IIS 6 管理互換] を展開し、以下のチェック ボックスをオンにします。  [IIS 6 メタベース互換] [IIS 6 WMI 互換] [IIS 6 スクリプトツール] [IIS 6 管理コンソール]     ASP.</description>
+    </item>
+    
+    <item>
+      <title>SCOM クラスタ環境の監視について</title>
+      <link>https://blog.tack41.net/posts/2012/1/09_03/</link>
+      <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/1/09_03/</guid>
+      <description>クラスタ環境で仮想ホストの監視を行う場合、エージェントプロキシを有効にする必要がある。
+エージェントプロキシを有効にすると、監視対象ホスト一覧に仮想ホストも表示されるようになる。</description>
     </item>
     
     <item>
