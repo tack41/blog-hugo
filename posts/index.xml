@@ -11,20 +11,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 09 Jan 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
-      <link>https://blog.tack41.net/posts/2012/1/09_04/</link>
-      <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.tack41.net/posts/2012/1/09_04/</guid>
-      <description>スタンドアロンルート証明局を立てて行う。 エンタープライズ証明局の場合は、後述の手順が追加で必要となる。
-A. Workgroup環境のコンピュータにAgentを登録する手順 &amp;lt;管理サーバー&amp;gt;
- (1)-(a) CA に証明書を要求する。 (2)-(b) 保留中の証明書要求を承認する。 (3)-(c) 証明書を取得する。 (* 4)-(d) 証明書のエクスポート  &amp;lt;エージェントインストール対象のサーバー&amp;gt;
- (5)-(e) 証明書チェーンをインストールする (6)-(f) 信頼されたルート証明書をローカルコンピュータにコピーする (7)-(a) CA に証明書を要求する。 (8)-(b) 保留中の証明書要求を承認する。 (9)-(c) 証明書を取得する。 (10)-(d) 証明書のエクスポート  &amp;lt;管理サーバー&amp;gt;
- (11)-(g) MOMCertImport を使用して証明書をインポートする  &amp;lt;エージェントインストール対象のサーバー&amp;gt;
- (12)-(g) MOMCertImport を使用して証明書をインポートする  (a) CA に証明書を要求する。  証明書をインストールするコンピュータ (管理サーバーやエージェントインストール対象のサーバー) にログオンする。 Internet Explorer を起動し、証明書サービスのホスト コンピュータ (http://&amp;lt;サーバー名&amp;gt;/certsrv など) に接続する。 [Microsoft 証明書サービス] ページで [証明書を要求する] をクリックする。 [証明書の要求] ページで [証明書の要求の詳細設定] をクリックする。 [証明書の要求の詳細設定] ページで [この CA への要求を作成し送信する。] をクリックする。 [証明書の要求の詳細設定] ページで次の処理を行う。  [識別情報] の [名前] フィールドに、証明書の要求対象のコンピュータ(管理サーバーやエージェントインストール対象のサーバー) の完全修飾ドメイン名 (FQDN) を入力します。残りのフィールドに、適切な情報を入力する。</description>
-    </item>
-    
-    <item>
       <title>SCOM 2007 R2 インストール手順</title>
       <link>https://blog.tack41.net/posts/2012/1/09_01/</link>
       <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
@@ -58,6 +44,20 @@ http://support.microsoft.com/kb/973451/ja  [役割サービス] ページで、[
 Scheduled reports that you create by using SQL Server 2008 Reporting Services (SSRS) do not display chart data in System Center Operations Manager 2007 R2
 対策  SQL Server の稼動しているコンピューターに、管理者権限のあるユーザーでログイン エクスプローラで以下のフォルダを開きます。Reporting Services フォルダは、SQL Server Reporting Services のインストールフォルダにある
 ¥Reporting Services¥ReportServer¥bin 開いたフォルダにある ReportingServicesService.exe.config をコピーし (バックアップ)、メモ帳で開く 下記の内容を、&amp;lt;dependentAssembly&amp;gt; と &amp;lt;/dependentAssembly&amp;gt; に囲まれた部分に追加する &amp;lt;assemblyIdentity name=&amp;#34;Microsoft.ReportingServices.ProcessingCore&amp;#34; publicKeyToken=&amp;#34;89845dcd8080cc91&amp;#34; culture=&amp;#34;neutral&amp;#34; /&amp;gt; &amp;lt;bindingRedirect oldVersion=&amp;#34;9.0.242.0&amp;#34; newVersion=&amp;#34;10.0.0.0&amp;#34; /&amp;gt; &amp;lt;/dependentAssembly&amp;gt; &amp;lt;dependentAssembly xmlns=&amp;#34;urn:schemas-microsoft-com:asm.v1&amp;#34;&amp;gt; &amp;lt;assemblyIdentity name=&amp;#34;Microsoft.ReportingServices.ProcessingCore&amp;#34; publicKeyToken=&amp;#34;89845dcd8080cc91&amp;#34; culture=&amp;#34;neutral&amp;#34; /&amp;gt; &amp;lt;bindingRedirect oldVersion=&amp;#34;9.0.242.0&amp;#34; newVersion=&amp;#34;10.0.0.0&amp;#34; /&amp;gt;  変更を保存して、ファイルを閉じる SQL Server Reporting Services を再起動する  </description>
+    </item>
+    
+    <item>
+      <title>SCOM ワークグループ環境でのエージェントインストール手順</title>
+      <link>https://blog.tack41.net/posts/2012/1/09_04/</link>
+      <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/1/09_04/</guid>
+      <description>スタンドアロンルート証明局を立てて行う。 エンタープライズ証明局の場合は、後述の手順が追加で必要となる。
+A. Workgroup環境のコンピュータにAgentを登録する手順 &amp;lt;管理サーバー&amp;gt;
+ (1)-(a) CA に証明書を要求する。 (2)-(b) 保留中の証明書要求を承認する。 (3)-(c) 証明書を取得する。 (* 4)-(d) 証明書のエクスポート  &amp;lt;エージェントインストール対象のサーバー&amp;gt;
+ (5)-(e) 証明書チェーンをインストールする (6)-(f) 信頼されたルート証明書をローカルコンピュータにコピーする (7)-(a) CA に証明書を要求する。 (8)-(b) 保留中の証明書要求を承認する。 (9)-(c) 証明書を取得する。 (10)-(d) 証明書のエクスポート  &amp;lt;管理サーバー&amp;gt;
+ (11)-(g) MOMCertImport を使用して証明書をインポートする  &amp;lt;エージェントインストール対象のサーバー&amp;gt;
+ (12)-(g) MOMCertImport を使用して証明書をインポートする  (a) CA に証明書を要求する。  証明書をインストールするコンピュータ (管理サーバーやエージェントインストール対象のサーバー) にログオンする。 Internet Explorer を起動し、証明書サービスのホスト コンピュータ (http://&amp;lt;サーバー名&amp;gt;/certsrv など) に接続する。 [Microsoft 証明書サービス] ページで [証明書を要求する] をクリックする。 [証明書の要求] ページで [証明書の要求の詳細設定] をクリックする。 [証明書の要求の詳細設定] ページで [この CA への要求を作成し送信する。] をクリックする。 [証明書の要求の詳細設定] ページで次の処理を行う。  [識別情報] の [名前] フィールドに、証明書の要求対象のコンピュータ(管理サーバーやエージェントインストール対象のサーバー) の完全修飾ドメイン名 (FQDN) を入力します。残りのフィールドに、適切な情報を入力する。</description>
     </item>
     
   </channel>
