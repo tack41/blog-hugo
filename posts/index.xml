@@ -9,7 +9,31 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 Jan 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Jan 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Androidフォンをひかり電話の子機化、VPN接続で屋外でも家電(いえでん)</title>
+      <link>https://blog.tack41.net/posts/2012/1/28_02/</link>
+      <pubDate>Sat, 28 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/1/28_02/</guid>
+      <description>ネットと同時にひかり電話をひいていたこともあり、興味があって手持ちのAndroidフォン(HTC Evo Wimax)を子機化し、さらにVPNで自宅外でも家電をかけられるように設定した。
+SIPサーバに接続するネットワークと、PPPoE経由で外部と接続する家庭内ネットワークがどうしても別々となり、VPNで内部に入った際にSIPサーバに接続できない(一般にSIPクライアントはNAT超えができない)のがネックになりそうだったが、以下の記事を参考にこの2つのネットワークを入り口が2つある同一ネットワークとすることで希望を満たすことができた。
+http://musemd.at.webry.info/201107/article_1.html
+ONUからの線を分岐させるためのハブが別途必要となる。</description>
+    </item>
+    
+    <item>
+      <title>Oracle 11g Express EditionをCentOSにインストール</title>
+      <link>https://blog.tack41.net/posts/2012/1/28_01/</link>
+      <pubDate>Sat, 28 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/1/28_01/</guid>
+      <description>インストール要件は以下のURLを参照。 http://docs.oracle.com/cd/E17781_01/install.112/e18802/toc.htm#autoId3
+CentOS5.2にインストールする(vault.centos.orgより)。
+ CentOSインストール  Desktop - GNOME Server Firewall無効 SELinux無効
+※swapを2006MB以上確保しないとoracleインストールチェックで弾かれるので注意   更新適用、再起動 yum update reboot  必要なパッケージがインストールされていることを確認 rpm -qa | grep -E &amp;#39;glibc|make|binutils|gcc|libaio&amp;#39;  VMWare Toolsインストール、再起動 Oracleインストール unzip oracle-xe-11.2.0-1.0.x86_64.rpm.zip rpm -ivh oracle-xe-11.2.0-1.0.x86_64.rpm  環境変数設定 cd /u01/app/oracle/product/11.2.0/xe/bin . ./oracle_env.sh bashrcに以下の行を追加 . /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh  リモートアクセスを可能にする sqlplus system SQL&amp;gt; EXEC DBMS_XDB.SETLISTENERLOCALACCESS(FALSE);   </description>
+    </item>
+    
     <item>
       <title>SCOM 2007 R2 インストール手順</title>
       <link>https://blog.tack41.net/posts/2012/1/09_01/</link>

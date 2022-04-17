@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>oracle on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/oracle/</link>
+    <description>Recent content in oracle on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 28 Jan 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oracle 11g Express EditionをCentOSにインストール</title>
+      <link>https://blog.tack41.net/posts/2012/1/28_01/</link>
+      <pubDate>Sat, 28 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/1/28_01/</guid>
+      <description>インストール要件は以下のURLを参照。 http://docs.oracle.com/cd/E17781_01/install.112/e18802/toc.htm#autoId3
+CentOS5.2にインストールする(vault.centos.orgより)。
+ CentOSインストール  Desktop - GNOME Server Firewall無効 SELinux無効
+※swapを2006MB以上確保しないとoracleインストールチェックで弾かれるので注意   更新適用、再起動 yum update reboot  必要なパッケージがインストールされていることを確認 rpm -qa | grep -E &amp;#39;glibc|make|binutils|gcc|libaio&amp;#39;  VMWare Toolsインストール、再起動 Oracleインストール unzip oracle-xe-11.2.0-1.0.x86_64.rpm.zip rpm -ivh oracle-xe-11.2.0-1.0.x86_64.rpm  環境変数設定 cd /u01/app/oracle/product/11.2.0/xe/bin . ./oracle_env.sh bashrcに以下の行を追加 . /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh  リモートアクセスを可能にする sqlplus system SQL&amp;gt; EXEC DBMS_XDB.SETLISTENERLOCALACCESS(FALSE);   </description>
+    </item>
+    
+  </channel>
+</rss>

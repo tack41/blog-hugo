@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>android on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/android/</link>
+    <description>Recent content in android on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 28 Jan 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Androidフォンをひかり電話の子機化、VPN接続で屋外でも家電(いえでん)</title>
+      <link>https://blog.tack41.net/posts/2012/1/28_02/</link>
+      <pubDate>Sat, 28 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/1/28_02/</guid>
+      <description>ネットと同時にひかり電話をひいていたこともあり、興味があって手持ちのAndroidフォン(HTC Evo Wimax)を子機化し、さらにVPNで自宅外でも家電をかけられるように設定した。
+SIPサーバに接続するネットワークと、PPPoE経由で外部と接続する家庭内ネットワークがどうしても別々となり、VPNで内部に入った際にSIPサーバに接続できない(一般にSIPクライアントはNAT超えができない)のがネックになりそうだったが、以下の記事を参考にこの2つのネットワークを入り口が2つある同一ネットワークとすることで希望を満たすことができた。
+http://musemd.at.webry.info/201107/article_1.html
+ONUからの線を分岐させるためのハブが別途必要となる。</description>
+    </item>
+    
+  </channel>
+</rss>
