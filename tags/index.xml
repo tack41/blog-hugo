@@ -9,31 +9,31 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 29 Nov 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Dec 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>hyperv</title>
-      <link>https://blog.tack41.net/tags/hyperv/</link>
-      <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
+      <title>ubuntu</title>
+      <link>https://blog.tack41.net/tags/ubuntu/</link>
+      <pubDate>Mon, 03 Dec 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.tack41.net/tags/hyperv/</guid>
+      <guid>https://blog.tack41.net/tags/ubuntu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kvm</title>
       <link>https://blog.tack41.net/tags/kvm/</link>
-      <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 02 Dec 2012 00:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/tags/kvm/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>ubuntu</title>
-      <link>https://blog.tack41.net/tags/ubuntu/</link>
+      <title>hyperv</title>
+      <link>https://blog.tack41.net/tags/hyperv/</link>
       <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.tack41.net/tags/ubuntu/</guid>
+      <guid>https://blog.tack41.net/tags/hyperv/</guid>
       <description></description>
     </item>
     
@@ -97,6 +97,24 @@
       <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/tags/scom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cifs</title>
+      <link>https://blog.tack41.net/tags/cifs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/cifs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>freenas</title>
+      <link>https://blog.tack41.net/tags/freenas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/freenas/</guid>
       <description></description>
     </item>
     

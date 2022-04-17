@@ -9,14 +9,38 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 29 Nov 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Dec 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu12.10でHulu</title>
+      <link>https://blog.tack41.net/posts/2012/12/03_01/</link>
+      <pubDate>Mon, 03 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/12/03_01/</guid>
+      <description>Ubuntu12.10 64bitにてHuluの字幕が文字化けする。
+ネットで検索してフォント関連をインストールしてみたがうまく行かない。
+同様の現象に悩んでいる人もいるようだ…
+http://solvedmyquestions.blogspot.jp/2012/11/ubuntu-hulu.html</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu 12.10でkvm</title>
+      <link>https://blog.tack41.net/posts/2012/12/02_01/</link>
+      <pubDate>Sun, 02 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/12/02_01/</guid>
+      <description>以下を参照。
+http://blog.livedoor.jp/shota_soga_/archives/3527400.html
+  sudo apt-get install kvm qemu-kvm libvirt-bin virt-viewer virt-manager sudo modprobe kvm sudo service libvirt-bin start sudo virt-manager sudo virt-manager  引き続き、他のPCと同じNW環境にするためのブリッジ設定。
+http://tipspc.blogspot.jp/2011/09/qemu-kvm-ubuntu-debian.html NetworkManagerを削除 sudo apt-get remove network-manager  &amp;ldquo;/etc/network/interfaces&amp;quot;を以下のとおり編集。 auto lo iface lo inet loopback auto eth0 iface eth0 inet manual auto br0 iface br0 inet dhcp bridge_ports eth0 bridge_maxwait 0 bridge_fd 0 bridge_stp off   </description>
+    </item>
+    
     <item>
       <title>Ubuntu12.10の初期設定</title>
       <link>https://blog.tack41.net/posts/2012/11/29_02/</link>
       <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/11/29_02/</guid>
-      <description>下記参照。 http://ubuntuapps.blog67.fc2.com/blog-entry-446.html」
+      <description>下記参照。 http://ubuntuapps.blog67.fc2.com/blog-entry-446.html
 ipv6の無効化 /etc/sysctl.confの最終行に以下のコメントを追加
 net.ipv6.conf.all.disable_ipv6 = 1 OS再起動
 ファイアウォールを有効にし、ssh, vncを許可

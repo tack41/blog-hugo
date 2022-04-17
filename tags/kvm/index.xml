@@ -9,7 +9,19 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 29 Nov 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/kvm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Dec 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/kvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu 12.10でkvm</title>
+      <link>https://blog.tack41.net/posts/2012/12/02_01/</link>
+      <pubDate>Sun, 02 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/12/02_01/</guid>
+      <description>以下を参照。
+http://blog.livedoor.jp/shota_soga_/archives/3527400.html
+  sudo apt-get install kvm qemu-kvm libvirt-bin virt-viewer virt-manager sudo modprobe kvm sudo service libvirt-bin start sudo virt-manager sudo virt-manager  引き続き、他のPCと同じNW環境にするためのブリッジ設定。
+http://tipspc.blogspot.jp/2011/09/qemu-kvm-ubuntu-debian.html NetworkManagerを削除 sudo apt-get remove network-manager  &amp;ldquo;/etc/network/interfaces&amp;quot;を以下のとおり編集。 auto lo iface lo inet loopback auto eth0 iface eth0 inet manual auto br0 iface br0 inet dhcp bridge_ports eth0 bridge_maxwait 0 bridge_fd 0 bridge_stp off   </description>
+    </item>
+    
     <item>
       <title>VMware, Hyper-V, kvm(&#43;VirtualBox)のトリプルブート</title>
       <link>https://blog.tack41.net/posts/2012/11/29_01/</link>
