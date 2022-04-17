@@ -34,5 +34,17 @@ http://support.microsoft.com/kb/973451/ja  [役割サービス] ページで、[
 注 : 必要な役割サービスを追加するように求めるメッセージが表示されたら、[OK] をクリックします。   [状態と診断] を展開し、以下のチェック ボックスをオンにします。  [HTTP ログ] [要求の監視] [セキュリティ] を展開し、以下のチェック ボックスをオンにします。 [Windows 認証] [要求フィルタ]   [管理ツール] を展開し、以下のチェック ボックスをオンにします。  [IIS 管理コンソール] [IIS 6 管理互換]   さらに [IIS 6 管理互換] を展開し、以下のチェック ボックスをオンにします。  [IIS 6 メタベース互換] [IIS 6 WMI 互換] [IIS 6 スクリプトツール] [IIS 6 管理コンソール]     ASP.</description>
     </item>
     
+    <item>
+      <title>SCOM レポートスケジュールのバグ</title>
+      <link>https://blog.tack41.net/posts/2012/1/09_02/</link>
+      <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2012/1/09_02/</guid>
+      <description>SQL Server 2008のバグにより、レポートのスケジュール機能が動作しない場合がある。
+Scheduled reports that you create by using SQL Server 2008 Reporting Services (SSRS) do not display chart data in System Center Operations Manager 2007 R2
+対策  SQL Server の稼動しているコンピューターに、管理者権限のあるユーザーでログイン エクスプローラで以下のフォルダを開きます。Reporting Services フォルダは、SQL Server Reporting Services のインストールフォルダにある
+¥Reporting Services¥ReportServer¥bin 開いたフォルダにある ReportingServicesService.exe.config をコピーし (バックアップ)、メモ帳で開く 下記の内容を、&amp;lt;dependentAssembly&amp;gt; と &amp;lt;/dependentAssembly&amp;gt; に囲まれた部分に追加する &amp;lt;assemblyIdentity name=&amp;#34;Microsoft.ReportingServices.ProcessingCore&amp;#34; publicKeyToken=&amp;#34;89845dcd8080cc91&amp;#34; culture=&amp;#34;neutral&amp;#34; /&amp;gt; &amp;lt;bindingRedirect oldVersion=&amp;#34;9.0.242.0&amp;#34; newVersion=&amp;#34;10.0.0.0&amp;#34; /&amp;gt; &amp;lt;/dependentAssembly&amp;gt; &amp;lt;dependentAssembly xmlns=&amp;#34;urn:schemas-microsoft-com:asm.v1&amp;#34;&amp;gt; &amp;lt;assemblyIdentity name=&amp;#34;Microsoft.ReportingServices.ProcessingCore&amp;#34; publicKeyToken=&amp;#34;89845dcd8080cc91&amp;#34; culture=&amp;#34;neutral&amp;#34; /&amp;gt; &amp;lt;bindingRedirect oldVersion=&amp;#34;9.0.242.0&amp;#34; newVersion=&amp;#34;10.0.0.0&amp;#34; /&amp;gt;  変更を保存して、ファイルを閉じる SQL Server Reporting Services を再起動する  </description>
+    </item>
+    
   </channel>
 </rss>
