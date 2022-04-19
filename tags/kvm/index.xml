@@ -25,7 +25,7 @@ http://tipspc.blogspot.jp/2011/09/qemu-kvm-ubuntu-debian.html NetworkManagerを�
     <item>
       <title>VMware, Hyper-V, kvm(&#43;VirtualBox)のトリプルブート</title>
       <link>https://blog.tack41.net/posts/2012/11/29_01/</link>
-      <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 29 Nov 2012 01:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/11/29_01/</guid>
       <description>VMware, Hyper-V, kvm(+VirtualBox)のトリプルブート環境構築時のメモ。 HDD構成は以下を想定、HDDは2TBを使用。

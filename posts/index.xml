@@ -9,11 +9,58 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 19 Apr 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 May 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ESXi 5.1.0上でWin2012 Hyper-Vがインストールできない</title>
+      <link>https://blog.tack41.net/posts/2013/05/06_01/</link>
+      <pubDate>Mon, 06 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2013/05/06_01/</guid>
+      <description>VMware ESXi .5.1.0上で検証目的のためにWindows 2012 StandardをインストールしてHyper-Vの役割を追加しようとすると「すでにインストールされています」と表示されてしまう。VMware Toolsをアンインストールしてもだめ。
+そういうもんなんかなぁ。
+ESXi on VMware Playerは昔動いた記憶があるんだけど、Hyper-V on ESXiは無理なのか?</description>
+    </item>
+    
+    <item>
+      <title>FreeNAS8.3.1でiSCSI target</title>
+      <link>https://blog.tack41.net/posts/2013/05/04_01/</link>
+      <pubDate>Sat, 04 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2013/05/04_01/</guid>
+      <description>オープンソースでiSCSIターゲットを実装可能なFreeNASを利用し、Windows 2012より利用する。
+1. 初期設定  FreeNAS 8.3.1のインストール  CPU: i5 2405S 1c MEM: 1GB Disk1: 30GB(OS Install) Disk2 :10GB(iSCSI Volume)   CUIにてNWアドレスを設定  2. iSCSI targetの設定  WebUIにてアクセス ボリュームの追加  [Volume]-[Volume Manager]にてボリュームを追加する。 上段[Servies]-[Core]にてiSCSIをオンにする
+   iSCSIポータルの設定
+[iSCSI]-[ポータル]を選択し、アクセス制限を設定する(ここではオールOKとした)
+ Initiatorの許可
+[iSCSI]-[Initiator]で接続元のInitiatorを制限する(下図では制限なし)
+ ポータルの追加
+[iSCSI]-[Portal]を選択し、ポータルを追加する(下図では全アクセスを許可)
+ Initiatorの設定
+[iSCSI]-[Initiators]よりInitiatorのアクセス制限をかける。下図では制限なし。  ターゲットの追加
+[iSCSI]-[Targets]を開き、[Add Target]ボタンをクリック
+すべて入力して[OK]をクリック。 ターゲットにエクステントを追加
+[iSCSI]-[Associated Targets]を開き、[Add Extend to Target]をクリックする
+これまで入力した内容を入力する
+ WindowsやLinuxのiSCSI initiatorから接続できることを確認。  </description>
+    </item>
+    
+    <item>
+      <title>Windows Server 2012でiSCSI target (2)initiator側</title>
+      <link>https://blog.tack41.net/posts/2013/04/19_02/</link>
+      <pubDate>Fri, 19 Apr 2013 02:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2013/04/19_02/</guid>
+      <description> [管理ツール]-[iSCSIイニシエーター]を起動 初回はサービス起動確認のダイアログが表示されるので[はい]をクリック
+ [ターゲット]にiSCSI TargetサーバのIPアドレスを入力して[クイック接続]をクリック
+ Targetが認識されているのを確認し、[完了]をクリックする。
+ [ディスクの管理]にて作成したディスクが認識されていることを確認する。
+  </description>
+    </item>
+    
     <item>
       <title>Windows Server 2012でiSCSI target (1)target側</title>
       <link>https://blog.tack41.net/posts/2013/04/19_01/</link>
-      <pubDate>Fri, 19 Apr 2013 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 19 Apr 2013 01:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/posts/2013/04/19_01/</guid>
       <description>iSCSI target, initiator共にWindows Server 2012(Full)
@@ -39,19 +86,6 @@
  必要に応じてCHAP, リバースCHAPを有効にする
  [作成]をクリックして完了する
  正常に作成されたのを確認し、[閉じる]をクリック。
-  </description>
-    </item>
-    
-    <item>
-      <title>Windows Server 2012でiSCSI target (2)initiator側</title>
-      <link>https://blog.tack41.net/posts/2013/04/19_02/</link>
-      <pubDate>Fri, 19 Apr 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.tack41.net/posts/2013/04/19_02/</guid>
-      <description> [管理ツール]-[iSCSIイニシエーター]を起動 初回はサービス起動確認のダイアログが表示されるので[はい]をクリック
- [ターゲット]にiSCSI TargetサーバのIPアドレスを入力して[クイック接続]をクリック
- Targetが認識されているのを確認し、[完了]をクリックする。
- [ディスクの管理]にて作成したディスクが認識されていることを確認する。
   </description>
     </item>
     
@@ -102,7 +136,7 @@ http://tipspc.blogspot.jp/2011/09/qemu-kvm-ubuntu-debian.html NetworkManagerを�
     <item>
       <title>Ubuntu12.10の初期設定</title>
       <link>https://blog.tack41.net/posts/2012/11/29_02/</link>
-      <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 29 Nov 2012 02:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/11/29_02/</guid>
       <description>下記参照。 http://ubuntuapps.blog67.fc2.com/blog-entry-446.html
@@ -115,7 +149,7 @@ sudo ufw enable sudo ufw default DENY sudo ufw allow 22 sudo ufw allow 5900 sudo
     <item>
       <title>VMware, Hyper-V, kvm(&#43;VirtualBox)のトリプルブート</title>
       <link>https://blog.tack41.net/posts/2012/11/29_01/</link>
-      <pubDate>Thu, 29 Nov 2012 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 29 Nov 2012 01:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/11/29_01/</guid>
       <description>VMware, Hyper-V, kvm(+VirtualBox)のトリプルブート環境構築時のメモ。 HDD構成は以下を想定、HDDは2TBを使用。
@@ -145,7 +179,7 @@ kernel-devel, gccをインストール後、ホームページよりCentOS6用�
     <item>
       <title>Androidフォンをひかり電話の子機化、VPN接続で屋外でも家電(いえでん)</title>
       <link>https://blog.tack41.net/posts/2012/1/28_02/</link>
-      <pubDate>Sat, 28 Jan 2012 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 28 Jan 2012 02:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/1/28_02/</guid>
       <description>ネットと同時にひかり電話をひいていたこともあり、興味があって手持ちのAndroidフォン(HTC Evo Wimax)を子機化し、さらにVPNで自宅外でも家電をかけられるように設定した。
@@ -157,7 +191,7 @@ ONUからの線を分岐させるためのハブが別途必要となる。</des
     <item>
       <title>Oracle 11g Express EditionをCentOSにインストール</title>
       <link>https://blog.tack41.net/posts/2012/1/28_01/</link>
-      <pubDate>Sat, 28 Jan 2012 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 28 Jan 2012 01:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/1/28_01/</guid>
       <description>インストール要件は以下のURLを参照。 http://docs.oracle.com/cd/E17781_01/install.112/e18802/toc.htm#autoId3
@@ -167,23 +201,23 @@ CentOS5.2にインストールする(vault.centos.orgより)。
     </item>
     
     <item>
-      <title>SCOM 2007 R2 インストール手順</title>
-      <link>https://blog.tack41.net/posts/2012/1/09_01/</link>
-      <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
+      <title>SCOM ワークグループ環境でのエージェントインストール手順</title>
+      <link>https://blog.tack41.net/posts/2012/1/09_04/</link>
+      <pubDate>Mon, 09 Jan 2012 04:00:00 +0000</pubDate>
       
-      <guid>https://blog.tack41.net/posts/2012/1/09_01/</guid>
-      <description>Windows Server 2008 R2 Enterpriseを前提とする。
- ドメイン参加 SQL Server 2008のインストール
-Windows Server 2008 R2ではSQL Server 2008をインストールする際はService Pack1移行の適用が必要となるため、以下のURLを参考にスリップストリームインストールを行う。  新規スタンドアロン データベースエンジンサービス, Reporting Services, 管理ツール - 基本, 完全 ネイティブモードの既存の構成をインストールする
-※ SQL Server 2008 R2をインストールする場合、SCOMインストール時に下記URLにあるとおり手動作業が必要となる。 http://engineer-memo.com/blogs/engineer-memo/archive/2010/10/27/sql-server-2008-r2-opsmgr.aspx   役割の追加にて「Webサーバ(IIS)」をインストールし、以下のURLにあるとおり、以下の項目を有効にする。
-http://support.microsoft.com/kb/973451/ja  [役割サービス] ページで、[HTTP 基本機能] を展開し、以下のチェック ボックスをオンにします。  [静的なコンテンツ] [既定のドキュメント] [ディレクトリの参照] [HTTP エラー] [HTTP リダイレクション]   [アプリケーション開発] を展開し、以下のチェック ボックスをオンにします。  [ASP.NET] [.NET 拡張性] [ASP] [ISAPI 拡張] [ISAPI フィルタ]
-注 : 必要な役割サービスを追加するように求めるメッセージが表示されたら、[OK] をクリックします。   [状態と診断] を展開し、以下のチェック ボックスをオンにします。  [HTTP ログ] [要求の監視] [セキュリティ] を展開し、以下のチェック ボックスをオンにします。 [Windows 認証] [要求フィルタ]   [管理ツール] を展開し、以下のチェック ボックスをオンにします。  [IIS 管理コンソール] [IIS 6 管理互換]   さらに [IIS 6 管理互換] を展開し、以下のチェック ボックスをオンにします。  [IIS 6 メタベース互換] [IIS 6 WMI 互換] [IIS 6 スクリプトツール] [IIS 6 管理コンソール]     ASP.</description>
+      <guid>https://blog.tack41.net/posts/2012/1/09_04/</guid>
+      <description>スタンドアロンルート証明局を立てて行う。 エンタープライズ証明局の場合は、後述の手順が追加で必要となる。
+A. Workgroup環境のコンピュータにAgentを登録する手順 &amp;lt;管理サーバー&amp;gt;
+ (1)-(a) CA に証明書を要求する。 (2)-(b) 保留中の証明書要求を承認する。 (3)-(c) 証明書を取得する。 (* 4)-(d) 証明書のエクスポート  &amp;lt;エージェントインストール対象のサーバー&amp;gt;
+ (5)-(e) 証明書チェーンをインストールする (6)-(f) 信頼されたルート証明書をローカルコンピュータにコピーする (7)-(a) CA に証明書を要求する。 (8)-(b) 保留中の証明書要求を承認する。 (9)-(c) 証明書を取得する。 (10)-(d) 証明書のエクスポート  &amp;lt;管理サーバー&amp;gt;
+ (11)-(g) MOMCertImport を使用して証明書をインポートする  &amp;lt;エージェントインストール対象のサーバー&amp;gt;
+ (12)-(g) MOMCertImport を使用して証明書をインポートする  (a) CA に証明書を要求する。  証明書をインストールするコンピュータ (管理サーバーやエージェントインストール対象のサーバー) にログオンする。 Internet Explorer を起動し、証明書サービスのホスト コンピュータ (http://&amp;lt;サーバー名&amp;gt;/certsrv など) に接続する。 [Microsoft 証明書サービス] ページで [証明書を要求する] をクリックする。 [証明書の要求] ページで [証明書の要求の詳細設定] をクリックする。 [証明書の要求の詳細設定] ページで [この CA への要求を作成し送信する。] をクリックする。 [証明書の要求の詳細設定] ページで次の処理を行う。  [識別情報] の [名前] フィールドに、証明書の要求対象のコンピュータ(管理サーバーやエージェントインストール対象のサーバー) の完全修飾ドメイン名 (FQDN) を入力します。残りのフィールドに、適切な情報を入力する。</description>
     </item>
     
     <item>
       <title>SCOM クラスタ環境の監視について</title>
       <link>https://blog.tack41.net/posts/2012/1/09_03/</link>
-      <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Jan 2012 03:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/1/09_03/</guid>
       <description>クラスタ環境で仮想ホストの監視を行う場合、エージェントプロキシを有効にする必要がある。
@@ -193,7 +227,7 @@ http://support.microsoft.com/kb/973451/ja  [役割サービス] ページで、[
     <item>
       <title>SCOM レポートスケジュールのバグ</title>
       <link>https://blog.tack41.net/posts/2012/1/09_02/</link>
-      <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Jan 2012 02:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/1/09_02/</guid>
       <description>SQL Server 2008のバグにより、レポートのスケジュール機能が動作しない場合がある。
@@ -203,17 +237,17 @@ Scheduled reports that you create by using SQL Server 2008 Reporting Services (S
     </item>
     
     <item>
-      <title>SCOM ワークグループ環境でのエージェントインストール手順</title>
-      <link>https://blog.tack41.net/posts/2012/1/09_04/</link>
-      <pubDate>Mon, 09 Jan 2012 00:00:00 +0000</pubDate>
+      <title>SCOM 2007 R2 インストール手順</title>
+      <link>https://blog.tack41.net/posts/2012/1/09_01/</link>
+      <pubDate>Mon, 09 Jan 2012 01:00:00 +0000</pubDate>
       
-      <guid>https://blog.tack41.net/posts/2012/1/09_04/</guid>
-      <description>スタンドアロンルート証明局を立てて行う。 エンタープライズ証明局の場合は、後述の手順が追加で必要となる。
-A. Workgroup環境のコンピュータにAgentを登録する手順 &amp;lt;管理サーバー&amp;gt;
- (1)-(a) CA に証明書を要求する。 (2)-(b) 保留中の証明書要求を承認する。 (3)-(c) 証明書を取得する。 (* 4)-(d) 証明書のエクスポート  &amp;lt;エージェントインストール対象のサーバー&amp;gt;
- (5)-(e) 証明書チェーンをインストールする (6)-(f) 信頼されたルート証明書をローカルコンピュータにコピーする (7)-(a) CA に証明書を要求する。 (8)-(b) 保留中の証明書要求を承認する。 (9)-(c) 証明書を取得する。 (10)-(d) 証明書のエクスポート  &amp;lt;管理サーバー&amp;gt;
- (11)-(g) MOMCertImport を使用して証明書をインポートする  &amp;lt;エージェントインストール対象のサーバー&amp;gt;
- (12)-(g) MOMCertImport を使用して証明書をインポートする  (a) CA に証明書を要求する。  証明書をインストールするコンピュータ (管理サーバーやエージェントインストール対象のサーバー) にログオンする。 Internet Explorer を起動し、証明書サービスのホスト コンピュータ (http://&amp;lt;サーバー名&amp;gt;/certsrv など) に接続する。 [Microsoft 証明書サービス] ページで [証明書を要求する] をクリックする。 [証明書の要求] ページで [証明書の要求の詳細設定] をクリックする。 [証明書の要求の詳細設定] ページで [この CA への要求を作成し送信する。] をクリックする。 [証明書の要求の詳細設定] ページで次の処理を行う。  [識別情報] の [名前] フィールドに、証明書の要求対象のコンピュータ(管理サーバーやエージェントインストール対象のサーバー) の完全修飾ドメイン名 (FQDN) を入力します。残りのフィールドに、適切な情報を入力する。</description>
+      <guid>https://blog.tack41.net/posts/2012/1/09_01/</guid>
+      <description>Windows Server 2008 R2 Enterpriseを前提とする。
+ ドメイン参加 SQL Server 2008のインストール
+Windows Server 2008 R2ではSQL Server 2008をインストールする際はService Pack1移行の適用が必要となるため、以下のURLを参考にスリップストリームインストールを行う。  新規スタンドアロン データベースエンジンサービス, Reporting Services, 管理ツール - 基本, 完全 ネイティブモードの既存の構成をインストールする
+※ SQL Server 2008 R2をインストールする場合、SCOMインストール時に下記URLにあるとおり手動作業が必要となる。 http://engineer-memo.com/blogs/engineer-memo/archive/2010/10/27/sql-server-2008-r2-opsmgr.aspx   役割の追加にて「Webサーバ(IIS)」をインストールし、以下のURLにあるとおり、以下の項目を有効にする。
+http://support.microsoft.com/kb/973451/ja  [役割サービス] ページで、[HTTP 基本機能] を展開し、以下のチェック ボックスをオンにします。  [静的なコンテンツ] [既定のドキュメント] [ディレクトリの参照] [HTTP エラー] [HTTP リダイレクション]   [アプリケーション開発] を展開し、以下のチェック ボックスをオンにします。  [ASP.NET] [.NET 拡張性] [ASP] [ISAPI 拡張] [ISAPI フィルタ]
+注 : 必要な役割サービスを追加するように求めるメッセージが表示されたら、[OK] をクリックします。   [状態と診断] を展開し、以下のチェック ボックスをオンにします。  [HTTP ログ] [要求の監視] [セキュリティ] を展開し、以下のチェック ボックスをオンにします。 [Windows 認証] [要求フィルタ]   [管理ツール] を展開し、以下のチェック ボックスをオンにします。  [IIS 管理コンソール] [IIS 6 管理互換]   さらに [IIS 6 管理互換] を展開し、以下のチェック ボックスをオンにします。  [IIS 6 メタベース互換] [IIS 6 WMI 互換] [IIS 6 スクリプトツール] [IIS 6 管理コンソール]     ASP.</description>
     </item>
     
   </channel>
