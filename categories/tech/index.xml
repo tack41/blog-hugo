@@ -9,7 +9,42 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 06 May 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Feb 2016 02:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dockerでstorageにoverlayを使う際の注意事項(2016/2時点,CentOS7)</title>
+      <link>https://blog.tack41.net/posts/2016/02/09_02/</link>
+      <pubDate>Tue, 09 Feb 2016 02:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2016/02/09_02/</guid>
+      <description>Dockerでstorage driverにoverlayを使ってはまったこと。
+2016/2時点 CentOS7でのdocker(1.8.2)においては、コンテナのファイルが2GBを超えると、読み込めなくなるようだ。
+mariadbにて、dumpファイルの取り込みまでは問題ないのだが、これを一旦停止し、再度立ち上げようとすると「27: File too large」というメッセージが出て起動できない。 ググってみたところ、どうもこのメッセージはMariaDBというよりもOSが出しているようだ。そのことに気づいてoverlayをdevicemapperに戻したところ、現象は発生しなくなった。
+開発者サイドでも、まだoverlayは何が起こるかわからない、というスタンスらしいので、要注意。</description>
+    </item>
+    
+    <item>
+      <title>Dockerでのmysql利用時の注意</title>
+      <link>https://blog.tack41.net/posts/2016/02/09_01/</link>
+      <pubDate>Tue, 09 Feb 2016 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2016/02/09_01/</guid>
+      <description>Dockerでmysqlを利用する際にはまったこと。
+Dockerfile等で初期データを流し込みたい場合、mysqld_safeを「バックグラウンド」で起動しておいてmysqlコマンドで流しこみを行うのだが、
+nohup mysqld_safe &amp;amp; mysql -u root &amp;lt; init.sql のように実行してしまうと、 mysqlサーバが起動する前にコマンドが帰ってきてしまうため2行目で「mysql.sockがない」という旨のエラーが返ってきてしまう。
+このような場合、1行目の後に以下のようなループを噛ませるとうまく行くはず。(bashの場合)
+nohup mysqld_safe &amp;amp; for {1..10}; do if [ -e /var/lib/mysql/mysql.sock ]; then break fi sleep 1 done </description>
+    </item>
+    
+    <item>
+      <title>VPSのCentOS7にRails環境構築</title>
+      <link>https://blog.tack41.net/posts/2015/08/09_01/</link>
+      <pubDate>Sun, 09 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2015/08/09_01/</guid>
+      <description>さくらのVPS上にCentOS7.0でRails環境を構築したのでそのメモ。 一般ユーザーにて、必要に応じてsudoをかませて実行。
+ ユーティリティプログラムをインストール git clone https://github.com/sstephenson/rbenv.git ~/.rbenv git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build echo &amp;#39;export PATH=&amp;#34;$HOME/.rbenv/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile echo &amp;#39;eval &amp;#34;$(rbenv init -)&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile exec $SHELL  必要なパッケージのインストール $ sudo yum install libffi-devel zlib zlib-devel openssl openssl-devel readline-devel sqlite-devel  ruby 2.2.0をインストール rbenv install 2.2.0 rbenv global 2.2.0  railsをインストール gem update --system gem install --no-ri --no-rdoc rails gem install bundler rbenv rehash rails -v  動作確認 rails s -b 0.</description>
+    </item>
+    
     <item>
       <title>ESXi 5.1.0上でWin2012 Hyper-Vがインストールできない</title>
       <link>https://blog.tack41.net/posts/2013/05/06_01/</link>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>rails on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/rails/</link>
+    <description>Recent content in rails on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 09 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VPSのCentOS7にRails環境構築</title>
+      <link>https://blog.tack41.net/posts/2015/08/09_01/</link>
+      <pubDate>Sun, 09 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2015/08/09_01/</guid>
+      <description>さくらのVPS上にCentOS7.0でRails環境を構築したのでそのメモ。 一般ユーザーにて、必要に応じてsudoをかませて実行。
+ ユーティリティプログラムをインストール git clone https://github.com/sstephenson/rbenv.git ~/.rbenv git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build echo &amp;#39;export PATH=&amp;#34;$HOME/.rbenv/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile echo &amp;#39;eval &amp;#34;$(rbenv init -)&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile exec $SHELL  必要なパッケージのインストール $ sudo yum install libffi-devel zlib zlib-devel openssl openssl-devel readline-devel sqlite-devel  ruby 2.2.0をインストール rbenv install 2.2.0 rbenv global 2.2.0  railsをインストール gem update --system gem install --no-ri --no-rdoc rails gem install bundler rbenv rehash rails -v  動作確認 rails s -b 0.</description>
+    </item>
+    
+  </channel>
+</rss>

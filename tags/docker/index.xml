@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>docker on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/docker/</link>
+    <description>Recent content in docker on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 09 Feb 2016 02:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dockerでstorageにoverlayを使う際の注意事項(2016/2時点,CentOS7)</title>
+      <link>https://blog.tack41.net/posts/2016/02/09_02/</link>
+      <pubDate>Tue, 09 Feb 2016 02:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2016/02/09_02/</guid>
+      <description>Dockerでstorage driverにoverlayを使ってはまったこと。
+2016/2時点 CentOS7でのdocker(1.8.2)においては、コンテナのファイルが2GBを超えると、読み込めなくなるようだ。
+mariadbにて、dumpファイルの取り込みまでは問題ないのだが、これを一旦停止し、再度立ち上げようとすると「27: File too large」というメッセージが出て起動できない。 ググってみたところ、どうもこのメッセージはMariaDBというよりもOSが出しているようだ。そのことに気づいてoverlayをdevicemapperに戻したところ、現象は発生しなくなった。
+開発者サイドでも、まだoverlayは何が起こるかわからない、というスタンスらしいので、要注意。</description>
+    </item>
+    
+    <item>
+      <title>Dockerでのmysql利用時の注意</title>
+      <link>https://blog.tack41.net/posts/2016/02/09_01/</link>
+      <pubDate>Tue, 09 Feb 2016 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2016/02/09_01/</guid>
+      <description>Dockerでmysqlを利用する際にはまったこと。
+Dockerfile等で初期データを流し込みたい場合、mysqld_safeを「バックグラウンド」で起動しておいてmysqlコマンドで流しこみを行うのだが、
+nohup mysqld_safe &amp;amp; mysql -u root &amp;lt; init.sql のように実行してしまうと、 mysqlサーバが起動する前にコマンドが帰ってきてしまうため2行目で「mysql.sockがない」という旨のエラーが返ってきてしまう。
+このような場合、1行目の後に以下のようなループを噛ませるとうまく行くはず。(bashの場合)
+nohup mysqld_safe &amp;amp; for {1..10}; do if [ -e /var/lib/mysql/mysql.sock ]; then break fi sleep 1 done </description>
+    </item>
+    
+  </channel>
+</rss>
