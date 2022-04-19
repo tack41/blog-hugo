@@ -8,4 +8,4 @@ CURRENT_DIR=$(cd "$CURRENT_DIR_RELATIVE" || exit;pwd)
 #GRANDPARENT_DIR=$(cd "$PARENT_DIR"/.. || exit;pwd)
 
 sudo docker run --rm -it -v $CURRENT_DIR:/src -p 1313:1313 klakegg/hugo:latest "$@"
-suod chown -R $USER.$USER $CURRENT_DIR/contents
+sudo chown -R $USER.$USER $CURRENT_DIR/content
