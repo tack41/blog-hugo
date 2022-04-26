@@ -9,7 +9,18 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 28 Jan 2012 01:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Nov 2017 10:51:34 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>テーブル定義の移行でよく使う方法</title>
+      <link>https://blog.tack41.net/posts/2017/11/30_01/</link>
+      <pubDate>Thu, 30 Nov 2017 10:51:34 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2017/11/30_01/</guid>
+      <description>社内DBを試行錯誤しているため、DB間データ移行の前段としてテーブル定義をコピーしたいことがある。 大抵のDBでは無料でもツールが充実しており、ODBCライブラリを入れればよっぽど問題ないと思うのだが&amp;hellip;
+ MySQL &amp;hellip; Workbench Oracle &amp;hellip; SQL Developer SQL Server &amp;hellip; SQL Server Management Studio(SSMS)  Windows 10 Pro 64bitで、SSMSからOracleにアクセスしようとしたところ、どうにもエラーでうまく行かない。64bitのInstant Client + ODBCをインストールし、OSのODBC管理ツールでテスト接続は成功しているのだが&amp;hellip;
+で、こういう時はAccessでODBC経由でリンクを貼る分にはまず失敗しない。この状態でテーブルをAccessにテーブル定義のみコピーし、そのAccessのテーブルをSSMSでインポートするとうまくいく。</description>
+    </item>
+    
     <item>
       <title>Oracle 11g Express EditionをCentOSにインストール</title>
       <link>https://blog.tack41.net/posts/2012/1/28_01/</link>

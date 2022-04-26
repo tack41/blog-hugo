@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>dotnet on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/dotnet/</link>
+    <description>Recent content in dotnet on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 12 Oct 2017 17:52:37 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/dotnet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>.Netプログラムの配布</title>
+      <link>https://blog.tack41.net/posts/2017/10/12_01/</link>
+      <pubDate>Thu, 12 Oct 2017 17:52:37 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2017/10/12_01/</guid>
+      <description>今さら、とは思われるとは思いますが&amp;hellip;
+当社の社内システムは、外部業者に保守を依頼している販売管理システムとパッケージの会計システムを除いて、はほぼAccessでした。データもファイルに含んでいるタイプ。 なので、各自ファイルをデスクトップにコピーするとデータが共有できなくなるので、ファイルサーバにファイルを置いて、各自が直接実行する形で利用していました。たまに動作がおかしくなったのは、同時起動でファイルが壊れたりしたのではないかと思ってます。
+現在、社内システムをC# + RDBMS(SQL Server, MariaDB)に移行中。 上記の感覚で、C#のプログラムは、dllも含めてファイルサーバに置いて、各自直接実行してもらってました。さすがに動作がおかしくなることはないのですが、dllも含めて手動で配置しないといけないとか、ファイルサーバの場所を忘れると実行できないとか、いまいちだな～と思ってました。
+そう、ClickOnce。 プロジェクトの設定にて「発行」の項目でファイルサーバを指定して発行すれば、インストーラが生成され、それをインストールしてもらえば以降はスタートメニューから起動可能。バージョンアップ時の更新も勝手に検知してやってくれる。最高!!
+10年遅れ? でMicrosoftさんの素晴らしさを実感しました。</description>
+    </item>
+    
+  </channel>
+</rss>

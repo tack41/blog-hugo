@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>mysqlworkbench on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/mysqlworkbench/</link>
+    <description>Recent content in mysqlworkbench on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 19 Oct 2017 19:18:47 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mysqlworkbench/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MySQL Workbenchに切り替え</title>
+      <link>https://blog.tack41.net/posts/2017/10/19_02/</link>
+      <pubDate>Thu, 19 Oct 2017 19:18:47 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2017/10/19_02/</guid>
+      <description>前回の記事で、HeidiSQLがうまく動作しない(DEFAULT CURRENT_TIMESTAMPを表示できない)件で、クライアントをMySQL Workbenchに切り替えた。
+実は以前も試していたのだが、ホスト名のみで指定した場合に、Test Connectionは成功するのに実際に接続する際にエラーで落ちてしまっていて中止していた。IPアドレスで指定したところ正常に動作したので、こちらに切り替えることにした。</description>
+    </item>
+    
+  </channel>
+</rss>

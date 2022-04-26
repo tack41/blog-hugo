@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>excel on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/excel/</link>
+    <description>Recent content in excel on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 07 Nov 2017 10:20:41 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/excel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ClosedXMLの画像追加におけるWorksheetの取り扱いについて</title>
+      <link>https://blog.tack41.net/posts/2017/11/07_01/</link>
+      <pubDate>Tue, 07 Nov 2017 10:20:41 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2017/11/07_01/</guid>
+      <description>C#でClosedXMLを使用してExcelに画像を追加する処理をしていた際、なぜかWorkbookの保存時にObjectDisposedExceptionが発生するという事態になりました。
+以下のようなコードです
+ using (XLWorkbook wb = new XLWorkbook(filePath))  {  IXLWorksheet ws_src = wb.Worksheet(&amp;#34;Template&amp;#34;);   using (IXLWorksheet ws = ws_src.CopyTo(&amp;#34;1&amp;#34;))  {  var image = ws.AddPicture(imagePath1);  image.MoveTo(ws.Cell(3, 3).Address);  image.Scale(.5);   image = ws.AddPicture(imagePath2);  image.MoveTo(ws.Cell(20, 3).Address);  image.Scale(2);   }   using (IXLWorksheet ws = ws_src.CopyTo(&amp;#34;2&amp;#34;))  {  var image = ws.AddPicture(imagePath3);  image.MoveTo(ws.Cell(3, 3).Address);  image.Scale(.5);  }   ws_src.</description>
+    </item>
+    
+  </channel>
+</rss>

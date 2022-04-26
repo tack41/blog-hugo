@@ -24,5 +24,16 @@
 参照整合性制約から、移行可能な順番がはっきりする。 MariaDBのデータに対してアクセスするフロントプログラムを作成する。  移行後のテーブルレイアウトそのものでプログラムの動作検証が可能。   フロントプログラムの作成が完了したら、MariaDBの全データをTruncateしてデータの本番移行を行う。  データ移行の逆順で実行しても参照整合性制約からデータを削除できない場合がある。素直に参照整合性制約を一時削除し、データの削除完了後に再度作成する。    テーブル名や列名にスペースやマルチバイト文字が入ってて命名規則を満たしていない、明らかに数量データなのに文字列型になっている&amp;hellip;といった問題はこれ以降にじっくりリファクタリングしていく。上記の手順とリファクタリングを同時に行うのはリスクが大きい。</description>
     </item>
     
+    <item>
+      <title>テーブル定義の移行でよく使う方法</title>
+      <link>https://blog.tack41.net/posts/2017/11/30_01/</link>
+      <pubDate>Thu, 30 Nov 2017 10:51:34 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2017/11/30_01/</guid>
+      <description>社内DBを試行錯誤しているため、DB間データ移行の前段としてテーブル定義をコピーしたいことがある。 大抵のDBでは無料でもツールが充実しており、ODBCライブラリを入れればよっぽど問題ないと思うのだが&amp;hellip;
+ MySQL &amp;hellip; Workbench Oracle &amp;hellip; SQL Developer SQL Server &amp;hellip; SQL Server Management Studio(SSMS)  Windows 10 Pro 64bitで、SSMSからOracleにアクセスしようとしたところ、どうにもエラーでうまく行かない。64bitのInstant Client + ODBCをインストールし、OSのODBC管理ツールでテスト接続は成功しているのだが&amp;hellip;
+で、こういう時はAccessでODBC経由でリンクを貼る分にはまず失敗しない。この状態でテーブルをAccessにテーブル定義のみコピーし、そのAccessのテーブルをSSMSでインポートするとうまくいく。</description>
+    </item>
+    
   </channel>
 </rss>
