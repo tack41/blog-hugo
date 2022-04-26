@@ -9,7 +9,38 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 09 Feb 2016 02:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Access 2003からMariaDBに移行</title>
+      <link>https://blog.tack41.net/posts/2018/08/19_01/</link>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/08/19_01/</guid>
+      <description>内製のAccess 2003アプリを、DB部分はMariaDBに移行している。 フロントは.Net(C#)
+ツールを使って工数を削減できないかと模索したが、以下のような正攻法で攻めるしかないと言う結論に達した。
+ Access側のテーブルにて、極力Not Null制約を適用する&amp;hellip; 後述のデータ移行クエリ実行の際、NullがあるとINSERT SELECT 文がこけるため、Nullの場合とそうで無い場合で別クエリを実行する必要が出てくるため。
+文字列型は、NULL=空文字と考えて問題ない場合がほとんどと想定されるので、以下の手順を機械的に実行する。
+文字列でない場合はNULLを置き換えるべき値が自明でない場合も多いので、一旦NULL値固定で移行し、列ごとに個別で移行(UPDATE DEST.COL=SRC.COL WHERE SRC.COL IS NOT NULL)  対象列の空文字を許可する。 該当列を更新する部分にてNULLの場合は空文字に置き換える処理を追加  画面のフォームがデータと連結していてSQLではなくDoCmdで処理している場合、後付でSQLを組み込むと競合エラーが面倒なので、単純にフォームの値をNz関数でNullを置換してやれば良い ウィザードに従って作成した画面などで、データ更新処理を明示的に記載されていない場合は、フォームの追加・更新前処理イベントにてNz関数を適用する   UPDATE文で該当列のNULLを空文字に置換 該当列にNOT NULL制約を適用。   MariaDB側に、同一レイアウトのテーブルを新規作成。参照制約も実装。 MariaDBのODBCドライバをインストールし、対象のMariaDBをODBC登録。 AccessのリンクテーブルとしてMariaDBのテーブルを登録 AccessのテーブルからMariaDBのテーブルにデータを流し込む(INSERT SELECT)クエリを作成、初回の移行を行う。
+参照整合性制約から、移行可能な順番がはっきりする。 MariaDBのデータに対してアクセスするフロントプログラムを作成する。  移行後のテーブルレイアウトそのものでプログラムの動作検証が可能。   フロントプログラムの作成が完了したら、MariaDBの全データをTruncateしてデータの本番移行を行う。  データ移行の逆順で実行しても参照整合性制約からデータを削除できない場合がある。素直に参照整合性制約を一時削除し、データの削除完了後に再度作成する。    テーブル名や列名にスペースやマルチバイト文字が入ってて命名規則を満たしていない、明らかに数量データなのに文字列型になっている&amp;hellip;といった問題はこれ以降にじっくりリファクタリングしていく。上記の手順とリファクタリングを同時に行うのはリスクが大きい。</description>
+    </item>
+    
+    <item>
+      <title>MariaDBからSQL Serverを直接参照するテーブルを作成</title>
+      <link>https://blog.tack41.net/posts/2017/10/10_01/</link>
+      <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2017/10/10_01/</guid>
+      <description>概要 Windows上のMariaDBからSQL Serverを直接参照するテーブルを作成します。Accessのリンクテーブル。 Connect Storageという機能を利用します。
+経緯 社内データの保管に、以下の理由でSQL Serverを利用していました。
+ ODBCを設定せずにExcelから参照できる。 Windows認証を利用できるので、アプリで認証を考慮する必要がない。  後者に関しては、エラー時の対応等、逆にややこしくなりそうでメリットにならないと判断。ただ、前者を利用した、簡易BIとしてのExcelピボットテーブルファイルが利用されているため、うまく対応する必要がありました。
+将来性を考えると、10GBに制限されるSQL Server Express Editionは避けたいところ。そこで、まずMariaDBサーバを立ててSQL Serverのデータを参照する形で運用を開始することにしました。
+MariaDBには、異種データベースを参照するConnect Storage Engineという機能があることが分かり、これを利用して実装しました。
+前提  OS: Windows Server 2008 R2 Maria DB: 10.2.9 SQL Server: SQL Server 2008 R2　Express Edition  データベース名: DBTEST DBユーザー名: USERTEST, パスワード: PASSTEST テーブル名: TABLETEST    手順   管理ツールの「データソース(ODBC)」にて、SQL ServerへのDSNを登録(DSN名を「SQLSVR」とする)
+  MariaDBにmysqlクライアントで接続し、以下のコマンドでConnect Storage Engineを有効化する。
+INSTALL SONAME &amp;#39;ha_connect&amp;#39;   以下のコマンドでConnect Storage Engine経由での参照を利用したテーブルエントリを作成する。
+CREATE TABLE TABLETEST ENGINE=CONNECT DEFAULT CHARSET=cp932 TABLE_TYPE=ODBC CONNECTION=&amp;#39;DSN=SQLSVR;UID=USERTEST;PWD=PASSTEST&amp;#39;;   問題点 上記手順だと、該当のデータベースの一覧(show tables)まではできるが、内容を取得(select * from &amp;hellip;)できない。 SELECTしか必要ない場合においても、全データベースに対する全操作の権限(grant all on .</description>
+    </item>
+    
     <item>
       <title>Dockerでstorageにoverlayを使う際の注意事項(2016/2時点,CentOS7)</title>
       <link>https://blog.tack41.net/posts/2016/02/09_02/</link>
