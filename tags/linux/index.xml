@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>linux on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/linux/</link>
+    <description>Recent content in linux on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 03 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>thinクライアントとして使える古いPCの限界</title>
+      <link>https://blog.tack41.net/posts/2018/05/03_01/</link>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/05/03_01/</guid>
+      <description>手元に、使わなくなったノートPCが2台あったため、Windowsにリモート接続するthinクライアントとして利用してみた。 1台はメモリ512MB, もう一台は768MBでPAE非対応というところからスペックはお察し&amp;hellip;
+Linuxを探したのだが、2018/5現在、PAE非対応という時点でインストールできるディストリビューションはかなり限られる。 2,3年前はOKだったLubuntu,XubuntuですらNG。 PuppyLinuxは日本語サイトは情報が古かったため本家を見たが、PAEまたはUEFI必須のようだ&amp;hellip; 今回はKona LinuxのLightをインストールした。
+時間はかかったがインストールは成功、最初からRemminaがインストールされていたためRDP接続もできた。 &amp;hellip;が、遅い。キーボードの入力が画面に反映されるのにワンテンポ、タイミングによっては数秒遅れるため、作業が止まってしまう。 さすがに、この程度のスペックでは、Thinクライアントにはスペック不足ということのようだ。10年前にはストレスなく動作したはずなので、kernelが重くなったのか、Remminaが軽くないのか、RDPの通信量がそもそも少なくないのか&amp;hellip;
+少なくともメモリは2GB、CPUは2つ以上、要は無印のKona Linuxがインストールできるくらいのスペックがないと再利用すらできないことを実感した。</description>
+    </item>
+    
+  </channel>
+</rss>

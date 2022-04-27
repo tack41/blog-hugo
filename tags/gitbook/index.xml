@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>gitbook on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/gitbook/</link>
+    <description>Recent content in gitbook on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 17 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/gitbook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitBookでフッターを変更する方法、目次にページ数を記載する方法がわからない</title>
+      <link>https://blog.tack41.net/posts/2018/04/17_01/</link>
+      <pubDate>Tue, 17 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/04/17_01/</guid>
+      <description>最近、マニュアル等を単体ではmarkdown、複数文書をまとめる必要がある場合はGitBookで作成している。
+GitBookで出版、のような記事も見受けられるため、かなりのことができるのかと思っていたのだが、タイトルにある以下の2件がどうしても解決できない
+ フッターのカスタマイズ([現ページ]/[総ページ数]のような表示) 目次でページ数を表示  1点目は、book.jsonにカスタマイズを加える方法、
+[https://qiita.com/nutti/items/96e7194c82b8d04382e2:title]
+及び、_layouts/ebook/pdf_footer.htmlを作成する方法
+[https://github.com/GitbookIO/gitbook/issues/1661:title]
+いずれもフッターは変更できなかった。
+2点目は、ページ数が表示されてほしいところになぜか1.1のような表示がされてしまい、GitHubで掲載されている、表示自体を消す方法しか見つからなかった。
+[https://github.com/GitbookIO/gitbook/issues/1223:title]</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>vba on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/vba/</link>
+    <description>Recent content in vba on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 10 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>今日のクソVBAコード</title>
+      <link>https://blog.tack41.net/posts/2018/09/10_01/</link>
+      <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/09/10_01/</guid>
+      <description>stDocName = ChrW(xx) &amp;amp; ChrW(yy) &amp;amp; ChrW(zz) &amp;amp; ChrW(abc) &amp;amp; ChrW(def) &amp;amp; ChrW(ghi) &amp;amp; ChrW(jkl) &amp;amp; ChrW(mno) &amp;amp; ChrW(pqr) &amp;amp; ChrW(stu) DoCmd.OpenReport stDocName, acPreview ChrWの引数は実際にはコードが入る。 式の右辺をイミディエイトウィンドウに入力すると、日本語のレポート名が表示される&amp;hellip;
+暗号化?なんのために? あとで見る人への嫌がらせか? ちょっと意味がわからない</description>
+    </item>
+    
+  </channel>
+</rss>

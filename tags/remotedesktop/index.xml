@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>remotedesktop on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/remotedesktop/</link>
+    <description>Recent content in remotedesktop on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 02 Feb 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/remotedesktop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C#でのDbTransaction.Rollback</title>
+      <link>https://blog.tack41.net/posts/2018/02/02_01/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/02/02_01/</guid>
+      <description>C#のTransactionにて、DbTransactionをusing句で使えば、Disposeの際にRollbackされるので、明示的なRollbackが不要とあったのだが、どうもそのように記載しているサイトのほうが少ないように見える。
+MSDNで確認したところ、そうあるべきではるが、ベンダー依存のため前提とするのはだめらしい。
+Dispose should rollback the transaction. However, the behavior of Dispose is provider specific, and should not replace calling Rollback. [https://msdn.microsoft.com/ja-jp/library/bf2cw321(v=vs.110).aspx]
+SqlTransactionだけならいいかもしれないが、OleDb(Access)やMySQLも共通化している今のコードでは駄目なようだ。try catch使うしかない。
+[https://msdn.microsoft.com/ja-jp/library/system.data.idbtransaction.rollback(v=vs.110).aspx:title]</description>
+    </item>
+    
+    <item>
+      <title>iPad(9.7)でMicrosoft Remote Desktop使用時の注意事項</title>
+      <link>https://blog.tack41.net/posts/2018/01/27_01/</link>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/27_01/</guid>
+      <description>会社で支給されたiPad Pro 9.7inchで、Microsoft Remote Desktopを利用してWindows 10にアクセスしたところ、その後Windows10にローカルアクセスした際に英語キーボードの設定になっていた。
+iPad Pro 9.7inchはSmartKeyboardを使用していて、英語キーボードしかないモデル。おそらくこの設定をMicrosoft Remote Desktopが設定してくれたのだろう。 賢いと言えば賢いのだが&amp;hellip;
+Windows 10の設定を見ても日本語キーボードとなっている。一旦英語キーボードに変えようとするとサインアウトを促されるので、キーボードレイアウトの変更はサインアウトをしないと反映されないのだろう。 今回も一旦再起動することで日本語キーボードに戻った。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -9,7 +9,20 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 09 Aug 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CentOS7のDocker構築ではまったこと</title>
+      <link>https://blog.tack41.net/posts/2018/08/16_01/</link>
+      <pubDate>Thu, 16 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/08/16_01/</guid>
+      <description>storage driverがdevice mapperの場合のディスク容量 device mapperの場合は、既定のディスク容量が10GBほどとなる。Oracle DatabaseのDockerコンテナをbuildするとこける。
+storage driverを最初からoverlay2 にするための方法 インストール時にデバイスタイプにLVMを指定すると、Dockerのstorage dirverはdevice mapperになる。 [https://docs.docker.com/storage/storagedriver/select-storage-driver/#supported-backing-filesystems:embed:cite] 基本ディスクを選んで、xfsを選んでやる必要がある。
+さらに、CentOS7 1511(minimal)の場合は上記の手順でもやはりdevice mapperが既定となる。overlayを使用するための設定がされていないためと想像される。
+[https://docs.docker.com/storage/storagedriver/overlayfs-driver/:embed:cite]
+CentOS7 1804(minimal)で基本ディスク(xfs)でインストールすれば、overlay2がstorage driverとして設定される。</description>
+    </item>
+    
     <item>
       <title>VPSのCentOS7にRails環境構築</title>
       <link>https://blog.tack41.net/posts/2015/08/09_01/</link>

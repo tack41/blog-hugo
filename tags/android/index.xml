@@ -9,7 +9,22 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 28 Jan 2012 02:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iPhoneのすばらしさに気づく(いまさら)</title>
+      <link>https://blog.tack41.net/posts/2018/01/11_01/</link>
+      <pubDate>Thu, 11 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/11_01/</guid>
+      <description>今日は有給をとって近くをドライブした。 Web+DBでYahooマップの記事があったので、ナビを使ってみようと思ったのだ。
+そもそもにしてYahooマップとYahooナビは別アプリなのだが&amp;hellip;
+手持ちのNexus5Xで試した。アプリの機能としては問題ないと思うのだが&amp;hellip; それよりもバッテリーのヘリが気になってしまう。充電しながら使っているのだが、それでも2,30分で10%は減る。これでは、そもそも長距離ドライブには使えない。ナビなんて長距離でしか使わないのに&amp;hellip;
+で、会社で支給されているiPhone7にGoogle Mapを入れてナビを使ってみたところ、充電中は電池が減らないどころか、少しずつ充電されてる!!! iPhone使ってる人や、バッテリの持ちの良いAndroid使ってる人なら当然かもしれないが、その世界を知らない僕はふつうに驚いた。
+やはり、Androidスマホと比較するとiPhoneは素晴らしいと。今回はバッテリーでその点に気付いたが、社内のスマホに関する障害の問い合わせもiPhoneよりAndroidの方が圧倒的に多い。
+それも当然で、AndroidとiPhoneでは1機種にかける開発・保守費用が全然違う。Androidの代表としてGoogleのPixelを参照したとしても1桁どころか2,3桁は違うのではないだろうか。 ソフトウェアと違ってハードウェアはかけた金額が性能により効いてくると思う。正直Appleにばかり儲けさせるのは気に食わないという気持ちもあるが、価格以上の性能、信頼性があるのだと実感する。 この構造は、独禁法などで介入でもされない限り今後も当面変わらないのではないか。
+今後は、Androidでしかないアプリがあるとか、ハードも含めてガンガンいじって開発したいとかでなければiPhoneを薦めたいと思う。公私ともに。 自分はAndroidが好きなので使うが、割り切って安いモデルを2年間使い倒すのが、今のAndroidには合っていると思われる。iPhoneのように長く使うには向いていない。</description>
+    </item>
+    
     <item>
       <title>Androidフォンをひかり電話の子機化、VPN接続で屋外でも家電(いえでん)</title>
       <link>https://blog.tack41.net/posts/2012/1/28_02/</link>

@@ -9,7 +9,30 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 07 Nov 2017 10:20:41 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/closedxml/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/closedxml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ClosedXMLによるExcel編集がVirusBusterに強制終了させられる</title>
+      <link>https://blog.tack41.net/posts/2018/09/14_01/</link>
+      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/09/14_01/</guid>
+      <description>ClosedXMLで、ファイルサーバの雛形ファイルをもとに編集して出力するということをよく行います。 この際、ClosedXMLの保存先がファイルサーバだと、当社のVirus Buster Business SecurityにUnauthorized Encryptionと言われて 強制終了させられることがあります。Excelファイルは作成できず、exeも消されてしまうので再インストールとなります。
+テストした結果、ClosedXMLでの保存先がローカルであれば問題ないことが確認できたので、ClosedXMLではローカルに一時フォルダを作成してそこに保存し、System.IO.File.Copyでコピーすることで解消しました。</description>
+    </item>
+    
+    <item>
+      <title>ClosedXMLでWindows7だけレイアウトが崩れる</title>
+      <link>https://blog.tack41.net/posts/2018/09/13_01/</link>
+      <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/09/13_01/</guid>
+      <description>アホな話です。
+ClosedXMLで、一部コードでうっかり以下のようなコード書いてました。
+ using (IXLWorkbook targetBook = new XLWorkbook(filePath))  {  using (IXLWorksheet targetSheet = targetBook.Worksheet(1))  {   }   targetBook.Save();  } usingの入れ子です。 普通、入れ子になるような階層があれば一番上位のクラスが下位のDispose呼んでくれるっと思いますよね〜。 でも、このときはusing句覚えたてで、とにかく使いたかったんです、using入れ子かっけ〜って思ってたんです&amp;hellip;
+症状としては、Windows 7の場合のみシートのフォーマットが崩れます。なぜかWindows 10は大丈夫。OSによって症状が違う理由は不明。 sourceを見ると、XLWorksheetのDisposeでrange情報をクリアしてるっぽいから、そこで情報が消えて、そのまま保存すればそりゃレイアウトは崩れるな〜と。
+追記) どうも、最新の0.93.1で発生し、0.92.0では発生しなかったようだ。ライブラリのバージョンアップした途端に大量に問い合わせが&amp;hellip;</description>
+    </item>
+    
     <item>
       <title>ClosedXMLの画像追加におけるWorksheetの取り扱いについて</title>
       <link>https://blog.tack41.net/posts/2017/11/07_01/</link>

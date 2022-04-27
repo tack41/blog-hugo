@@ -9,7 +9,193 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Dec 2018 01:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java(Android)のService, Application(Context)</title>
+      <link>https://blog.tack41.net/posts/2018/12/02_02/</link>
+      <pubDate>Sun, 02 Dec 2018 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/12/02_02/</guid>
+      <description>AndroidにてActivityにまたがる処理を行う処理を記述するには、Bound Serviceを使う必要がある。bindeServiceの引数ServiceConnectionのコールバック関数onServiceConnectedにて渡されるIBinderでServiceオブジェクトを取得し、必要なメソッドを実行できる。
+SQLiteへの保存処理をこれで行おうと考えたのだが、そのためのSQLiteOpenHelperにはContextが必須となっている。
+ServiceはActivity(Contextを継承する)に依存したくないために利用しているので、そのままContextを取得できない。 必要なメソッドの引数に都度Contextを指定する手も無くはないが、メソッドが増えるほど面倒さが増すし、そもそもDatabaseへのconnectの条件としてcontextが必要なので、メソッドの呼び出しの都度Databaseへの再接続が発生してしまう。
+ApplicationもContextを継承している。これならどこからでも呼び出せそうだが、Applicationインスタンスを取得するにはActivityのメソッドを呼び出す必要がある&amp;hellip; ということで、Applicationを継承した独自クラスを作成し、Singletonとしてインスタンスを取得すると良いとわかった。よく使われている手法らしい。
+[http://kazuooooo.hatenablog.com/entry/2015/10/18/200949:embed:cite]
+これら独自Service, Applicationを利用する際の注意事項として、Application.manifestに宣言をしないといけない。これを忘れるとそれらをインスタンス化できずにnullになってExceptionが発生するが、エラー内容を一見してApplication.manifestが原因だとは判別できない。
+Androidの各種メソッド・ライブラリには、この手のContext前提のものが多い。今回のSQLiteのライブラリに関しては内部で呼び出しているFileアクセスがContext前提となっているためのようだ。ただ、それがなぜContext前提にする必要があるかは理解できていない。C#のWPF, UWP関連でも似たような制限があった気がするので、現代的なアプリ開発には必要なセキュリティなどのための必須仕様なのかもしれない。</description>
+    </item>
+    
+    <item>
+      <title>AndroidStudioでEmulatorが起動するも接続できない。</title>
+      <link>https://blog.tack41.net/posts/2018/12/02_01/</link>
+      <pubDate>Sun, 02 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/12/02_01/</guid>
+      <description>Android Studio 3.2.1(Windows64)にて、Emulataorが起動するのにアプリが全然起動しない状態になりました。 最下部にandroid waiting for target device to come onlineと表示されたままで変化せず、LogcatのデバイスリストにはにはDisconnectedと表示される状態。
+[https://stackoverflow.com/questions/42816127/waiting-for-target-device-to-come-online#43187806:embed:cite]
+のMarkDubyaさんが言うように、adb kill-serverを実行したらアプリが起動し、Logcatにログが出力されるようになった。 Windows 10でのadb.exeはC:\Users\(ユーザー名)\AppData\Local\Android\Sdk\platform-toolsにあった。</description>
+    </item>
+    
+    <item>
+      <title>Chromeの自動更新</title>
+      <link>https://blog.tack41.net/posts/2018/11/30_02/</link>
+      <pubDate>Fri, 30 Nov 2018 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/11/30_02/</guid>
+      <description>Chromeの自動更新をADのグループポリシーで行っている。
+[https://support.google.com/chrome/a/answer/6350036?hl=ja:embed:cite]
+を参考に設定したが、更新されない。 以下の設定を追加で変更したところ、うまく動作するようになった。
+ [Google Update]-[Application]-[Google Chrome]  Allow installation: 未構成 → 有効   [Google Update]-[Preferences]  Auto-update check period override: 1400 → 60    </description>
+    </item>
+    
+    <item>
+      <title>Excelでオプションボタン</title>
+      <link>https://blog.tack41.net/posts/2018/11/30_01/</link>
+      <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/11/30_01/</guid>
+      <description>利用者が使い慣れたExcelでアンケートシートを作ろうとした際のこと。
+どれか1つを選択してほしい場合は、オプションボタンを使う。開発タブにあり、フォームコントロールとActiveXの2つがある。
+  フォームコントロール
+ フォントの見た目がActiveXと比べればマシ。 グループ化するのに、グループポックスを使用しないといけない。  行や列の追加・削除でグループボックスに入ったり外れたりすると挙動が想定外となる レイアウト上、グループボックスが不要な場合は非表示にしないといけない。が、非表示にするとどこにあったかわからなくなる。 誤ってグループボックスが重なったりするとやはり想定外の挙動となる。      ActiveX
+ グループ化するのにグループ名を指定できるので、フォームのように想定外の動作をすることはない フォントの見た目がひどい。クリックしたときとそうでないときで大きさが変わる? 項目Aを選択し、項目Bを選択してさらに項目Aを選択&amp;hellip;と繰り返すと、どんどんフォントが大きくなる(致命的)  プロパティ上のフォントサイズは変わっておらず、コントロールのサイズを変更すると直る。 当方では2013で発生。MSも認識はしているらしいが、対応作なし&amp;hellip; [https://support.microsoft.com/ja-jp/help/417966]      ActiveXのフォントが大きくなる不具合は致命的なので、グループボックスの位置に注意しながらフォームコントロールを使うことにした。 どちらの場合もだが、オプションボックスをセル内に収まるようにしないと、セルの追加で配置がずれてしまうので注意。</description>
+    </item>
+    
+    <item>
+      <title>NECのEXPRESSSCOREのJavaアプレットが動かない</title>
+      <link>https://blog.tack41.net/posts/2018/11/19_01/</link>
+      <pubDate>Mon, 19 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/11/19_01/</guid>
+      <description>当社ではNEC製サーバを導入しているのだが、NECサーバではサーバのステータス確認や設定変更にEXPRESSSCOREというWebコンソールが利用できる。 これが、一部機能がJavaアプレットで動く仕様になっている、今時&amp;hellip;
+BIOS等の更新が出ているので適用しようと思い、現在のバージョンを確認しようとすると、このアプレットか、サーバを再起動して起動画面で確認するしかない&amp;hellip;
+今時Javaアプレットが動くのはIEかSafariくらい。JREは8までしかサポートしない。 Windows 7 のIEでなんとか動かそうとするのだが、反応しない。
+通常のブラウザで確認できる画面にsshの項目があり、これを有効にしたところsshでログインできた。ほしいバージョン情報も取得できた。 ただ、このまま開放しとくのも気持ち悪いので、必要なときだけsshを有効にする運用とした。</description>
+    </item>
+    
+    <item>
+      <title>MariaDBのON UPDATE CURRENT_TIMESTAMPに対するUPDATEの動作について</title>
+      <link>https://blog.tack41.net/posts/2018/11/13_01/</link>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/11/13_01/</guid>
+      <description>リンク先同様、しばらく悩んでしまったのでメモ。
+MySQLでON UPDATE CURRENT_TIMESTAMP で更新時にタイムスタンプを自動更新するように設定している場合でも、UPDATE前後で値に変化がなければタイムスタンプは更新されない。
+[https://qiita.com/nao_tuboyaki/items/bef44862f6ddffd4f0b5:embed:cite]</description>
+    </item>
+    
+    <item>
+      <title>Bootstrapper().Run() 実行時にFileNotFoundException</title>
+      <link>https://blog.tack41.net/posts/2018/10/09_01/</link>
+      <pubDate>Tue, 09 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/10/09_01/</guid>
+      <description>WPFでPrsimを習得しようと日々格闘中です。
+ふとしたタイミングで、Bootstrapper().Run()実行時に
+&amp;#34;ファイルまたはアセンブリ &amp;#39;System.Runtime, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&amp;#39;、 またはその依存関係の 1 つが読み込めませんでした。指定されたファイルが見つかりません。 &amp;#34;:&amp;#34;System.Runtime, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a&amp;#34; なるエラーが表示されて進まなくなってしまいました。 シンプルなShellのみ起動するように修正してもダメ。NuGetですべてのライブラリを一旦アンインストールし、最小限のみとして前に正常に起動した状態に戻してもダメ。
+どうやら、app.configとターゲットバージョンにより発生(自分のプロジェクトでは4.7.2)するらしい。
+[https://github.com/dotnet/standard/issues/567:title]
+Workaroundsにあるようにapp.configのdependentAssemblyタグをすべて削除し、ターゲットバージョンを一旦4.0にして再度4.7.2に戻したところエラーが消えて動作するようになった&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Visual Studio CodeでMarkdownのPreviewカスタマイズ</title>
+      <link>https://blog.tack41.net/posts/2018/10/04_01/</link>
+      <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/10/04_01/</guid>
+      <description>はまった。
+Windows上のVisual Studio CodeでMarkdown Previewをcssでカスタマイズすることがどうしてもできない。指定した cssファイルがないと言われる。
+cssを絶対パスでは指定できないことは認識しており、Markdownファイルと同じパスにcssを置き、setting.jsonでファイル名のみ指定してもダメ。各種記事を見てそのままやってみたつもりでもうまく行かない。 markdown-pdf.styles で指定してPDF出力する分には問題ないのだが。
+結論としては、ファイルサーバにおいてあるファイルの場合はダメなよう。ネットワークドライブを設定してもダメ。 ローカルに持ってきたら普通に動作した&amp;hellip; 半日無駄にした&amp;hellip; なお、ファイルサーバに置いていると画像も表示されない。Visual Studio CodeのMarkdown編集はファイルサーバ上のファイルとは相性が悪いと認識した。</description>
+    </item>
+    
+    <item>
+      <title>WPFのMVVMについて考える</title>
+      <link>https://blog.tack41.net/posts/2018/10/01_01/</link>
+      <pubDate>Mon, 01 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/10/01_01/</guid>
+      <description>最近、Windows FormをやめてWPFのプログラムを書き始めている。
+WPFは正直必要となる知識レベルが高く難しいというイメージで手が付けにくかった。今もそうだが。 何が難しいかといえば、MVVMの考え方をどこまで徹底するかに尽きるのではないかと思う。
+MVVMについてまだまだ分からないことも多いが、今の認識をまとめる。
+ MVVMは、ModelとViewの間にViewModelという層を挟み、ModelとViewの依存関係を疎にするモデル WPFの場合、ViewとViewModelの間でデータを複雑なコード不要でやりとりするBindingという機構があるので、うまく記述すればViewとViewModelの間も疎にできる そうすると、Model, ViewModelは変えずにViewだけ差し替えることも可能となる。 Windows Formの場合は、Viewの一部であるコードビハインドに処理もがっつり書いてしまうため、Viewだけ差し替えるということはできず結構な書き換えが必要となる。 Windows Formもそうだが、何も考えずに書くとどうしてもViewに処理を書いて肥大化しがち。そこで、ViewはViewModelの処理の呼び出しのみにする方が良いとされ、コードビハインドには極力コードを書かない方が良いとされる。 逆にViewModel側もViewに依存してしまうと別のViewに差し替えることができなくなるので、Viewに関するコードは書かない方が良いとされる。  MessageBoxのようなダイアログや、別のWindowを直接起動する処理すら良くないとされる。  じゃあどうするんだというと、Blendと言う部品や直接呼び出さずにInterface経由とすることで直接依存を避ける手段を取るべきとされる。これが初心者には超絶難解だと思う。     逆に、上記のようなViewを差し替える事態がそもそも考えなくて良いのであれば、今まで通りコードビハインドにコードを書いても問題はない。それでもWindows Formより洗練された部品が使えるのでメリットはある。  さしあたって、すぐに直面するのはViewModelからMessageBoxのような利用者への通知処理をどう行うか。行いたいのはMessageBoxを出すことではなく利用者にメッセージを伝えることと抽象化し、ShowMessageのようなメソッドをもつInterfaceを定義してこれを利用する形とする方法をとっている。以下のページが参考になった。
+[http://sourcechord.hatenablog.com/entry/2016/01/23/170753:embed:cite]
+このパターンは、コンストラクタに引き渡す処理に気をつければViewModelからのViewの呼び出しが簡単にできるため、よく使っています。</description>
+    </item>
+    
+    <item>
+      <title>ClosedXMLによるExcel編集がVirusBusterに強制終了させられる</title>
+      <link>https://blog.tack41.net/posts/2018/09/14_01/</link>
+      <pubDate>Fri, 14 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/09/14_01/</guid>
+      <description>ClosedXMLで、ファイルサーバの雛形ファイルをもとに編集して出力するということをよく行います。 この際、ClosedXMLの保存先がファイルサーバだと、当社のVirus Buster Business SecurityにUnauthorized Encryptionと言われて 強制終了させられることがあります。Excelファイルは作成できず、exeも消されてしまうので再インストールとなります。
+テストした結果、ClosedXMLでの保存先がローカルであれば問題ないことが確認できたので、ClosedXMLではローカルに一時フォルダを作成してそこに保存し、System.IO.File.Copyでコピーすることで解消しました。</description>
+    </item>
+    
+    <item>
+      <title>うっかりmasterリポジトリでcommit</title>
+      <link>https://blog.tack41.net/posts/2018/09/13_02/</link>
+      <pubDate>Thu, 13 Sep 2018 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/09/13_02/</guid>
+      <description>git管理していて、ローカルリポジトリでブランチ切り忘れてmasterブランチで作業、ローカルcommitまでして気付いた。 このままpushしても、当然リモートのmasterブランチにダイレクトにpushはできず、弾かれる。 PRも出せない、と思っていたが。
+pushでは、ローカルとリモートの両方のブランチを指定できる。
+git push origin &amp;lt;local_branch&amp;gt;:&amp;lt;remote_branch&amp;gt; local_branchにmaster, remote_branchに本来切ろうと思っていたブランチ名を指定し、そのブランチでPRを出す。</description>
+    </item>
+    
+    <item>
+      <title>ClosedXMLでWindows7だけレイアウトが崩れる</title>
+      <link>https://blog.tack41.net/posts/2018/09/13_01/</link>
+      <pubDate>Thu, 13 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/09/13_01/</guid>
+      <description>アホな話です。
+ClosedXMLで、一部コードでうっかり以下のようなコード書いてました。
+ using (IXLWorkbook targetBook = new XLWorkbook(filePath))  {  using (IXLWorksheet targetSheet = targetBook.Worksheet(1))  {   }   targetBook.Save();  } usingの入れ子です。 普通、入れ子になるような階層があれば一番上位のクラスが下位のDispose呼んでくれるっと思いますよね〜。 でも、このときはusing句覚えたてで、とにかく使いたかったんです、using入れ子かっけ〜って思ってたんです&amp;hellip;
+症状としては、Windows 7の場合のみシートのフォーマットが崩れます。なぜかWindows 10は大丈夫。OSによって症状が違う理由は不明。 sourceを見ると、XLWorksheetのDisposeでrange情報をクリアしてるっぽいから、そこで情報が消えて、そのまま保存すればそりゃレイアウトは崩れるな〜と。
+追記) どうも、最新の0.93.1で発生し、0.92.0では発生しなかったようだ。ライブラリのバージョンアップした途端に大量に問い合わせが&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>今日のクソVBAコード</title>
+      <link>https://blog.tack41.net/posts/2018/09/10_01/</link>
+      <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/09/10_01/</guid>
+      <description>stDocName = ChrW(xx) &amp;amp; ChrW(yy) &amp;amp; ChrW(zz) &amp;amp; ChrW(abc) &amp;amp; ChrW(def) &amp;amp; ChrW(ghi) &amp;amp; ChrW(jkl) &amp;amp; ChrW(mno) &amp;amp; ChrW(pqr) &amp;amp; ChrW(stu) DoCmd.OpenReport stDocName, acPreview ChrWの引数は実際にはコードが入る。 式の右辺をイミディエイトウィンドウに入力すると、日本語のレポート名が表示される&amp;hellip;
+暗号化?なんのために? あとで見る人への嫌がらせか? ちょっと意味がわからない</description>
+    </item>
+    
+    <item>
+      <title>CIの導入について検討</title>
+      <link>https://blog.tack41.net/posts/2018/08/27_02/</link>
+      <pubDate>Mon, 27 Aug 2018 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/08/27_02/</guid>
+      <description>一人で開発していても、テストやデプロイにミスが出る可能性はある。 CIの導入を検討した。
+結論としては、CI用途のサーバーを別途導入することはしない。現在主に開発しているC#プロジェクトでは、CIにもWindowsが必要となる。ライセンス費用が必要だし、Dockerでお手軽に再構築できる環境としたいため。
+やりたいことは以下の通り
+ リポジトリのPRコードのビルド テスト、結果通知、OKならmerge DBの構成情報に関して、リポジトリと実環境で差異がないかチェック  1,2点目はWindowsを避ける以上、不可能。開発時に自端末でテストを行い、PRのコメントに記載する運用で対応。 3点目は、毎日定時に実行する普通のバッチでなんとかなるレベル。
+テストに関して、DBに関連するところは一切やっていない。面倒なので。 一方で内製アプリの殆どはDBのデータを持ってきてそのまま表示し、加工して更新する程度のものがほとんどのため、結果ほとんどテストがない状態。 本番環境に接続する際には専用のクラスを利用しているので、テスト環境用にも同様のクラスを作成し、テスト実行時にはそちらを利用してDB接続するようにしてテストを行うようにする。まずこちらが優先。
+Dockerでdumpファイルから空のデータベースを作成するDockerfileを作成し、開発にすぐに利用できるようにする。
+その上で、上記の運用で品質をさらに高めていく。</description>
+    </item>
+    
+    <item>
+      <title>Docker Container 起動失敗</title>
+      <link>https://blog.tack41.net/posts/2018/08/27_01/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/08/27_01/</guid>
+      <description>Docker Hostのスタートアップサービスにて、Docker ContainerをBuild, Upするスクリプトを実行しているのですが、以下のようなエラーが大量に発生してUpしていませんでした。
+ 8月 26 03:07:44 sever-name dockerd-current[864]: time=&amp;#34;2018-08-26T03:07:44.615597202+09:00&amp;#34; level=error msg=&amp;#34;could not calculate checksum for \&amp;#34;fb1077f711d4fc436c0b6e115f8cdb0c871f46c818ec998efbf489df5e4a4de5\&amp;#34;, \&amp;#34;devmapper: Unknown device fb1077f711d4fc436c0b6e115f8cdb0c871f46c818ec998efbf489df5e4a4de5\&amp;#34;&amp;#34; ...  8月 26 03:07:44 server-name dockerd-current[864]: time=&amp;#34;2018-08-26T03:07:44.617971873+09:00&amp;#34; level=error msg=&amp;#34;migration failed for 866ae31005298fd6f1bb2944418eb34969b16ead2a18ed332fa011a311f3b4b2, err: open /var/lib/docker/graph/60e65a8e4030022260a4f84166814b2683e1cdfc9725a9c262e90ba9c5ae2332/json: no such file or directory&amp;#34; ... ログの内容を見ると、以下のissueと同じように見える。再起動前にDockerのバージョンが1.13.1-74 に上がったようだし&amp;hellip;
+[https://github.com/moby/moby/issues/20147:embed:cite]
+対処方法は記事からは判明せず。
+スタートアップスクリプトを手動で実行したところ、普通にupしたので、docker containerが起動していなければスクリプトを再度実行するcronジョブを登録することで暫定対処した。</description>
+    </item>
+    
     <item>
       <title>Access 2003からMariaDBに移行</title>
       <link>https://blog.tack41.net/posts/2018/08/19_01/</link>
@@ -22,6 +208,336 @@
 文字列型は、NULL=空文字と考えて問題ない場合がほとんどと想定されるので、以下の手順を機械的に実行する。
 文字列でない場合はNULLを置き換えるべき値が自明でない場合も多いので、一旦NULL値固定で移行し、列ごとに個別で移行(UPDATE DEST.COL=SRC.COL WHERE SRC.COL IS NOT NULL)  対象列の空文字を許可する。 該当列を更新する部分にてNULLの場合は空文字に置き換える処理を追加  画面のフォームがデータと連結していてSQLではなくDoCmdで処理している場合、後付でSQLを組み込むと競合エラーが面倒なので、単純にフォームの値をNz関数でNullを置換してやれば良い ウィザードに従って作成した画面などで、データ更新処理を明示的に記載されていない場合は、フォームの追加・更新前処理イベントにてNz関数を適用する   UPDATE文で該当列のNULLを空文字に置換 該当列にNOT NULL制約を適用。   MariaDB側に、同一レイアウトのテーブルを新規作成。参照制約も実装。 MariaDBのODBCドライバをインストールし、対象のMariaDBをODBC登録。 AccessのリンクテーブルとしてMariaDBのテーブルを登録 AccessのテーブルからMariaDBのテーブルにデータを流し込む(INSERT SELECT)クエリを作成、初回の移行を行う。
 参照整合性制約から、移行可能な順番がはっきりする。 MariaDBのデータに対してアクセスするフロントプログラムを作成する。  移行後のテーブルレイアウトそのものでプログラムの動作検証が可能。   フロントプログラムの作成が完了したら、MariaDBの全データをTruncateしてデータの本番移行を行う。  データ移行の逆順で実行しても参照整合性制約からデータを削除できない場合がある。素直に参照整合性制約を一時削除し、データの削除完了後に再度作成する。    テーブル名や列名にスペースやマルチバイト文字が入ってて命名規則を満たしていない、明らかに数量データなのに文字列型になっている&amp;hellip;といった問題はこれ以降にじっくりリファクタリングしていく。上記の手順とリファクタリングを同時に行うのはリスクが大きい。</description>
+    </item>
+    
+    <item>
+      <title>CentOS7のDocker構築ではまったこと</title>
+      <link>https://blog.tack41.net/posts/2018/08/16_01/</link>
+      <pubDate>Thu, 16 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/08/16_01/</guid>
+      <description>storage driverがdevice mapperの場合のディスク容量 device mapperの場合は、既定のディスク容量が10GBほどとなる。Oracle DatabaseのDockerコンテナをbuildするとこける。
+storage driverを最初からoverlay2 にするための方法 インストール時にデバイスタイプにLVMを指定すると、Dockerのstorage dirverはdevice mapperになる。 [https://docs.docker.com/storage/storagedriver/select-storage-driver/#supported-backing-filesystems:embed:cite] 基本ディスクを選んで、xfsを選んでやる必要がある。
+さらに、CentOS7 1511(minimal)の場合は上記の手順でもやはりdevice mapperが既定となる。overlayを使用するための設定がされていないためと想像される。
+[https://docs.docker.com/storage/storagedriver/overlayfs-driver/:embed:cite]
+CentOS7 1804(minimal)で基本ディスク(xfs)でインストールすれば、overlay2がstorage driverとして設定される。</description>
+    </item>
+    
+    <item>
+      <title>箱入り娘のプログラムを書いて思う</title>
+      <link>https://blog.tack41.net/posts/2018/08/15_01/</link>
+      <pubDate>Wed, 15 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/08/15_01/</guid>
+      <description>実家に帰った際に箱入り娘のパズルがあったのでやっていた。
+[https://ja.m.wikipedia.org/wiki/%E7%AE%B1%E5%85%A5%E3%82%8A%E5%A8%98_(%E3%83%91%E3%82%BA%E3%83%AB):title]
+全然解けなかったが、プログラムで力技で解きたいと思い、やってみた 結論として、解けずに終わった。 Pythonで再帰関数で解こうとして、再帰呼び出しの上限に引っかかって30sほどでエラーとなった。 将棋などと比較すると取ることができる手ににかなりきつい制限があるので、全探索余裕と思ってしまったのだが、完全に間違っていた。 一応、盤面を都度記録し、同じ盤面になったらそれ以上は探索しないようにしたのだが、それでも解空間は大きかった。
+まず、再帰による解法の選択について。現代のプログラムにおいては、上限の大きさは違えど再帰呼出の階数には制限がある。ので、対象としている問題で想定される階数に比較してプログラミング言語の制約が十分かどうか判断しなければいけなかった。あるいは、階数をパラメータとして保持しておき、起動時に何階層まで探索するか指定するような形にすればよかった。
+再帰ではなく、盤面をメモリかファイルに記録し、都度記録から次の盤面を探してスタックを使用しない形にしても良かった。
+そもそも論で行くと、パズルは頭の体操として娯楽としてあるもので、力技で解くことに意味あるのか? というのもある。
+今回は、初めてPythonを使って割としっかりとしたプログラムが書けたので、練習として良かったということにした。</description>
+    </item>
+    
+    <item>
+      <title>Excelで「このワークシート内にある1つ以上の式の参照に問題が見つかりました」</title>
+      <link>https://blog.tack41.net/posts/2018/08/03_01/</link>
+      <pubDate>Fri, 03 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/08/03_01/</guid>
+      <description>Excelで解決がとてもめんどくさいエラー。
+このワークシート内にある１つ以上の式の参照に問題がみつかりました。数式内のセル参照、範囲名、定義名、および他のブックへのリンクがすべて正しいことをご確認ください。 Excel 2013で発生し、どう考えても参照する箇所がなくなるくらい該当シート、セルを削除しても保存のたびにエラーが出る。
+で、一旦保存して終了して開き直すと出なくなることも&amp;hellip; 全てではないのだが、エラー箇所を修正しても保存して開き直すまでエラーが出続けることがあるらしい&amp;hellip; そもそも、エラーを出すのだからそのエラー箇所を素直に指摘してくれよと思うのだが&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>64bit OSでのレジストリ操作時の注意事項</title>
+      <link>https://blog.tack41.net/posts/2018/07/30_03/</link>
+      <pubDate>Mon, 30 Jul 2018 02:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/07/30_03/</guid>
+      <description>[http://tack41tu.hatenablog.com/entry/2018/07/30/214927:embed:cite] でClickOnceアプリをインストールする際にレジストリを編集する必要がある事を書いた。
+レジストリエディタで編集するのは面倒だし運用も大変なので、レジストリを編集するアプリを作成した。
+[https://msdn.microsoft.com/en-us/library/ee308453.aspx:title] にある以下のコードを書いて実行し、正常終了するのだがレジストリエディタで確認すると変更が反映されておらず、ClickOnceの動作も変わらない。
+Microsoft.Win32.RegistryKey key; key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey(&amp;#34;SOFTWARE\\MICROSOFT\\.NETFramework\\Security\\TrustManager\\PromptingLevel&amp;#34;); key.SetValue(&amp;#34;LocalIntranet&amp;#34;, &amp;#34;Enabled&amp;#34;); key.Close(); どうもレジストリは32bit, 64bitで別の領域らしく、プログラム作成時にターゲットCPUをAnyとし、x86優先とした結果、32bitの領域を更新してしまっているらしい。
+[https://aonasuzutsuki.hatenablog.jp/entry/2015/12/08/173819:embed:cite] を参考に以下のように記載したところ、想定通りに動作するようになった。
+Microsoft.Win32.RegistryKey key_base, key; key_base = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64); var key = prerKey.CreateSubKey(&amp;#34;SOFTWARE\\MICROSOFT\\.NETFramework\\Security\\TrustManager\\PromptingLevel&amp;#34;,); key.SetValue(&amp;#34;LocalIntranet&amp;#34;, &amp;#34;Enabled&amp;#34;); key.Close(); </description>
+    </item>
+    
+    <item>
+      <title>Microsoft Report使用時のビルド時の警告</title>
+      <link>https://blog.tack41.net/posts/2018/07/30_02/</link>
+      <pubDate>Mon, 30 Jul 2018 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/07/30_02/</guid>
+      <description>Visual Studio 2017にてMicrosoft Reportを使用するために、Nugetで[Microsoft Rdlc Report Designer for Visual Studio]をインストールすると、ビルド時に「同じ依存アセンブリの異なるバージョン間での競合が見つかりました。」と警告が表示される。実行自体は問題なくできる。
+[https://qiita.com/hahifu/items/8dba20cd06fb0c3a9fa7:embed:cite] を参考に出力の詳細レベルを上げて確認すると、ReportのアセンブリがSQLServer.Typesの12.0.0に依存している一方で、NugetでReportインストール時に一緒にインストールされるSQLServer.Typesは14.0.0であるためのようだ&amp;hellip;
+依存関係の解消方法が思い付かず、また動作には影響はないため以下のサイトを参考に
+[https://docs.microsoft.com/ja-jp/dotnet/framework/configure-apps/how-to-enable-and-disable-automatic-binding-redirection:title] 自動バインド リダイレクトを有効化したところ、警告は出なくなった。</description>
+    </item>
+    
+    <item>
+      <title>ClickOnceでハマる</title>
+      <link>https://blog.tack41.net/posts/2018/07/30_01/</link>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/07/30_01/</guid>
+      <description>C#で開発したクライアントアプリケーションをClickOnceで配布する際にハマった2点
+Windows10へのインストール イントラのファイルサーバに置いてある証明書が設定されていないClickOnceをWindows 10で実行すると、「コンピューターにセキュリティ上の問題を発生させるため、管理者がこのアプリケーションをブロックしました。&amp;hellip;」と表示され、[閉じる]ボタンしか表示されないために、インストールができない。 Windows 7では普通にインストールできる。
+[https://answers.microsoft.com/ja-jp/windows/forum/apps_windows_10-winapps-appscat_tools/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC/45f6621c-35ca-4395-bdd4-685705e9fae0:embed:cite] にあるレジストリの[LocaIntranet]の値をEnabledにする必要があった。 設定変更は直ちに反映される(OS再起動は不要)
+関連アセンブリの添付 上記をクリアしたうえでClickOnceを公開し、クライアントで実行すると以下のエラーが表示される。
+このアプリケーションをインストールまたは実行できません。このアプリケーションでは、まずグローバルアセンブリキャッシュ(GAC)にアセンブリ Microsoft.**** バージョン *** をインストールする必要があります。 ****にはVisualStudio関連のアセンブリ各種が出力される。Visual Studio 2017 Express Desktopの時は発生しなかったのだが、2017 Professionalにしたら発生した。 どうも必要なアセンブリ(.dll)を添付できていないようで、事例は異なるが、
+[http://thinkami.hatenablog.com/entry/2014/09/09/062440:embed:cite] にあるように公開設定で全てのアセンブリを「必須コンポーネント(自動)」→「含む」に変更すると解消した。</description>
+    </item>
+    
+    <item>
+      <title>アジャイル開発手法の適用を考える</title>
+      <link>https://blog.tack41.net/posts/2018/07/23_01/</link>
+      <pubDate>Mon, 23 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/07/23_01/</guid>
+      <description>最近、アジャイル開発手法に関するセミナーや勉強会に参加している。
+同開発手法が既存の手法と比較して良い面を多数含んでいることは間違いないし、勉強会や記事などでの導入事例の多さがそれを物語っている。特にベンチャーであればアジャイル以外の手法は考えられないだろう。
+一方で、過去のソフトウェア資産、開発スタイルがある企業ではそう簡単な話ではない、と思っている。勉強会の参加者の話を聞くと、未だにバージョン管理も満足にできていない、という話も聞く。
+セミナーや勉強会で出てくる事例は、予算や人員をある程度確保できる環境だったり、前職でアジャイル開発していて獲得したノウハウを適用するような話だったりして、自分ができる気になるところまでいかない。 また、アジャイル手法のフルセットを紹介してここがゴールというような言われ方をしたり、あるいは自分で考えて取捨選択しなさいと言われることが多い。 開発者にとってバラ色の環境を構築するための実践的な方法を期待していって、がっかりして帰ってくることの繰り返して疲れてしまっている。
+現時点の自分の認識だが、アジャイル開発とは先人がまとめた優れた複数のベストプラクティスとなる開発手法である。それぞれに適用領域があり、前提条件、向いていない環境がある。ウォーターフォール開発がベスト、という環境だってある。 なので、それぞれの手法が生まれた経緯、解決する問題、前提条件を理解して自分が置かれている環境が適用可能なのかを個別に検討する必要がある。 参加する勉強会によってはこれらのいずれも示さずに、ただただ成功事例だけを提示して導入すればバラ色の未来が開けるような言い方をするところがある。多い。
+既存の資産、手法、人がいてスイッチング・コストが大きく、そのコストを小さくしてくれるような手法、事例をアドバイスしてくれる奇跡的な人でもいない限り、自分で考え抜くしかないのだと気付いた。今更だが&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>実行順序に依存する複数LINQ実行時の遅延評価による副作用</title>
+      <link>https://blog.tack41.net/posts/2018/07/19_01/</link>
+      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/07/19_01/</guid>
+      <description>例えば、LINQ1にて元データよりデータを抽出し、これをデータセット1とする。 次に、LINQ2にて、元データからデータセット1を除いたデータセットに対して抽出し、これをデータセット2とする。 これをLINQ3にて、元データからデータセット1とデータセット2を除いたデータセットに対して抽出し、これをデータ・セット3とする。 &amp;hellip;.
+上記のような処理を1メソッドで行う。 後続のLINQで除外するために、除外するためのデータセットを例えばListとして保持する。
+LINQ2はLINQ1の結果が決まらないと決まらない。LINQ3はLINQ2, LINQ1の結果が決まらないと決まらない。だが、後続のLINQに対して結果を伝えるのは(LINQとは無関係の)Listオブジェクト。
+このような場合に、上記LINQを順番にコードで記載したとしても、除外Listの値は後続に伝わらない(ことがある?)。おそらく、プログラムの動作として最初にLINQ3の結果を参照した場合にLINQ1,LINQ2の結果を行ってから、という動きはしてくれず、結果、空の除外Listに対してLINQ3を実行してしまっているためと思われる。
+遅延されるのが問題なので、LINQの実行結果 IEnumerable型のオブジェクトに対してToList()を実行してやれば即時に確定してこのような副作用は発生しなくなる。遅延評価のメリットは当然なくなるが。</description>
+    </item>
+    
+    <item>
+      <title>C#でExcelのバージョンに依存しないCOM経由での操作</title>
+      <link>https://blog.tack41.net/posts/2018/07/04_01/</link>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/07/04_01/</guid>
+      <description>C#での社内プログラムでExcelを操作する際、大部分はClosedXMLを利用しているのだが、ActiveXを使用しているなどでうまく動作しない場合にはCOM経由で操作している。
+Visual Studioで参照ツリーにExcelのCOM参照を追加するのだが、その時点でPCにインストールされているOfficeのバージョンに対応したCOMを追加する形になる。
+ビルド時に参照ツリーにあるCOMを参照するため、参照追加時のPCとビルド時のPCでインストールされているOfficeのバージョンが異なると、ビルド時に警告、またはエラーとなる。
+参照追加時には2013、ビルド時に2016だったためにビルド時に警告が出て、そのまま実行すると該当箇所でRuntime Errorでコケる事象が発生した。 社内には、今後2013, 2016が混在する予定のため、どちらかだけしか対応できないとなると困るので、対応方法を調査した。
+参照ツリーに追加して開発する形式を事前バインディング、実行時にCOMの名前から該当のCOMを参照する形式を遅延(動的)バインディングというらしい。
+ 事前バインディング  Visual StudioでCOMオブジェクトの仕様を把握しているため、補完が効いて開発効率が高い 型情報なども取得済みでコンパイルするため、実行速度は遅延バインディングと比較して速い 使用するOfficeのバージョンを指定する必要がある。   遅延バインディング  使用するOfficeのバージョンを指定する必要がない Visual Studioでの補完は効かず、各オブジェクト、メソッドの情報を調べながら呼び出す必要がある。大変。 実行時に型チェックを行うため、遅い。実行時エラーが出る可能性も。    遅延バインディングは、各メソッドをInvokeMemberで引数を調査しながら呼び出す必要があり、とても大変。以下のサイトにこの大変さをWrapするコードが公開されていた。
+[https://zenmai.wordpress.com/2011/06/24/excel%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%9B%E3%81%9A%E3%81%ABexcel%E3%82%92%E4%BD%BF%E3%81%86c/:embed:cite] とても素晴らしいのでぜひ利用しようと考えたのだが、(当然ながら)COMオブジェクトのすべてが実装されているわけではないので不足個所を追加実装する必要があり、結構大幅な追加が必要と思われた。
+で、たどり着いたのがこちらの記事。
+[https://teratail.com/questions/109579:embed:cite]
+なんと、dynamicという宣言に変更するだけで、ビルド時のチェックはやめて実行時に動的に呼び出してくれるとのこと。 (COMオブジェクトの生成部分は固有の書き方への変更が必要)。素晴らしい!!
+実際にdyamicに変更したところ、WorkbookオブジェクトへのReleaseComObject呼び出し時にエラーが発生。
+[http://hiro-syumi.ldblog.jp/archives/36511362.html:embed:cite] こちらの記事を参照させてもらってエラー箇所のみobject型へのキャスト処理を追加したところ、問題なく動作するようになった。
+このdynamicの利用だが、最初からこれを前提に行うと上記の通りVisualStudioによるサポートが効かないので開発効率はかなり落ちると思われる。今回のようにCOM参照を追加して事前バインディングで実装したうえで、dynamicに書き換えるという形が効率が良いと感じた。</description>
+    </item>
+    
+    <item>
+      <title>Windows 2016でプログラムが起動しない</title>
+      <link>https://blog.tack41.net/posts/2018/05/15_01/</link>
+      <pubDate>Tue, 15 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/05/15_01/</guid>
+      <description>当社で利用している手形管理のシステムにて、辞書の更新をしようとしたところ、なぜかexeをクリックしても起動しない症状が発生した。
+イベントログにて、以下のような内容が出力されている
+ProviderName : Microsoft-Windows-Immersive-Shell Id : 5973 Message : アプリ Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy:App.AppXc99k5qnnsvxj5szemm7fp3g7y08we5vm.mca のライセンス認証がエラーで失敗しました: このアプリは、ビルトイン Administrator ではアクティブ化できません。。詳しくは、Microsoft-Windows-TWinUI/Operational ログをご覧ください。 ググっては見たが、
+[https://support.microsoft.com/ja-jp/help/3064045/windows-store-apps-may-not-open-and-event-id-5973-is-logged-in-the-app]
+のように、ストアアプリを開くときの権限の問題しかヒットしない。 エクスプローラーからダブルクリックしているのだが、ひょっとしてストアアプリ起動と認識されてしまっているのかも、と思いコマンドプロンプトで起動したところ正常に起動した。
+Windows 2016の不具合なのだろうか?</description>
+    </item>
+    
+    <item>
+      <title>thinクライアントとして使える古いPCの限界</title>
+      <link>https://blog.tack41.net/posts/2018/05/03_01/</link>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/05/03_01/</guid>
+      <description>手元に、使わなくなったノートPCが2台あったため、Windowsにリモート接続するthinクライアントとして利用してみた。 1台はメモリ512MB, もう一台は768MBでPAE非対応というところからスペックはお察し&amp;hellip;
+Linuxを探したのだが、2018/5現在、PAE非対応という時点でインストールできるディストリビューションはかなり限られる。 2,3年前はOKだったLubuntu,XubuntuですらNG。 PuppyLinuxは日本語サイトは情報が古かったため本家を見たが、PAEまたはUEFI必須のようだ&amp;hellip; 今回はKona LinuxのLightをインストールした。
+時間はかかったがインストールは成功、最初からRemminaがインストールされていたためRDP接続もできた。 &amp;hellip;が、遅い。キーボードの入力が画面に反映されるのにワンテンポ、タイミングによっては数秒遅れるため、作業が止まってしまう。 さすがに、この程度のスペックでは、Thinクライアントにはスペック不足ということのようだ。10年前にはストレスなく動作したはずなので、kernelが重くなったのか、Remminaが軽くないのか、RDPの通信量がそもそも少なくないのか&amp;hellip;
+少なくともメモリは2GB、CPUは2つ以上、要は無印のKona Linuxがインストールできるくらいのスペックがないと再利用すらできないことを実感した。</description>
+    </item>
+    
+    <item>
+      <title>GitBookでフッターを変更する方法、目次にページ数を記載する方法がわからない</title>
+      <link>https://blog.tack41.net/posts/2018/04/17_01/</link>
+      <pubDate>Tue, 17 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/04/17_01/</guid>
+      <description>最近、マニュアル等を単体ではmarkdown、複数文書をまとめる必要がある場合はGitBookで作成している。
+GitBookで出版、のような記事も見受けられるため、かなりのことができるのかと思っていたのだが、タイトルにある以下の2件がどうしても解決できない
+ フッターのカスタマイズ([現ページ]/[総ページ数]のような表示) 目次でページ数を表示  1点目は、book.jsonにカスタマイズを加える方法、
+[https://qiita.com/nutti/items/96e7194c82b8d04382e2:title]
+及び、_layouts/ebook/pdf_footer.htmlを作成する方法
+[https://github.com/GitbookIO/gitbook/issues/1661:title]
+いずれもフッターは変更できなかった。
+2点目は、ページ数が表示されてほしいところになぜか1.1のような表示がされてしまい、GitHubで掲載されている、表示自体を消す方法しか見つからなかった。
+[https://github.com/GitbookIO/gitbook/issues/1223:title]</description>
+    </item>
+    
+    <item>
+      <title>Windows 2016のWindows Update</title>
+      <link>https://blog.tack41.net/posts/2018/03/16_01/</link>
+      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/03/16_01/</guid>
+      <description>今年に入って稼働を始めたWindows Server 2016で、原因不明の再起動が発生。 Hyper-Vホストでも発生するため、ゲストOSが未起動の状態で朝を迎え、利用者から問い合わせを受けていた。
+原因はタイトルの通り。 信じられないのだが、Windows 2016ではどのように設定しても一度Windows Updateを動かすとactive hourの後で勝手に再起動するらしい&amp;hellip;
+[https://social.technet.microsoft.com/Forums/Lync/en-US/d6cde72c-80a5-418b-9a49-8a604e35d41b/windows-server-2016-automatically-restart?forum=ws2016:title]
+上記記事の最後に、荒っぽいタスクを30分おきに起動して再起動を止める、というworkaroundが紹介されていた。
+Command: schtasks Arguments: /change /tn \Microsoft\Windows\UpdateOrchestrator\Reboot /DISABLE うちはそれほど社員数もおらず、夜間にサーバー使えないと困るという人はいないので再起動は止めず、再起動後にゲストOSを自動起動するよう設定した。 併せて、以下の記事を参考に再起動後にメール、LINE通知するようにした。
+[http://kokura.hatenadiary.jp/entry/2018/02/01/145500:embed:cite]
+改めて、Windows奥が深い</description>
+    </item>
+    
+    <item>
+      <title>特定PCから特定サーバのみホスト名でUNCアクセスできない</title>
+      <link>https://blog.tack41.net/posts/2018/03/12_01/</link>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/03/12_01/</guid>
+      <description>社内情シスには常について回る、ファイルサーバーアクセスできない問題。 私も過去何度も経験しているし、WINS, SMBなどの知識もあるのでそんなに悩むことはここのところありませんでした。
+しかし、今回は様子が異なり、以下のような症状。
+ \\SVRNAME でアクセスできない。 \\SVRNAME.domain.name のようなFQDNでもダメ 他のサーバに対しての\\SVRNAME2 のアクセスは可能。ダメなのは1台のサーバのみ(?) ping SVRNAME は通る(!?) \\IPアドレス であれば該当のサーバでもアクセスできる NetBIOS over TCP/IPは有効になっている %WINDIR%\system32\drivers\etc にあるhosts, lmhosts にエントリはない  上から見ていって、1,2番目まではよくあるNetBIOSの名前解決エラーかと思ったのだが、3,4番目あたりからどうも様子が違う&amp;hellip;
+結果は、Windowsのコンパネ-[ユーザーアカウント]-[資格情報マネージャ]に、サーバー名で認証情報が登録されており、指定されたアカウントが無効となっていたため。 こんなところで指定しなくてもADログインすれば自動で認証するので、登録情報を削除したところアクセス可能となった。
+Windows は奥が深い #いい意味ではない</description>
+    </item>
+    
+    <item>
+      <title>COM経由でのExcel操作は地獄?</title>
+      <link>https://blog.tack41.net/posts/2018/02/24_01/</link>
+      <pubDate>Sat, 24 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/02/24_01/</guid>
+      <description>VBAでExcelを操作するプログラムをC#に移行。 印刷に使用するActiveXオブジェクトを含む雛形ファイルを対象とするため、Managedな操作をするClosedXMLやNPOIではうまく動作せず、Interop.Excel経由で行った。
+ClosedXML等と比較して圧倒的に動作が遅いのは当然として、シートをある程度(10枚以上?)コピーするとtmpファイルを書き込めない旨のエラーが発生する。 タイミングは実施するたびに違い、運が良ければエラーが発生しないこともある。
+同様のエラーを探したが、結論としてはエラー時にリトライする処理を追加するくらいしかないらしい&amp;hellip;
+[https://answers.microsoft.com/ja-jp/msoffice/forum/msoffice_excel-mso_winother-mso_2010/vba%E3%81%A7%E3%82%B7%E3%83%BC%E3%83%88%E3%82%B3/b8b84a3e-d1f8-48a5-8623-04023c8510e8:embed:cite]
+こういった対処方法は、仕方ないとしても凹みますね。 機会があればネックとなっているActiveXオブジェクトをManagedな操作で置き換えていきたい。</description>
+    </item>
+    
+    <item>
+      <title>AccessにOleDbアクセス時、日付型のパラメータを使用する場合は型を明示する必要あり</title>
+      <link>https://blog.tack41.net/posts/2018/02/20_01/</link>
+      <pubDate>Tue, 20 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/02/20_01/</guid>
+      <description>はまった&amp;hellip; Accessのときのみ発生。
+Parameterを使う際、通常、設定した値の型からよきにはからって処理してくれるが、AccessでDateTime、特に時刻部分が設定されている場合ではエラーとなる。
+[http://yan-note.blogspot.jp/2008/08/systemdatacommondbparameteraccessdate.html:embed:cite]</description>
+    </item>
+    
+    <item>
+      <title>C#でのDbTransaction.Rollback</title>
+      <link>https://blog.tack41.net/posts/2018/02/02_01/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/02/02_01/</guid>
+      <description>C#のTransactionにて、DbTransactionをusing句で使えば、Disposeの際にRollbackされるので、明示的なRollbackが不要とあったのだが、どうもそのように記載しているサイトのほうが少ないように見える。
+MSDNで確認したところ、そうあるべきではるが、ベンダー依存のため前提とするのはだめらしい。
+Dispose should rollback the transaction. However, the behavior of Dispose is provider specific, and should not replace calling Rollback. [https://msdn.microsoft.com/ja-jp/library/bf2cw321(v=vs.110).aspx]
+SqlTransactionだけならいいかもしれないが、OleDb(Access)やMySQLも共通化している今のコードでは駄目なようだ。try catch使うしかない。
+[https://msdn.microsoft.com/ja-jp/library/system.data.idbtransaction.rollback(v=vs.110).aspx:title]</description>
+    </item>
+    
+    <item>
+      <title>iPad(9.7)でMicrosoft Remote Desktop使用時の注意事項</title>
+      <link>https://blog.tack41.net/posts/2018/01/27_01/</link>
+      <pubDate>Sat, 27 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/27_01/</guid>
+      <description>会社で支給されたiPad Pro 9.7inchで、Microsoft Remote Desktopを利用してWindows 10にアクセスしたところ、その後Windows10にローカルアクセスした際に英語キーボードの設定になっていた。
+iPad Pro 9.7inchはSmartKeyboardを使用していて、英語キーボードしかないモデル。おそらくこの設定をMicrosoft Remote Desktopが設定してくれたのだろう。 賢いと言えば賢いのだが&amp;hellip;
+Windows 10の設定を見ても日本語キーボードとなっている。一旦英語キーボードに変えようとするとサインアウトを促されるので、キーボードレイアウトの変更はサインアウトをしないと反映されないのだろう。 今回も一旦再起動することで日本語キーボードに戻った。</description>
+    </item>
+    
+    <item>
+      <title>redmineのwikiにおけるhtmlのサポート</title>
+      <link>https://blog.tack41.net/posts/2018/01/25_01/</link>
+      <pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/25_01/</guid>
+      <description>redmineで、markdown形式を使っていると、文字に色を付ける方法がない。 セキュリティの観点から、あえてすべてのhtmlタグをフィルタしているようだ&amp;hellip;
+[http://www.redmine.org/issues/20497:embed:cite]
+社内で運用している場合にセキュリティを気にして表現力が落ちてもしょうがないので、管理画面で切り替えるなどできるといいのだが&amp;hellip; 以下のサイトを参考に設定ファイルを直接書き換え、利用できるようになった。
+[http://redmine.jp/faq/wiki/use-html-tag-in-wiki/:title]</description>
+    </item>
+    
+    <item>
+      <title>DockerのHostの設定変更のcontainerへの反映</title>
+      <link>https://blog.tack41.net/posts/2018/01/21_02/</link>
+      <pubDate>Sun, 21 Jan 2018 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/21_02/</guid>
+      <description>Host側でのresolv.confを変更したのだが、containerには、docker-compose restartやstop -&amp;gt; startでは反映されない。 一度downしてからupする必要がある。</description>
+    </item>
+    
+    <item>
+      <title>AccessでのYes/No型を外部結合してGroupByすると「カレントレコードがありません」</title>
+      <link>https://blog.tack41.net/posts/2018/01/21_01/</link>
+      <pubDate>Sun, 21 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/21_01/</guid>
+      <description>タイトルの通り。
+Accessで、OLEDB経由でもAccessで直接クエリをたたいても「カレントレコードがありません」と表示されるエラーに遭遇し、SQLを切り分けたところ、Yes/No型のフィールドが原因と判明。 ググってみると、Yes/No型を外部結合してGroupByすると、Nullが発生した場合に処理できず、このようなエラーが出るらしい。
+[https://www.pcreview.co.uk/threads/no-current-record-error-in-group-by-query-with-outer-joins-solution.2126293/:embed:cite]
+対処法は、リンク先にある通り、SELECT、GROUP BYの双方をNzでNullの場合の値を指定すること。
+OLEDB接続の場合はNz関数が利用できないので、IIfとIsNullを組み合わせる。
+Access嫌だ&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>RTX1200でL2TP,IPSECによるVPN接続</title>
+      <link>https://blog.tack41.net/posts/2018/01/14_01/</link>
+      <pubDate>Sun, 14 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/14_01/</guid>
+      <description>RTX1200でL2TP,IPSECによるVPN接続を行った。
+iOS11(iPhone 7, iPad Pro 1st)では問題なく接続できるのだが、Android, Windows, Linux(Ubuntu)はことごとくダメだった。Windowsはそもそも保証対象外と明記されているらしいのだが、iOSがつながるのならAndroidもつながっても良いと思うのだが&amp;hellip;
+Ubuntuの事例として、あわしろさんの記事を見つけたので、これを参考に再チャレンジしようと思う。</description>
+    </item>
+    
+    <item>
+      <title>iPhoneのすばらしさに気づく(いまさら)</title>
+      <link>https://blog.tack41.net/posts/2018/01/11_01/</link>
+      <pubDate>Thu, 11 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/11_01/</guid>
+      <description>今日は有給をとって近くをドライブした。 Web+DBでYahooマップの記事があったので、ナビを使ってみようと思ったのだ。
+そもそもにしてYahooマップとYahooナビは別アプリなのだが&amp;hellip;
+手持ちのNexus5Xで試した。アプリの機能としては問題ないと思うのだが&amp;hellip; それよりもバッテリーのヘリが気になってしまう。充電しながら使っているのだが、それでも2,30分で10%は減る。これでは、そもそも長距離ドライブには使えない。ナビなんて長距離でしか使わないのに&amp;hellip;
+で、会社で支給されているiPhone7にGoogle Mapを入れてナビを使ってみたところ、充電中は電池が減らないどころか、少しずつ充電されてる!!! iPhone使ってる人や、バッテリの持ちの良いAndroid使ってる人なら当然かもしれないが、その世界を知らない僕はふつうに驚いた。
+やはり、Androidスマホと比較するとiPhoneは素晴らしいと。今回はバッテリーでその点に気付いたが、社内のスマホに関する障害の問い合わせもiPhoneよりAndroidの方が圧倒的に多い。
+それも当然で、AndroidとiPhoneでは1機種にかける開発・保守費用が全然違う。Androidの代表としてGoogleのPixelを参照したとしても1桁どころか2,3桁は違うのではないだろうか。 ソフトウェアと違ってハードウェアはかけた金額が性能により効いてくると思う。正直Appleにばかり儲けさせるのは気に食わないという気持ちもあるが、価格以上の性能、信頼性があるのだと実感する。 この構造は、独禁法などで介入でもされない限り今後も当面変わらないのではないか。
+今後は、Androidでしかないアプリがあるとか、ハードも含めてガンガンいじって開発したいとかでなければiPhoneを薦めたいと思う。公私ともに。 自分はAndroidが好きなので使うが、割り切って安いモデルを2年間使い倒すのが、今のAndroidには合っていると思われる。iPhoneのように長く使うには向いていない。</description>
+    </item>
+    
+    <item>
+      <title>zabbix share のtemplteは素晴らしい</title>
+      <link>https://blog.tack41.net/posts/2018/01/10_01/</link>
+      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/10_01/</guid>
+      <description>社内にて、NAS(Buffalo Terastation)、UPS(APC)の切替を行った。 社内の機器の監視はzabbixで行っており、これらの設定をする際、Zabbix Share のテンプレートが使えたのは非常にありがたかった。
+Terastationは3.2用のテンプレートだったが、社内では3.0を運用しているためバージョンの指定を変更後、mokeblogさんのエントリを参考に不要なタグを削除してインポートした。 APCは2.0用だったが、バージョンの指定を変更するだけでインポートできた。(電圧上限、下弦の閾値は200V前提となっていたため、下限:190-&amp;gt;90,上限250-&amp;gt;120に修正した)
+これらのSNMP MIBを調べて設定するのは時間がかかるので、こういうのが公開されているのは時間がない管理者としてはありがたい。細かいところを自社に合わせて修正して利用しようと思う。</description>
+    </item>
+    
+    <item>
+      <title>ファイルサーバーの移行</title>
+      <link>https://blog.tack41.net/posts/2018/01/08_01/</link>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/08_01/</guid>
+      <description>以下の要件で、ファイルサーバーの移行を行った。
+ 移行元サーバー: Windows Server 2008 R2 (Enterprise) 移行先サーバー: Windows Server 2016 (Standard) 移行容量: 150GB程度 移行に使用した方法: Windows Server移行ツール  結果は、権限はNTFS、共有のものも含めて完璧に移行できた。移行後は既に公開設定が済んだ状態となっていた。 時間は8時間ちょっとかかった。複数の対象フォルダがあったため、Powershellでのバッチを作成して両方で動作させたため、つきっきりだったわけではない。
+移行は2段階で行い、最初に10GBほどのフォルダの移行を行った。この移行では暗号化を行うのだが、これによるCPUの負荷が大きいことに気付き、2段階目ではCPUを2-&amp;gt;4に増強した(共にHyper-V上のVM)。 2段階目において、Trend Micro Business Securityのスキャンが開始されたことに気付いたのだが、管理者権限で停止しようとしても受け付けてもらえず、結局アンインストールすることで停止するしかなかった。その間1.5時間ほどメモリ、ディスクIOがかなり高い状態だった。
+上記の問題がなかったとしても6-7時間はかかったと思われる。容量に対してあまりに時間がかかりすぎている。同ツールでは移行後に権限だけ付け直す「-Include Share」オプションがあるようなので、robocopyでファイルだけ移行し、「-Include Share」オプションで権限を移行する方法が最も時間をかけずに確実に移行できたのではないかと思う。</description>
     </item>
     
     <item>

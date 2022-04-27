@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ci on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/ci/</link>
+    <description>Recent content in ci on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 27 Aug 2018 01:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CIの導入について検討</title>
+      <link>https://blog.tack41.net/posts/2018/08/27_02/</link>
+      <pubDate>Mon, 27 Aug 2018 01:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/08/27_02/</guid>
+      <description>一人で開発していても、テストやデプロイにミスが出る可能性はある。 CIの導入を検討した。
+結論としては、CI用途のサーバーを別途導入することはしない。現在主に開発しているC#プロジェクトでは、CIにもWindowsが必要となる。ライセンス費用が必要だし、Dockerでお手軽に再構築できる環境としたいため。
+やりたいことは以下の通り
+ リポジトリのPRコードのビルド テスト、結果通知、OKならmerge DBの構成情報に関して、リポジトリと実環境で差異がないかチェック  1,2点目はWindowsを避ける以上、不可能。開発時に自端末でテストを行い、PRのコメントに記載する運用で対応。 3点目は、毎日定時に実行する普通のバッチでなんとかなるレベル。
+テストに関して、DBに関連するところは一切やっていない。面倒なので。 一方で内製アプリの殆どはDBのデータを持ってきてそのまま表示し、加工して更新する程度のものがほとんどのため、結果ほとんどテストがない状態。 本番環境に接続する際には専用のクラスを利用しているので、テスト環境用にも同様のクラスを作成し、テスト実行時にはそちらを利用してDB接続するようにしてテストを行うようにする。まずこちらが優先。
+Dockerでdumpファイルから空のデータベースを作成するDockerfileを作成し、開発にすぐに利用できるようにする。
+その上で、上記の運用で品質をさらに高めていく。</description>
+    </item>
+    
+  </channel>
+</rss>

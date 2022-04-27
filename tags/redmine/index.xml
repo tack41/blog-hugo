@@ -9,7 +9,19 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 24 Nov 2017 13:11:09 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/redmine/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 25 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/redmine/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>redmineのwikiにおけるhtmlのサポート</title>
+      <link>https://blog.tack41.net/posts/2018/01/25_01/</link>
+      <pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2018/01/25_01/</guid>
+      <description>redmineで、markdown形式を使っていると、文字に色を付ける方法がない。 セキュリティの観点から、あえてすべてのhtmlタグをフィルタしているようだ&amp;hellip;
+[http://www.redmine.org/issues/20497:embed:cite]
+社内で運用している場合にセキュリティを気にして表現力が落ちてもしょうがないので、管理画面で切り替えるなどできるといいのだが&amp;hellip; 以下のサイトを参考に設定ファイルを直接書き換え、利用できるようになった。
+[http://redmine.jp/faq/wiki/use-html-tag-in-wiki/:title]</description>
+    </item>
+    
     <item>
       <title>redmine, zabbixのActive Directory(LDAP)認証</title>
       <link>https://blog.tack41.net/posts/2017/11/24_01/</link>
