@@ -9,7 +9,17 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 02 Dec 2018 01:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChromeOSのclipboardの履歴はcrostiniで使えない</title>
+      <link>https://blog.tack41.net/posts/2022/04/28_01/</link>
+      <pubDate>Wed, 27 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/04/28_01/</guid>
+      <description>ChromeOSでは、 [search + v] というショートカットで過去にclipboardにコピーされた内容を5件まで表示し、選択してペーストできる機能があります。が、これ、crostini環境のterminalやvscodeには貼り付けられません。一覧表示まではできるのですが、選択しても貼り付けられないのです。
+通常の[ctrl + v]で直近の内容のペーストはできるので、同じ対応が上記コピー履歴からの貼り付けまでは対応していないようです。残念です。</description>
+    </item>
+    
     <item>
       <title>Java(Android)のService, Application(Context)</title>
       <link>https://blog.tack41.net/posts/2018/12/02_02/</link>
