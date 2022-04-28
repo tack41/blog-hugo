@@ -9,11 +9,11 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 03 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 May 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>thinクライアントとして使える古いPCの限界</title>
       <link>https://blog.tack41.net/posts/2018/05/03_01/</link>
-      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/05/03_01/</guid>
       <description>手元に、使わなくなったノートPCが2台あったため、Windowsにリモート接続するthinクライアントとして利用してみた。 1台はメモリ512MB, もう一台は768MBでPAE非対応というところからスペックはお察し&amp;hellip;

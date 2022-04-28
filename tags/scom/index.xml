@@ -9,11 +9,11 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 09 Jan 2012 04:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/scom/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Jan 2012 04:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/scom/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SCOM ワークグループ環境でのエージェントインストール手順</title>
       <link>https://blog.tack41.net/posts/2012/1/09_04/</link>
-      <pubDate>Mon, 09 Jan 2012 04:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Jan 2012 04:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/1/09_04/</guid>
       <description>スタンドアロンルート証明局を立てて行う。 エンタープライズ証明局の場合は、後述の手順が追加で必要となる。
@@ -27,7 +27,7 @@ A. Workgroup環境のコンピュータにAgentを登録する手順 &amp;lt;管
     <item>
       <title>SCOM クラスタ環境の監視について</title>
       <link>https://blog.tack41.net/posts/2012/1/09_03/</link>
-      <pubDate>Mon, 09 Jan 2012 03:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Jan 2012 03:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/1/09_03/</guid>
       <description>クラスタ環境で仮想ホストの監視を行う場合、エージェントプロキシを有効にする必要がある。
@@ -37,7 +37,7 @@ A. Workgroup環境のコンピュータにAgentを登録する手順 &amp;lt;管
     <item>
       <title>SCOM レポートスケジュールのバグ</title>
       <link>https://blog.tack41.net/posts/2012/1/09_02/</link>
-      <pubDate>Mon, 09 Jan 2012 02:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Jan 2012 02:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/1/09_02/</guid>
       <description>SQL Server 2008のバグにより、レポートのスケジュール機能が動作しない場合がある。
@@ -49,7 +49,7 @@ Scheduled reports that you create by using SQL Server 2008 Reporting Services (S
     <item>
       <title>SCOM 2007 R2 インストール手順</title>
       <link>https://blog.tack41.net/posts/2012/1/09_01/</link>
-      <pubDate>Mon, 09 Jan 2012 01:00:00 +0000</pubDate>
+      <pubDate>Mon, 09 Jan 2012 01:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/1/09_01/</guid>
       <description>Windows Server 2008 R2 Enterpriseを前提とする。

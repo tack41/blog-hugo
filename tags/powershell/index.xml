@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>powershell on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/powershell/</link>
+    <description>Recent content in powershell on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PowershellのToStringの書式指定ではまった</title>
+      <link>https://blog.tack41.net/posts/2019/07/01_01/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2019/07/01_01/</guid>
+      <description>PowerShellのToStringで数値を書式指定で出力する際にはまった2点。どちらもエラーメッセージが適切ではなく、原因特定に苦労した。 PSVersion 5.1.14393.2969, Windows Server 2016上のISEで開発。Set-StrictMode -Version latest
+書式#,#はダメ $num.ToString(&amp;#39;#,#&amp;#39;) にて$numが0だと「&amp;ldquo;ToString&amp;rdquo; のオーバーロードで、引数の数が &amp;ldquo;1&amp;rdquo; であるものが見つかりません。」と出る。
+$num.ToString(&amp;#39;#,0&amp;#39;) とすることで、正しく出力される。
+キャスト後のtoString $s_num=&amp;#34;99,999,999,99&amp;#34; の場合に書式指定で出力したい場合、いったんlongにキャストするので
+[long]$s_num.ToString(&amp;#34;#,0&amp;#34;) と書くと、同様に「&amp;ldquo;ToString&amp;rdquo; のオーバーロードで、引数の数が &amp;ldquo;1&amp;rdquo; であるものが見つかりません。」とでる。正解は
+([long]$s_num).ToString(&amp;#34;#,0&amp;#34;) キャスト演算子よりもToStringの方が優先度が高いのか&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

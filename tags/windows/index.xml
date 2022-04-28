@@ -9,25 +9,28 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 30 Jul 2018 02:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Jul 2018 02:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>64bit OSでのレジストリ操作時の注意事項</title>
       <link>https://blog.tack41.net/posts/2018/07/30_03/</link>
-      <pubDate>Mon, 30 Jul 2018 02:00:00 +0000</pubDate>
+      <pubDate>Mon, 30 Jul 2018 02:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/07/30_03/</guid>
-      <description>[http://tack41tu.hatenablog.com/entry/2018/07/30/214927:embed:cite] でClickOnceアプリをインストールする際にレジストリを編集する必要がある事を書いた。
+      <description>http://tack41tu.hatenablog.com/entry/2018/07/30/214927
+でClickOnceアプリをインストールする際にレジストリを編集する必要がある事を書いた。
 レジストリエディタで編集するのは面倒だし運用も大変なので、レジストリを編集するアプリを作成した。
-[https://msdn.microsoft.com/en-us/library/ee308453.aspx:title] にある以下のコードを書いて実行し、正常終了するのだがレジストリエディタで確認すると変更が反映されておらず、ClickOnceの動作も変わらない。
+https://msdn.microsoft.com/en-us/library/ee308453.aspx
+にある以下のコードを書いて実行し、正常終了するのだがレジストリエディタで確認すると変更が反映されておらず、ClickOnceの動作も変わらない。
 Microsoft.Win32.RegistryKey key; key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey(&amp;#34;SOFTWARE\\MICROSOFT\\.NETFramework\\Security\\TrustManager\\PromptingLevel&amp;#34;); key.SetValue(&amp;#34;LocalIntranet&amp;#34;, &amp;#34;Enabled&amp;#34;); key.Close(); どうもレジストリは32bit, 64bitで別の領域らしく、プログラム作成時にターゲットCPUをAnyとし、x86優先とした結果、32bitの領域を更新してしまっているらしい。
-[https://aonasuzutsuki.hatenablog.jp/entry/2015/12/08/173819:embed:cite] を参考に以下のように記載したところ、想定通りに動作するようになった。
+https://aonasuzutsuki.hatenablog.jp/entry/2015/12/08/173819
+を参考に以下のように記載したところ、想定通りに動作するようになった。
 Microsoft.Win32.RegistryKey key_base, key; key_base = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64); var key = prerKey.CreateSubKey(&amp;#34;SOFTWARE\\MICROSOFT\\.NETFramework\\Security\\TrustManager\\PromptingLevel&amp;#34;,); key.SetValue(&amp;#34;LocalIntranet&amp;#34;, &amp;#34;Enabled&amp;#34;); key.Close(); </description>
     </item>
     
     <item>
       <title>特定PCから特定サーバのみホスト名でUNCアクセスできない</title>
       <link>https://blog.tack41.net/posts/2018/03/12_01/</link>
-      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/03/12_01/</guid>
       <description>社内情シスには常について回る、ファイルサーバーアクセスできない問題。 私も過去何度も経験しているし、WINS, SMBなどの知識もあるのでそんなに悩むことはここのところありませんでした。

@@ -9,25 +9,27 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 30 Jul 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/clickonce/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Jul 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/clickonce/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ClickOnceでハマる</title>
       <link>https://blog.tack41.net/posts/2018/07/30_01/</link>
-      <pubDate>Mon, 30 Jul 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 30 Jul 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/07/30_01/</guid>
       <description>C#で開発したクライアントアプリケーションをClickOnceで配布する際にハマった2点
 Windows10へのインストール イントラのファイルサーバに置いてある証明書が設定されていないClickOnceをWindows 10で実行すると、「コンピューターにセキュリティ上の問題を発生させるため、管理者がこのアプリケーションをブロックしました。&amp;hellip;」と表示され、[閉じる]ボタンしか表示されないために、インストールができない。 Windows 7では普通にインストールできる。
-[https://answers.microsoft.com/ja-jp/windows/forum/apps_windows_10-winapps-appscat_tools/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC/45f6621c-35ca-4395-bdd4-685705e9fae0:embed:cite] にあるレジストリの[LocaIntranet]の値をEnabledにする必要があった。 設定変更は直ちに反映される(OS再起動は不要)
+https://answers.microsoft.com/ja-jp/windows/forum/apps_windows_10-winapps-appscat_tools/%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC/45f6621c-35ca-4395-bdd4-685705e9fae0
+にあるレジストリの[LocaIntranet]の値をEnabledにする必要があった。 設定変更は直ちに反映される(OS再起動は不要)
 関連アセンブリの添付 上記をクリアしたうえでClickOnceを公開し、クライアントで実行すると以下のエラーが表示される。
 このアプリケーションをインストールまたは実行できません。このアプリケーションでは、まずグローバルアセンブリキャッシュ(GAC)にアセンブリ Microsoft.**** バージョン *** をインストールする必要があります。 ****にはVisualStudio関連のアセンブリ各種が出力される。Visual Studio 2017 Express Desktopの時は発生しなかったのだが、2017 Professionalにしたら発生した。 どうも必要なアセンブリ(.dll)を添付できていないようで、事例は異なるが、
-[http://thinkami.hatenablog.com/entry/2014/09/09/062440:embed:cite] にあるように公開設定で全てのアセンブリを「必須コンポーネント(自動)」→「含む」に変更すると解消した。</description>
+http://thinkami.hatenablog.com/entry/2014/09/09/062440
+にあるように公開設定で全てのアセンブリを「必須コンポーネント(自動)」→「含む」に変更すると解消した。</description>
     </item>
     
     <item>
       <title>.Netプログラムの配布</title>
       <link>https://blog.tack41.net/posts/2017/10/12_01/</link>
-      <pubDate>Thu, 12 Oct 2017 17:52:37 +0000</pubDate>
+      <pubDate>Thu, 12 Oct 2017 17:52:37 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2017/10/12_01/</guid>
       <description>今さら、とは思われるとは思いますが&amp;hellip;

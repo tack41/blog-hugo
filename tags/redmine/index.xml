@@ -9,17 +9,31 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 25 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/redmine/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Feb 2019 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/redmine/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CentOS 7のRedmine 4.0でrmagick build error.</title>
+      <link>https://blog.tack41.net/posts/2019/02/18_01/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2019/02/18_01/</guid>
+      <description>CentOS7のDockerコンテナにてRedmineを構築中にrmagick buildにてエラー発生。 先週は動作したのだが&amp;hellip;
+ログを見ると、rmagickのバージョンは3.0.0で要求するImageMagickは6.8.9以上。インストールされているのは6.7.8Q16のためエラーとなっている。
+このrmagick3.0.0は2月16日にリリースされたばかりらしい。その際に要求するImageMagickのバージョンが上がったのだろう。
+https://rubygems.org/gems/rmagick/
+CentOSのリポジトリでは最新でも6.7しかない。remiリポジトリにあるようなのでインストールしたところ、buildエラーがなくなった。
+rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm yum -y install ImageMagick6 ImageMagick6-devel --enablerepo=remi </description>
+    </item>
+    
     <item>
       <title>redmineのwikiにおけるhtmlのサポート</title>
       <link>https://blog.tack41.net/posts/2018/01/25_01/</link>
-      <pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 25 Jan 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/01/25_01/</guid>
       <description>redmineで、markdown形式を使っていると、文字に色を付ける方法がない。 セキュリティの観点から、あえてすべてのhtmlタグをフィルタしているようだ&amp;hellip;
-[http://www.redmine.org/issues/20497:embed:cite]
+http://www.redmine.org/issues/20497
 社内で運用している場合にセキュリティを気にして表現力が落ちてもしょうがないので、管理画面で切り替えるなどできるといいのだが&amp;hellip; 以下のサイトを参考に設定ファイルを直接書き換え、利用できるようになった。
-[http://redmine.jp/faq/wiki/use-html-tag-in-wiki/:title]</description>
+http://redmine.jp/faq/wiki/use-html-tag-in-wiki/</description>
     </item>
     
     <item>

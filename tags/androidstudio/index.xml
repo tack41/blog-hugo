@@ -9,18 +9,18 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 02 Dec 2018 01:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/androidstudio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Dec 2018 01:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/androidstudio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java(Android)のService, Application(Context)</title>
       <link>https://blog.tack41.net/posts/2018/12/02_02/</link>
-      <pubDate>Sun, 02 Dec 2018 01:00:00 +0000</pubDate>
+      <pubDate>Sun, 02 Dec 2018 01:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/12/02_02/</guid>
       <description>AndroidにてActivityにまたがる処理を行う処理を記述するには、Bound Serviceを使う必要がある。bindeServiceの引数ServiceConnectionのコールバック関数onServiceConnectedにて渡されるIBinderでServiceオブジェクトを取得し、必要なメソッドを実行できる。
 SQLiteへの保存処理をこれで行おうと考えたのだが、そのためのSQLiteOpenHelperにはContextが必須となっている。
 ServiceはActivity(Contextを継承する)に依存したくないために利用しているので、そのままContextを取得できない。 必要なメソッドの引数に都度Contextを指定する手も無くはないが、メソッドが増えるほど面倒さが増すし、そもそもDatabaseへのconnectの条件としてcontextが必要なので、メソッドの呼び出しの都度Databaseへの再接続が発生してしまう。
 ApplicationもContextを継承している。これならどこからでも呼び出せそうだが、Applicationインスタンスを取得するにはActivityのメソッドを呼び出す必要がある&amp;hellip; ということで、Applicationを継承した独自クラスを作成し、Singletonとしてインスタンスを取得すると良いとわかった。よく使われている手法らしい。
-[http://kazuooooo.hatenablog.com/entry/2015/10/18/200949:embed:cite]
+http://kazuooooo.hatenablog.com/entry/2015/10/18/200949
 これら独自Service, Applicationを利用する際の注意事項として、Application.manifestに宣言をしないといけない。これを忘れるとそれらをインスタンス化できずにnullになってExceptionが発生するが、エラー内容を一見してApplication.manifestが原因だとは判別できない。
 Androidの各種メソッド・ライブラリには、この手のContext前提のものが多い。今回のSQLiteのライブラリに関しては内部で呼び出しているFileアクセスがContext前提となっているためのようだ。ただ、それがなぜContext前提にする必要があるかは理解できていない。C#のWPF, UWP関連でも似たような制限があった気がするので、現代的なアプリ開発には必要なセキュリティなどのための必須仕様なのかもしれない。</description>
     </item>
@@ -28,11 +28,11 @@ Androidの各種メソッド・ライブラリには、この手のContext前提
     <item>
       <title>AndroidStudioでEmulatorが起動するも接続できない。</title>
       <link>https://blog.tack41.net/posts/2018/12/02_01/</link>
-      <pubDate>Sun, 02 Dec 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 02 Dec 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/12/02_01/</guid>
       <description>Android Studio 3.2.1(Windows64)にて、Emulataorが起動するのにアプリが全然起動しない状態になりました。 最下部にandroid waiting for target device to come onlineと表示されたままで変化せず、LogcatのデバイスリストにはにはDisconnectedと表示される状態。
-[https://stackoverflow.com/questions/42816127/waiting-for-target-device-to-come-online#43187806:embed:cite]
+https://stackoverflow.com/questions/42816127/waiting-for-target-device-to-come-online#43187806
 のMarkDubyaさんが言うように、adb kill-serverを実行したらアプリが起動し、Logcatにログが出力されるようになった。 Windows 10でのadb.exeはC:\Users\(ユーザー名)\AppData\Local\Android\Sdk\platform-toolsにあった。</description>
     </item>
     

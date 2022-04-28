@@ -9,22 +9,34 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 13 Nov 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WindowsのMariaDBメジャーバージョンアップ後の運用の注意</title>
+      <link>https://blog.tack41.net/posts/2019/11/03_01/</link>
+      <pubDate>Sun, 03 Nov 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2019/11/03_01/</guid>
+      <description>WindowsのMariaDBを10.2 -&amp;gt; 10.4のようにメジャーバージョンアップする場合について。
+バージョンアップ自体は公式サイトの手順に従って行えば良い。インストーラにより、上記の場合はバイナリはC:\Program Files\MariaDB 10.4、データはC:\Program Files\MariaDB 10.2を参照するようになる。MySQLサービスの実行パスは
+&amp;#34;c:\Program Files\MariaDB 10.4\bin\mysqld.exe&amp;#34; &amp;#34;--defaults-file=C:\Program Files\MariaDB 10.2\data\my.ini&amp;#34; &amp;#34;MySQL&amp;#34; のようになる。
+で、時間があるのでデータもバイナリも10.4のフォルダにするためにバックアップを取得した上で10.4をアンインストール、再度10.4をインストールすると、サービスが起動しない。 原因は上記実行パスのサービスがアンインストール時も消されずに残ってしまうためのよう。 MariaDBをすべてアンインストールした状態でsc delete MySQLを実行して残ったサービスを削除し、再度インストールすると正しい実行パスのサービスのエントリが生成される。</description>
+    </item>
+    
     <item>
       <title>MariaDBのON UPDATE CURRENT_TIMESTAMPに対するUPDATEの動作について</title>
       <link>https://blog.tack41.net/posts/2018/11/13_01/</link>
-      <pubDate>Tue, 13 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 13 Nov 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/11/13_01/</guid>
       <description>リンク先同様、しばらく悩んでしまったのでメモ。
 MySQLでON UPDATE CURRENT_TIMESTAMP で更新時にタイムスタンプを自動更新するように設定している場合でも、UPDATE前後で値に変化がなければタイムスタンプは更新されない。
-[https://qiita.com/nao_tuboyaki/items/bef44862f6ddffd4f0b5:embed:cite]</description>
+[https://qiita.com/nao_tuboyaki/items/bef44862f6ddffd4f0b5][https://qiita.com/nao_tuboyaki/items/bef44862f6ddffd4f0b5)</description>
     </item>
     
     <item>
       <title>Access 2003からMariaDBに移行</title>
       <link>https://blog.tack41.net/posts/2018/08/19_01/</link>
-      <pubDate>Sun, 19 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 19 Aug 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/08/19_01/</guid>
       <description>内製のAccess 2003アプリを、DB部分はMariaDBに移行している。 フロントは.Net(C#)
@@ -49,7 +61,7 @@ MySQLでON UPDATE CURRENT_TIMESTAMP で更新時にタイムスタンプを自�
     <item>
       <title>MariaDBからSQL Serverを直接参照するテーブルを作成</title>
       <link>https://blog.tack41.net/posts/2017/10/10_01/</link>
-      <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 Oct 2017 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2017/10/10_01/</guid>
       <description>概要 Windows上のMariaDBからSQL Serverを直接参照するテーブルを作成します。Accessのリンクテーブル。 Connect Storageという機能を利用します。
@@ -57,7 +69,7 @@ MySQLでON UPDATE CURRENT_TIMESTAMP で更新時にタイムスタンプを自�
  ODBCを設定せずにExcelから参照できる。 Windows認証を利用できるので、アプリで認証を考慮する必要がない。  後者に関しては、エラー時の対応等、逆にややこしくなりそうでメリットにならないと判断。ただ、前者を利用した、簡易BIとしてのExcelピボットテーブルファイルが利用されているため、うまく対応する必要がありました。
 将来性を考えると、10GBに制限されるSQL Server Express Editionは避けたいところ。そこで、まずMariaDBサーバを立ててSQL Serverのデータを参照する形で運用を開始することにしました。
 MariaDBには、異種データベースを参照するConnect Storage Engineという機能があることが分かり、これを利用して実装しました。
-前提  OS: Windows Server 2008 R2 Maria DB: 10.2.9 SQL Server: SQL Server 2008 R2　Express Edition  データベース名: DBTEST DBユーザー名: USERTEST, パスワード: PASSTEST テーブル名: TABLETEST    手順   管理ツールの「データソース(ODBC)」にて、SQL ServerへのDSNを登録(DSN名を「SQLSVR」とする)
+前提  OS: Windows Server 2008 R2 Maria DB: 10.2.9 SQL Server: SQL Server 2008 R2 Express Edition  データベース名: DBTEST DBユーザー名: USERTEST, パスワード: PASSTEST テーブル名: TABLETEST    手順   管理ツールの「データソース(ODBC)」にて、SQL ServerへのDSNを登録(DSN名を「SQLSVR」とする)
   MariaDBにmysqlクライアントで接続し、以下のコマンドでConnect Storage Engineを有効化する。
 INSTALL SONAME &amp;#39;ha_connect&amp;#39;   以下のコマンドでConnect Storage Engine経由での参照を利用したテーブルエントリを作成する。
 CREATE TABLE TABLETEST ENGINE=CONNECT DEFAULT CHARSET=cp932 TABLE_TYPE=ODBC CONNECTION=&amp;#39;DSN=SQLSVR;UID=USERTEST;PWD=PASSTEST&amp;#39;;   問題点 上記手順だと、該当のデータベースの一覧(show tables)まではできるが、内容を取得(select * from &amp;hellip;)できない。 SELECTしか必要ない場合においても、全データベースに対する全操作の権限(grant all on .</description>

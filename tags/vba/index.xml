@@ -9,11 +9,11 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 10 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/vba/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 10 Sep 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/vba/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>今日のクソVBAコード</title>
       <link>https://blog.tack41.net/posts/2018/09/10_01/</link>
-      <pubDate>Mon, 10 Sep 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 10 Sep 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/09/10_01/</guid>
       <description>stDocName = ChrW(xx) &amp;amp; ChrW(yy) &amp;amp; ChrW(zz) &amp;amp; ChrW(abc) &amp;amp; ChrW(def) &amp;amp; ChrW(ghi) &amp;amp; ChrW(jkl) &amp;amp; ChrW(mno) &amp;amp; ChrW(pqr) &amp;amp; ChrW(stu) DoCmd.OpenReport stDocName, acPreview ChrWの引数は実際にはコードが入る。 式の右辺をイミディエイトウィンドウに入力すると、日本語のレポート名が表示される&amp;hellip;

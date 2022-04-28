@@ -9,17 +9,17 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 15 May 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.tack41.net/tags/win2016/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 May 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/win2016/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Windows 2016でプログラムが起動しない</title>
       <link>https://blog.tack41.net/posts/2018/05/15_01/</link>
-      <pubDate>Tue, 15 May 2018 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 15 May 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/05/15_01/</guid>
       <description>当社で利用している手形管理のシステムにて、辞書の更新をしようとしたところ、なぜかexeをクリックしても起動しない症状が発生した。
 イベントログにて、以下のような内容が出力されている
 ProviderName : Microsoft-Windows-Immersive-Shell Id : 5973 Message : アプリ Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy:App.AppXc99k5qnnsvxj5szemm7fp3g7y08we5vm.mca のライセンス認証がエラーで失敗しました: このアプリは、ビルトイン Administrator ではアクティブ化できません。。詳しくは、Microsoft-Windows-TWinUI/Operational ログをご覧ください。 ググっては見たが、
-[https://support.microsoft.com/ja-jp/help/3064045/windows-store-apps-may-not-open-and-event-id-5973-is-logged-in-the-app]
+https://support.microsoft.com/ja-jp/help/3064045/windows-store-apps-may-not-open-and-event-id-5973-is-logged-in-the-app
 のように、ストアアプリを開くときの権限の問題しかヒットしない。 エクスプローラーからダブルクリックしているのだが、ひょっとしてストアアプリ起動と認識されてしまっているのかも、と思いコマンドプロンプトで起動したところ正常に起動した。
 Windows 2016の不具合なのだろうか?</description>
     </item>
@@ -27,22 +27,22 @@ Windows 2016の不具合なのだろうか?</description>
     <item>
       <title>Windows 2016のWindows Update</title>
       <link>https://blog.tack41.net/posts/2018/03/16_01/</link>
-      <pubDate>Fri, 16 Mar 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 16 Mar 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/03/16_01/</guid>
       <description>今年に入って稼働を始めたWindows Server 2016で、原因不明の再起動が発生。 Hyper-Vホストでも発生するため、ゲストOSが未起動の状態で朝を迎え、利用者から問い合わせを受けていた。
 原因はタイトルの通り。 信じられないのだが、Windows 2016ではどのように設定しても一度Windows Updateを動かすとactive hourの後で勝手に再起動するらしい&amp;hellip;
-[https://social.technet.microsoft.com/Forums/Lync/en-US/d6cde72c-80a5-418b-9a49-8a604e35d41b/windows-server-2016-automatically-restart?forum=ws2016:title]
+https://social.technet.microsoft.com/Forums/Lync/en-US/d6cde72c-80a5-418b-9a49-8a604e35d41b/windows-server-2016-automatically-restart?forum=ws2016
 上記記事の最後に、荒っぽいタスクを30分おきに起動して再起動を止める、というworkaroundが紹介されていた。
 Command: schtasks Arguments: /change /tn \Microsoft\Windows\UpdateOrchestrator\Reboot /DISABLE うちはそれほど社員数もおらず、夜間にサーバー使えないと困るという人はいないので再起動は止めず、再起動後にゲストOSを自動起動するよう設定した。 併せて、以下の記事を参考に再起動後にメール、LINE通知するようにした。
-[http://kokura.hatenadiary.jp/entry/2018/02/01/145500:embed:cite]
+http://kokura.hatenadiary.jp/entry/2018/02/01/145500
 改めて、Windows奥が深い</description>
     </item>
     
     <item>
       <title>ファイルサーバーの移行</title>
       <link>https://blog.tack41.net/posts/2018/01/08_01/</link>
-      <pubDate>Mon, 08 Jan 2018 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 08 Jan 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2018/01/08_01/</guid>
       <description>以下の要件で、ファイルサーバーの移行を行った。
