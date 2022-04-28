@@ -9,7 +9,61 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 24 Dec 2019 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Jun 2020 01:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>テスト対象プロジェクトのコンテンツファイルが必要なテスト実行時の注意</title>
+      <link>https://blog.tack41.net/posts/2020/06/18_02/</link>
+      <pubDate>Thu, 18 Jun 2020 01:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/06/18_02/</guid>
+      <description>要約 テスト対象プロジェクトのコンテンツファイルが存在することが必要となるテストを行う場合は、テストクラスに[DeploymentItem(@&amp;quot;Files\contents.xlsx&amp;quot;, &amp;quot;Files&amp;quot;)]の記述が必要
+内容 Targetプロジェクトにて、Files\contents.xlsxをコンテンツ指定しており、これを利用する機能をTargetTestプロジェクトから実行する場合、何も考えずに実行するとFiles\contents.xlsxが見つからない旨のエラー(File or Directory Not found)が出る。
+で、そのあとにテスト単体を個別に実行するとうまくいく。[選択して実行]と[すべてを実行]では実行パスが違い、前者では何も指定しなくてもコンテンツもコピーされるが、後者ではされないためのようだ。
+[http://blog.livedoor.jp/nanoris/archives/51825230.html:embed:cite]
+対応としては、TestClassのアノテーションの下にDeploymentItemのアノテーションを追加するとうまくいった。
+[TestClass] [DeploymentItem(@&amp;#34;Files\contents.xlsx&amp;#34;, &amp;#34;Files&amp;#34;)]` public class TestClass{ ... ディレクトリ「Files」も指定しないとDirectoryNotFoundExceptionとなった。コンテンツファイルをテストプロジェクトにコピーする必要はない。</description>
+    </item>
+    
+    <item>
+      <title>MSTest の実行順番</title>
+      <link>https://blog.tack41.net/posts/2020/06/18_01/</link>
+      <pubDate>Thu, 18 Jun 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/06/18_01/</guid>
+      <description>要約 MSTestは、複数クラスのメソッドを交互に実行しうる。これが困る場合は1つのクラスにまとめるべきかもしれない
+内容 テストクラスAで更新系のテストをまとめてクラス初期化時にデータ整備を行い、テストクラスBで参照系のテストをまとめてテスト実行時にデータ整備を行っていた。
+MSTestでは標準で並列実行はしないので問題ないと思っていたが、タイミングによって参照系のテストがこけることがあった。よくよく調べてみると、参照系のテストの一部が終わった状態で更新系のテストに移り、そこでデータが更新されてしまった状態で残りの参照系のテストが行われ、データが合わない状態だった。
+並列実行しないというのはメソッド単位の話で、クラス単位のメソッドの実行順位が入れ子になることはあるようだ。成功したり、失敗したりするヤなパターンとなる。
+対応として参照系、更新系を同一クラスにまとめ、全メソッドに対してメソッド実行時にデータ整備を行うこととした。
+参照系のテストのみであればデータ整備はクラス初期化時でよいのだが、更新系が混ざる場合は参照系を含む全メソッドでメソッド実行時にデータ整備を行わないといけないということか。</description>
+    </item>
+    
+    <item>
+      <title>DataGridViewの列の並び順</title>
+      <link>https://blog.tack41.net/posts/2020/06/08_01/</link>
+      <pubDate>Mon, 08 Jun 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/06/08_01/</guid>
+      <description>Windows FormのDataGridView .Net Framework 4.7.2 にて
+DataGridViewでDataSourceにDataTableを代入して利用する。
+dataGridView1.DataSource = dt1; 1回目に列名2020/1,2020/2,2020/3,2020/4 の4つの列名を含むDataTableを設定。その後2019/10,2019/11,2019/12,2020/1 の4つを列名に含むDataTableを渡すと、重複する2020/1が 先頭に表示されてしまう。DataSource自体は全く別のオブジェクトなのだが、DataGridView側で前回のColumn情報を覚えていて、列名がマッチしたら使いまわしているのかもしれない。
+対策としては、DataSourceに代入する前に
+dtaGridView1.Columns.Clear(); を実行すればよい。</description>
+    </item>
+    
+    <item>
+      <title>IODATAのクラウドストレージ連携(S3)でエラー</title>
+      <link>https://blog.tack41.net/posts/2020/03/26_01/</link>
+      <pubDate>Thu, 26 Mar 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/03/26_01/</guid>
+      <description>IODATAのNASで利用しているクラウドストレージ連携でS3にバックアップしているのだが、今日、急に以下のようなエラーが出るようになった。
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;Error&amp;gt;&amp;lt;Code&amp;gt;AuthorizationHeaderMalformed&amp;lt;/Code&amp;gt;&amp;lt;Message&amp;gt;The authorization header is malformed; the region &amp;#39;us-east-1&amp;#39; is wrong; expecting &amp;#39;ap-northeast-1&amp;#39;&amp;lt;/Message&amp;gt;&amp;lt;Region&amp;gt;ap-northeast-1&amp;lt;/Region&amp;gt;&amp;lt;RequestId&amp;gt;...&amp;lt;/RequestId&amp;gt;&amp;lt;HostId&amp;gt;...=&amp;lt;/HostId&amp;gt;&amp;lt;/Error&amp;gt; NAS, S3側で特に設定変更はしていないのだが&amp;hellip; クラウドストレージ連携のバージョン1.28が2020/2/26にリリースされているようなので、これが自動更新されたのかもしれない。 https://www.iodata.jp/support/qanda/answer/s30471.htm
+https://github.community/t5/GitHub-Actions/Cannot-get-an-AWS-Action-to-run-in-the-correct-region/td-p/17413
+にあるように、既定で接続するとリージョンがus-east-1となり、ap-northeast-1リージョンのS3 bucketを操作しようとしてエラーとなっていると推測される。
+対応として、詳細設定にあるエンドポイント指定にて、今まで未指定だったところに「s3.ap-northeast-1.amazonaws.com」を指定したところ、接続テストが成功することを確認。</description>
+    </item>
+    
     <item>
       <title>WindowsFormでイベントを駆使して入力チェック等を行う場合のポイント</title>
       <link>https://blog.tack41.net/posts/2019/12/24_01/</link>

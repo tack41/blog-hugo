@@ -9,7 +9,30 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 10 Jan 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/zabbix/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Oct 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/zabbix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ZabbixのDockerイメージバージョンアップ時にtimezoneエラー</title>
+      <link>https://blog.tack41.net/posts/2020/10/21_01/</link>
+      <pubDate>Wed, 21 Oct 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/10/21_01/</guid>
+      <description>Dockerにて、本家のイメージを使って運用している。
+4.0.22から4.0.24にアップしたところ、以下のエラーが出て監視画面が表示されなくなってしまった。
+DateTime::__construct(): Invalid date.timezone value &amp;#39;&amp;#34;Asia/Tokyo&amp;#34;&amp;#39;, we selected the timezone &amp;#39;UTC&amp;#39; for now. よくよくみると、「Asia/Tokyo」の前後にダブルクォーテーションとシングルクォーテーションがついている。ひょっとしてと思い、Dockerで環境変数を指定している箇所
+PHP_TZ=&amp;#34;Asia/Tokyo&amp;#34; をダブルクォーテーションなしで
+PHP_TZ=Asia/Tokyo と修正したところ、無事表示されるようになった。</description>
+    </item>
+    
+    <item>
+      <title>zabbix起動時にエラー</title>
+      <link>https://blog.tack41.net/posts/2020/09/15_01/</link>
+      <pubDate>Tue, 15 Sep 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/09/15_01/</guid>
+      <description>zabbix起動時に以下のエラーが表示されてログイン画面が表示されない。
+DateTime::__construct(): Invalid date.timezone value &amp;#39;&amp;#34;Asia/Tokyo&amp;#34;&amp;#39;, we selected the timezone &amp;#39;UTC&amp;#39; for now. [再起動] 再起動ボタンを押しても同じ画面が再度表示されるだけ。zabbixは公式のDockerイメージ(zabbix/zabbix-web-nginx-mysqlのタグ「4.0-latet」を使用していた。「4.0.22」に戻したところ、正常に動作することを確認。原因は調査できていない。</description>
+    </item>
+    
     <item>
       <title>zabbix share のtemplteは素晴らしい</title>
       <link>https://blog.tack41.net/posts/2018/01/10_01/</link>

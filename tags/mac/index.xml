@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>mac on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/mac/</link>
+    <description>Recent content in mac on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 21 Feb 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacBook Air(2017)のSSD換装</title>
+      <link>https://blog.tack41.net/posts/2021/02/21_01/</link>
+      <pubDate>Sun, 21 Feb 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/02/21_01/</guid>
+      <description>手持ちのMacBook Air(2017)は、2018年に再整備品をApple Storeで購入しているのですが、目に見えてもっさりした動作になりました。 アプリの起動、ブラウザでGoogle検索から結果をクリックして表示されるまでの時間など、あらゆる動作で数秒待たないと応答が返ってこない状態に。
+ディスクの寿命と判断。興味もあったのでディスク交換を行うことにしました。 やっぱり再整備品はこういうリスクがあるのか&amp;hellip;
+元々256GBを搭載していましたが、BootCampでWindowsと半分ずつにするとだいぶ厳しい状態だったので、思い切って1TBに換装することに。使用したのは以下。
+https://www.amazon.co.jp/gp/product/B01CWWAENG/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&amp;amp;psc=1
+https://www.amazon.co.jp/gp/product/B00MVBC4HS/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&amp;amp;psc=1
+https://www.amazon.co.jp/gp/product/B07VXC9QMH/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&amp;amp;psc=1
+「MacBook Air SSD 交換」で検索して表示されるサイトを参考に交換を実施。あっさりと交換できました。 起動後、SSDが認識されずに焦りましたが、再度分解して端子をしっかり差し込みなおしたところ、認識しました。BootCampもOK
+ダメなら新しいPCを購入するつもりもあったのですが、まだ長い付き合いになりそうです。手持ちのMacBook Air(2017)は、2018年に再整備品をApple Storeで購入しているのですが、目に見えてもっさりした動作になりました。 アプリの起動、ブラウザでGoogle検索から結果をクリックして表示されるまでの時間など、あらゆる動作で数秒待たないと応答が返ってこない状態に。
+ディスクの寿命と判断。興味もあったのでディスク交換を行うことにしました。 やっぱり再整備品はこういうリスクがあるのか&amp;hellip;
+元々256GBを搭載していましたが、BootCampでWindowsと半分ずつにするとだいぶ厳しい状態だったので、思い切って1TBに換装することに。使用したのは以下。
+https://www.amazon.co.jp/gp/product/B01CWWAENG/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&amp;amp;psc=1
+https://www.amazon.co.jp/gp/product/B00MVBC4HS/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&amp;amp;psc=1
+https://www.amazon.co.jp/gp/product/B07VXC9QMH/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&amp;amp;psc=1
+「MacBook Air SSD 交換」で検索して表示されるサイトを参考に交換を実施。あっさりと交換できました。 起動後、SSDが認識されずに焦りましたが、再度分解して端子をしっかり差し込みなおしたところ、認識しました。BootCampもOK
+ダメなら新しいPCを購入するつもりもあったのですが、まだ長い付き合いになりそうです。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -9,7 +9,44 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 19 Aug 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/access/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Sep 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/access/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Accessでフォーム起動時に該当列が存在しないエラーの原因究明</title>
+      <link>https://blog.tack41.net/posts/2020/09/05_01/</link>
+      <pubDate>Sat, 05 Sep 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/09/05_01/</guid>
+      <description>Access であるフォームを起動時に、特定の列が存在しない旨のエラーが表示された。その原因究明について。
+該当フォームのレコードソースを見るとクエリが指定されており、エラーメッセージに表示された列が存在しないことを確認。ただ、どこから参照されているかがわからない。
+該当フォームはマクロで起動されていたのでマクロを調べてみたが、フォームを起動する処理のみでおかしなところはない。 該当フォームの全てのコントロールのコントロールソースのプロパティを調べてみたが、エラーとなっている項目を参照している箇所はない。 VBAマクロにて該当フォーム内の全プロシージャを調べてみたが、やはり参照箇所はない。
+最終的に、フォームの並び替えのプロパティで参照されていた。 かなり時間がかかってしまったが、次回同じようなことが起こった際には、ariawaseのようなツールでVBAをエクスポートしたあと、grepするほうが早くて確実だと思う。</description>
+    </item>
+    
+    <item>
+      <title>mdbファイルが破損している場合</title>
+      <link>https://blog.tack41.net/posts/2020/07/29_01/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/07/29_01/</guid>
+      <description>mdbファイルが破損している場合、最初のクエリ実行時にOleDbExceptionが発生します。 これをキャッチすれば破損を検知するロジックはとりあえず書けます。</description>
+    </item>
+    
+    <item>
+      <title>Accessはできることが多すぎる</title>
+      <link>https://blog.tack41.net/posts/2020/06/28_01/</link>
+      <pubDate>Sun, 28 Jun 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/06/28_01/</guid>
+      <description>過去に開発された内製アプリをC#+RDBMSに置き換えていて思うこと。
+kintoneやPowerAppsのようなローコード、ノーコードと言われる分野のアプリで置き換えようとすると機能が足りず、ガッカリして断念している。 ふと思うのは、むしろAccessが高機能すぎるのではないかということ。特にVBAはやろうと思えばなんでもできてしまう。会社の前の基幹アプリはAccess VBAでできていたし。
+Accessが目指すべきなのは、クエリ、マクロ、フォームの組み合わせでできることに特化すべきで、それ以上のことは別のやり方でやってください、とすべきだったのではと思う。VBAは禁止。クエリもGUIで組み立てられるレベルまで、サブクエリは禁止、くらいでちょうど良い。
+WordやExcelのVBAは、普通に作る分にはUI,データソース共に限られるので問題にならないが、AccessはなまじDBMSとしてテーブル、SQLをサポートしているので複雑なことまでやろうとしてしまう。グラフもそれなりに書けてしまうし。
+他の言語がここ十何年で目覚ましい進歩を遂げて入り一方でVBAがここ何年もほとんど進化していないのは、できることが多すぎてそれらを維持したまま進化させるのが難しいという一面もあると思う。メインの利用者が非開発者でそのような進歩を望んでいないことも大きいと思うが。
+最新の言語を書いた後にVBAのプアな機能を使ってコードを書くのはとても辛い&amp;hellip; Visual Studio Tools for OfficeもAccessはサポートしてないし。
+ローコード、ノーコードアプリはスプレッドシートをデータソースとすることが多いので、AccessはExcelのみをデータソースとしてサポートする、くらいで良いと思うが、それってPowerBIだよねという話で、Accessはもはや不要な製品だと思う。
+Accessの値段でAccessと同等の機能を持つ製品はなく、(自分も含めて)影響は大きいが、大規模な時代遅れなAccessのVBAの保守を任される開発者も、時代遅れなVBAを進化させることができずに細々とサポートするMicrosoftの開発者も不幸な今の状況を考えると、Accessは終了すべきと思う。長めの期間をとって移行のロードマップを示す必要はあるが。10年後にVBAバリバリのAccessアプリが残っている未来を想像したくない。</description>
+    </item>
+    
     <item>
       <title>Access 2003からMariaDBに移行</title>
       <link>https://blog.tack41.net/posts/2018/08/19_01/</link>

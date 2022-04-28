@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>googleappsscript on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/googleappsscript/</link>
+    <description>Recent content in googleappsscript on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 09 Nov 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/googleappsscript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 10のscoopでnodejsを運用する際にはまったこと</title>
+      <link>https://blog.tack41.net/posts/2020/11/09_01/</link>
+      <pubDate>Mon, 09 Nov 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/11/09_01/</guid>
+      <description>Windows10でscoopでのパッケージ管理にはまり、node.jsもscoop経由でインストールして利用した際にはまったこと。
+Gitbookを実行しようとしたところ、なぜかうまくいかない。これがうまくいかない理由はscoopとは関係なかったので別記事で。 いったん環境を切りにしようと思い、nodejsをアンインストールしようとするとこける
+scoop uninstall nodejs scoop自体をアンインストールしようとしても同様。
+scoop uninstall scoop エラーメッセージにて階層のかなり深いファイルにアクセスできないと表示されるので、エクスプローラーでファイルの存在は確認できる。が、ファイルを開こうとするとパスが長すぎるため開けない旨のエラーが出る。
+どうも、nodeがネストされたフォルダにキャッシュ等を置こうとする仕様のために発生するようだ。
+https://github.com/lukesampson/scoop/issues/737
+Windows10では既定で260文字となっている
+https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file#maximum-path-length-limitation
+さしあたっては以下の記事にあるように、ネットワークドライブとして参照することで一時的にこの制限を回避できる http://office-qa.com/win/win187.htm
+削除後、以下の記事にあるComputer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabledレジストリを1に変更して再起動後、症状は発生しなくなった
+https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later</description>
+    </item>
+    
+    <item>
+      <title>監視結果通知メールの集約にGoogle Spreadsheet</title>
+      <link>https://blog.tack41.net/posts/2020/10/21_02/</link>
+      <pubDate>Wed, 21 Oct 2020 01:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/10/21_02/</guid>
+      <description>各種バッチ処理の実行結果をメール通知するようにしています。
+各サーバに直接見に行くよりはメールのほうが確認は楽なのですが、それでもメール件数が多いと大変で、リストを元に人手で確認すると漏れる可能性があることが心配でした。
+そこで、メールに識別しやすいヘッダを懸命につけてGmailに飛ばし、Google Apps Scriptで識別子をもとに取得してGoogle Spreadsheetに結果を表示するようにしたところ、一気に楽になりました。
+Spreadsheetの一覧をチェックして結果を通知するGoogle Apps Scriptも別途作成し、通知で何らかのエラーがあればSpreadsheetを見に行くようにしています。
+手間はかかりましたがGoogle Apps Scriptの作成、トリガー登録は無料アカウントでもでき、claspというツールを使えばコードを手元で編集して簡単にアップできるので、ほかにも色々使えそうに思いました。</description>
+    </item>
+    
+  </channel>
+</rss>

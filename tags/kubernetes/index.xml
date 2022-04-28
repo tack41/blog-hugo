@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>kubernetes on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>サーバ台数1-2台でDocker or Kubernetes</title>
+      <link>https://blog.tack41.net/posts/2020/08/03_01/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/08/03_01/</guid>
+      <description>私の勤めている会社では、サーバは全部で4台、そのうち3台はパッケージシステムやADが動作しているWindowsサーバでそのまま運用するだけ(過去に開発されて引き継いだAccessアプリはこの3台のWindows上で動作) 内製アプリは残りの1台でやりくりしています。とは言え利用者は限られているのでリソース的には余裕です。
+Dockerで複数コンテナを立てて運用していましたが、Kubernetesが流行っていることも知っていたので是非導入したいと思い、チャレンジしていました。 結論としては、うちの規模では割りに合わない、Docker運用に戻すことにしました。
+Dockerのメリットは
+ コンテナ化することで複数のサーバを独立に動作させることができる PublicなDockerイメージからDockerfileでイメージを構築する形にすれば、Dockerfileさえあればどの環境でも同じように動作させることができる docker-composeを利用すれば、コンテナ起動時の連携設定等も行える  Kubernetesのメリットは、上記に加えて
+ 同一イメージのコンテナを複数立てて負荷分散する設定を簡単に行える Blue-Greenデプロイのように既存の環境を維持したままのDeployが設定で簡単にできる あたりが一例としてあると思います。  一方でDockerに対するKubernetesのデメリットとして
+ DBの運用が難しい  PVCを使えばできるようだが、壁は低くない   非Publicなコンテナを利用するのであれば、別途Registryサーバが必要 ネットワーク構成が複雑、外部に公開するためにまぁまぁの設定が必要  複数ノードで負荷分散を可能にするための抽象化だが、そこまでいらない場合にはつらい    現状では、内製アプリが死んでも即困る状況ではなく、気付いたらDockerコンテナを起動すれば良い程度の状況なので、Kubernetesで複数コンテナを分散運用する必要もなく&amp;hellip; ただDBだけは守る必要があるので、しっかりバックアップしてすぐに復旧できるようにしたい。となるとDockerでホストVolumeを使ってやるくらいがメンテしやすい。
+このような理由でDockerに戻します。 その上で、DBのバックアップやリストアなどの手順をAnsibleでコード化しておく、あたりが今のインフラ規模ではベストだと判断しました。
+Kuberetesのソリューションには、シングルで運用できるminikubeやmicrok8s,k3sなどのソリューションがあり簡単に始められますが、運用にあたっては同一コンテナの負荷分散が必要、のような必要性がないと難しいと思いました。お金をかけられるのであれば、EKSなどのマネージドサービスがベストだと思います。</description>
+    </item>
+    
+    <item>
+      <title>Kubernetesでコンテナ動作させる際の基本</title>
+      <link>https://blog.tack41.net/posts/2020/07/09_01/</link>
+      <pubDate>Thu, 09 Jul 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/07/09_01/</guid>
+      <description>思い切ってKubernetesを構築、試験運用を始めました。Ubuntu Server 20.04のMicroK8sです。
+docker-compose で動作するところは確認できていたので余裕かと思っていたのですが、はまってしまいました。
+症状は、 CrashLoopBackOffで再起動が続く状態。これ当然まともにコンテナが起動せずに終了してしまっているからなんですが、手元の環境ではDockerfileとdocker-composeの合わせ技で奇跡的にうまく動作していたため、Kubernetes側の問題だろうとあれこれ調査して時間を浪費してしまいました。
+KubernetesではDockerfileによるbuild済みのコンテナイメージを起動します。docker-composeに記載している処理は、Kubernetesのyamlに記載するか、Dockerfileに記載する必要があります。 が、Kubernetesのyamlに同じ内容を記述できるとは限らず、また記述できても同じ動作をするかはわかりません。ですので、極力Dockerfileに記載してdocker-compose.ymlはシンプルにとどめておいたほうがよさそうと感じました。
+また、内部の名前解決用に使用しているDNSは、解決できないと8.8.8.8にforwardしてしまう。Kubernetesの外の社内サーバを名前で参照する場合には、dnsConfigなどの設定でforward先を変更する必要がある。
+https://qiita.com/sugimount/items/1873d9d332a25f5b0167</description>
+    </item>
+    
+  </channel>
+</rss>

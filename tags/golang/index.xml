@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>golang on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/golang/</link>
+    <description>Recent content in golang on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 25 Jun 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sqlxの構造体へのscanでエラー</title>
+      <link>https://blog.tack41.net/posts/2020/06/25_01/</link>
+      <pubDate>Thu, 25 Jun 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/06/25_01/</guid>
+      <description>最近golangでプログラムを書いてます。普段書いている.Net Framework(およびエコシステム)と比較すると物足りないところも多いですが、Visual Studio立ち上げずにサクサクかけて、クロスコンパイルしてどこでも動かせるのは良いです。
+要約 sqlx のnon-struct dest type struct with &amp;gt;1 columns (33) というエラーの原因は、構造体のフィールドの頭文字を大文字にするとよいかも
+内容 本当に初心者なので全く分かっていなかったのですが、golangのtypeはメソッドを埋め込んだりフィールドにスコープがあったりして、JavaやC#のクラスに近い位置づけなんですね。
+sqlxを使ってScanしてnon-struct dest type struct with &amp;gt;1 columns (33)のようなエラーが出る原因は、フィールドの頭文字を小文字にしていたため。フィールドを小文字にするとprivate扱いになるよう。</description>
+    </item>
+    
+  </channel>
+</rss>

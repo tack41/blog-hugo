@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>marketing on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/categories/marketing/</link>
+    <description>Recent content in marketing on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 21 Feb 2021 01:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/categories/marketing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>マーケティング調査に使えるサイト</title>
+      <link>https://blog.tack41.net/posts/2021/02/21_02/</link>
+      <pubDate>Sun, 21 Feb 2021 01:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/02/21_02/</guid>
+      <description>業務により、マーケティング調査に足を突っ込んでいます。
+セミナーを受けて調査に使えるサイトの紹介をしてもらったのですが、とても面白いサイトだったのでメモしておきます。
+調査  Googleトレンド  SEOで使用するワードとしてどれが有効なのか調べるのにも使えそう   SimilarWeb  指定したサイトの検索ワード、リファラなどの情報を調べられるので、競合サイトの分析などに使える。独自の調査による推測値のため、参考程度に。   RESAS  Regional Economy Society Analyzing System(地域経済分析システム)。「地域に関する官民の様々なデータを搭載し、誰もが分かりやすいように「見える化」したシステム」とのことで、内閣府 地方創生推進室が運営している。 無料登録することでAPI経由でのデータ利用も可能。 商圏の調査に使えそう? 学校の先生向けに授業で使用できそうな資料も提供しており、こんな授業があったらおもしろかっただろうと思う。   jSTAT MAP  総務省統計局が整備し、独立行政法人統計センターが運用管理しているe-Statサイトのサービスの一つ。 Google Mapに、国勢調査をはじめとした各省庁の調査結果を重ねて表示できる。 商圏の調査?   statcounter  OSやブラウザ、SNSなどのシェアを世界、および国ごとで表示できる。 SNSをチャンネルとして検討する際に、どのSNSがターゲット層に対して有効か、といった調査に使えそう。   ferret  これはセミナーでは紹介されていなかった。上記サイトの使い方を復習する際によくヒットしたのがこのferretというサイト。    資料作成  ICOON MONO  商用利用が可能なアイコンのサイト。 最近はイラストやがあちこちで使われているが、これは商用利用の場合は1つの制作物に20点までという制限があるので注意。   AutoDraw  Googleが運営している、手書きで書いたイラストをAIが判定して、既存の中からより近いイラストを候補として提示するサービス。  候補を利用せずに便利なお絵かきツールとしても利用可能。   既存のイラストは、複数のアーティストが提供しており、Creative Commons Attribution 4.0 International Licenseで提供されるとあるので、商用利用も問題なし。    </description>
+    </item>
+    
+  </channel>
+</rss>

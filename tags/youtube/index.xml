@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>youtube on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/youtube/</link>
+    <description>Recent content in youtube on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 18 Nov 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/youtube/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iPadのYouTubeでキーボードによる早送り</title>
+      <link>https://blog.tack41.net/posts/2020/11/18_01/</link>
+      <pubDate>Wed, 18 Nov 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/11/18_01/</guid>
+      <description>iPadのYouTubeでキーボードで早送り、巻き戻しをしたいと考えた。 アプリであれば画面の右側/左側ダブルタップすれば(既定で)10秒早送り/巻き戻しとなるが、面倒なのと誤操作がたまに発生するのでキーボードで何とかしたいと考えた。
+「ipad youtube ショートカット」あたりで検索すると多数ヒットするが、自分の環境(iPad Pro 9.7inch, iPadOS 14.2, Bluetoothキーボード)ではうまく動作しない。 Google ChromeでYouTubeの動画を全画面表示すると、右矢印、左矢印で15秒早送り、巻き戻しができることを確認。ただ、Chromeでも全画面表示を解除した場合やYouTubeアプリやSafariでは動作しない。</description>
+    </item>
+    
+  </channel>
+</rss>

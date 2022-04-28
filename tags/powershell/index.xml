@@ -9,7 +9,34 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Jun 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/powershell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windowsバックアップの結果通知</title>
+      <link>https://blog.tack41.net/posts/2021/06/15_01/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/06/15_01/</guid>
+      <description>Windowsバックアップの結果通知は、タスクスケジューラにて成功/失敗のイベントログをトリガーにしたタスクを作るよう説明しているサイトが多い。 が、自社の環境ではちょいちょい通知が来ないことがある。イベントログを確認してみると記録はされている。イベントログのトリガは不安定と感じている。
+そこで、直接成功/失敗のイベントログを見に行って、その結果をもとに通知するほうが確実と判断。現在テスト中。 以下がとても参考になった。
+https://stackoverflow.com/questions/51769582/powershell-script-not-pulling-event-from-event-log
+実際には以下のようなコードで運用している
+# 何時間前までのログを対象にするか $PastHours=12 $StartAt = (Get-Date).AddHours(-$PastHours) # バックアップ成功時に記録されるイベントログ $FilterHashTable = @{  logname = &amp;#34;Microsoft-Windows-Backup&amp;#34;  id = 4  StartTime = $StartAt }  try{  $actions = (Get-WinEvent -FilterHashtable $FilterHashTable -ErrorAction Stop)   if ($actions){  ForEach($action in $actions){  Write-Host &amp;#34;OK: Windows Backup Completed Successfully at $(($action.Task)),$(($action.TimeCreated))&amp;#34;  Exit 0  }  }else{  Write-Host &amp;#34;CRITICAL: Windows Backup has not run in past $PastHours hours&amp;#34;  exit 1  } }catch [Exception] {  Write-Host &amp;#34;CRITICAL: Windows Backup has not run in past $PastHours hours&amp;#34;  Exit 1 } </description>
+    </item>
+    
+    <item>
+      <title>PowershellでActiveDirectory情報取得で原因不明の不具合</title>
+      <link>https://blog.tack41.net/posts/2020/10/09_01/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/10/09_01/</guid>
+      <description>Active Directoryの情報をPowershellで取得し、管理資料に起こすスクリプトを作成。せっかくなので定期的にスクリプトを実行して差分がないかタスクスケジューラで定期実行してチェックする運用を構築していた時に問題が発生。
+手動で実行する分には問題ないのだが、タスクスケジューラを通して実行するとなぜか以下問題が発生
+ ADのオブジェクトのSort-Objectでの並び替えが効かない Get-GPOReportで出力した一部XMLに差分が検知される。実際に比較してみると差分はないのだが&amp;hellip;  https://social.technet.microsoft.com/Forums/ja-JP/a7e363fa-4553-4468-b123-a1e971c68a78/12525124641245812501123751239012356124271251812540124701254012?forum=powershellja
+によると、手動実行とタスクスケジューラからの実行時で既定のモジュールパスが異なるということなので、それによるのかもしれない。が、プログラムがこけているわけではないので、原因はどれなのか得的できず、どれをロードすればよいのかわからない。
+実行の都度生成されるファイルが変わってしまうようではチェックには使えないということで、タスクスケジューラによるチェックは断念した。
+Powershellをタスクスケジューラから呼び出す処理はほかに多数書いており、問題になったことはない。Active Directoryを操作する際にはImport-Moduleで専用のモジュールを読み込んで処理をするのだが、こういった書き方をする場合に問題となるのかもしれない。 原因は不明。</description>
+    </item>
+    
     <item>
       <title>PowershellのToStringの書式指定ではまった</title>
       <link>https://blog.tack41.net/posts/2019/07/01_01/</link>

@@ -1,50 +1,38 @@
 <!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Posts | tack41's blog</title><meta name=keywords content><meta name=description content="Posts - tack41's blog"><meta name=author content="tack41"><link rel=canonical href=https://blog.tack41.net/posts/><link crossorigin=anonymous href=/assets/css/stylesheet.min.48a18943c2fc15c38a372b8dde1f5e5dc0bc64fa6cb90f5a817d2f8c76b7f3ae.css integrity="sha256-SKGJQ8L8FcOKNyuN3h9eXcC8ZPpsuQ9agX0vjHa3864=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.tack41.net/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=16x16 href=https://blog.tack41.net/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=https://blog.tack41.net/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=https://blog.tack41.net/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=https://blog.tack41.net/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.tack41.net/posts/index.xml><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id="></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config",'')</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-DNWENV5G0J"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-DNWENV5G0J",{anonymize_ip:!1})}</script><meta property="og:title" content="Posts"><meta property="og:description" content="tack41's blog"><meta property="og:type" content="website"><meta property="og:url" content="https://blog.tack41.net/posts/"><meta property="og:image" content="https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="tack41's blog"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Posts"><meta name=twitter:description content="tack41's blog"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.tack41.net/posts/"}]}</script></head><body class=list id=top><script>window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://blog.tack41.net/ accesskey=h title="Home (Alt + H)"><img src=https://blog.tack41.net/apple-touch-icon.png alt=logo aria-label=logo height=35>Home</a>
-<span class=logo-switches></span></div><ul id=menu><li><a href=https://blog.tack41.net/categories/ title=categories><span>categories</span></a></li><li><a href=https://blog.tack41.net/tags/ title=tags><span>tags</span></a></li><li><a href=https://blog.tack41.net title=tack41.net><span>tack41.net</span></a></li></ul></nav></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://blog.tack41.net/>Home</a></div><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2>Windows Server 2012でiSCSI target (1)target側</h2></header><section class=entry-content><p>iSCSI target, initiator共にWindows Server 2012(Full)
-[iSCSI target]
-[ローカルサーバー]-[管理]-[役割と機能の追加]を選択
-[次へ]をクリック
-[役割ベースまたは機能ベースのインストール]を選択
-自身のサーバを選択
-[ファイルサービスおよび記憶域サービス]-[ファイルサービスおよびiSCSIサービス]-[iSCSIターゲットサーバー]、[iSCSIターゲット記憶域プロバイダー]を選択
-機能は追加せずに[次へ]をクリック
-[インストール]を選択
-[閉じる]を選択
-サーバマネージャーに戻り、[ファイルサービスと記憶域…]を選択
-[iSCSI]を選択
-[タスク]-[新しいiSCSI仮想ディスク]を選択
-ディスクを作成するボリュームを選択し、「次へ」をクリック。
-適当な名前を入力し、次へをクリック
-割り当て容量を入力し、次へをクリック
-[新しいiSCSIターゲット]を選択
-適当な名前を入力し、[次へ]をクリック。
-[追加]をクリック
-iSCSI initiatorの情報を入力
-必要に応じてCHAP, リバースCHAPを有効にする
-[作成]をクリックして完了する
-正常に作成されたのを確認し、[閉じる]をクリック。</p></section><footer class=entry-footer><span title="2013-04-19 01:00:00 +0900 +0900">April 19, 2013</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to Windows Server 2012でiSCSI target (1)target側" href=https://blog.tack41.net/posts/2013/04/19_01/></a></article><article class=post-entry><header class=entry-header><h2>FreeNAS(8.3.0)にてCIFS設定</h2></header><section class=entry-content><p>任意のユーザーにアクセス許可を与える場合 CDにてインストール 初回起動後、コンソールにてIPアドレス、DNSを設定 Webコンソールにて[Storage]-[Active Volumes]-[Volume Manager]を選択
-対象のボリュームを選択し、必要な情報を入力して[Add Volume]をクリック
-[Storage]にて先ほど作成した「Volume1」にて[Change Permissions]をクリック。
-Owner(user/group)にて適切な所有者を指定する。今回は全ユーザーに許可を与えるためnobodyをOwnerに指定している。
-[Shares]-[Windows(CIFS)]-[Add Windows(CIFS) Share]をクリック。
-必要な情報を入力する。ポイントは以下の通り。 [Path]には前で作成したボリューム(/mnt/Volume1)を入力する。 以下のチェックボックスにチェックを入れる。 Browsable to Network Clients Allow Guests Access Only Allow Guest Access CIFSサービスを起動するかどうか確認ダイアログが表示されるので、Yesをクリックする。
-[Services]にて[CIFS]が[ON]になっていることを確認し、右にあるスパナのアイコンをクリックする。
-CIFSの各種設定を行う。ポイントは以下の通り。 Authentication Modelは「Local User」を指定する。「Anonymous」を指定するとファイルを作成できるが変更・削除ができなくなる。 DOS charsetは「CP932」を指定。 上記以外はデフォルトのまま
-Explorerにて上記で作成したフォルダが見えることを確認。
-ファイルやフォルダを作成できることを確認。 特定ユーザーにアクセス許可を与える場合 (上記任意のユーザーにアクセス許可を与える作業は実施済みとする)
-[Account]-[Users]-[Add User]にてアクセス許可を与えるユーザーを作成する。 [Shares]-[Windows(CIFS)]にて作成済みの共有フォルダの[Edit]ボタンをクリックする。
-最下部の「Allow Guest Access」「Only Allow Guest Access」のチェックを外して[OK]ボタンをクリックする。...</p></section><footer class=entry-footer><span title="2012-12-11 00:00:00 +0000 UTC">December 11, 2012</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to FreeNAS(8.3.0)にてCIFS設定" href=https://blog.tack41.net/posts/2012/12/11_01/></a></article><article class=post-entry><header class=entry-header><h2>Ubuntu12.10でHulu</h2></header><section class=entry-content><p>Ubuntu12.10 64bitにてHuluの字幕が文字化けする。
-ネットで検索してフォント関連をインストールしてみたがうまく行かない。
-同様の現象に悩んでいる人もいるようだ…
-http://solvedmyquestions.blogspot.jp/2012/11/ubuntu-hulu.html</p></section><footer class=entry-footer><span title="2012-12-03 00:00:00 +0000 UTC">December 3, 2012</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to Ubuntu12.10でHulu" href=https://blog.tack41.net/posts/2012/12/03_01/></a></article><article class=post-entry><header class=entry-header><h2>Ubuntu 12.10でkvm</h2></header><section class=entry-content><p>以下を参照。
-http://blog.livedoor.jp/shota_soga_/archives/3527400.html
-sudo apt-get install kvm qemu-kvm libvirt-bin virt-viewer virt-manager sudo modprobe kvm sudo service libvirt-bin start sudo virt-manager sudo virt-manager 引き続き、他のPCと同じNW環境にするためのブリッジ設定。
-http://tipspc.blogspot.jp/2011/09/qemu-kvm-ubuntu-debian.html NetworkManagerを削除 sudo apt-get remove network-manager “/etc/network/interfaces"を以下のとおり編集。 auto lo iface lo inet loopback auto eth0 iface eth0 inet manual auto br0 iface br0 inet dhcp bridge_ports eth0 bridge_maxwait 0 bridge_fd 0 bridge_stp off</p></section><footer class=entry-footer><span title="2012-12-02 00:00:00 +0000 UTC">December 2, 2012</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to Ubuntu 12.10でkvm" href=https://blog.tack41.net/posts/2012/12/02_01/></a></article><article class=post-entry><header class=entry-header><h2>Ubuntu12.10の初期設定</h2></header><section class=entry-content><p>下記参照。 http://ubuntuapps.blog67.fc2.com/blog-entry-446.html
-ipv6の無効化 /etc/sysctl.confの最終行に以下のコメントを追加
-net.ipv6.conf.all.disable_ipv6 = 1 OS再起動
-ファイアウォールを有効にし、ssh, vncを許可
-sudo ufw enable sudo ufw default DENY sudo ufw allow 22 sudo ufw allow 5900 sudo ufw status</p></section><footer class=entry-footer><span title="2012-11-29 02:00:00 +0000 UTC">November 29, 2012</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to Ubuntu12.10の初期設定" href=https://blog.tack41.net/posts/2012/11/29_02/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.tack41.net/posts/page/15/>« Prev Page</a>
+<span class=logo-switches></span></div><ul id=menu><li><a href=https://blog.tack41.net/categories/ title=categories><span>categories</span></a></li><li><a href=https://blog.tack41.net/tags/ title=tags><span>tags</span></a></li><li><a href=https://blog.tack41.net title=tack41.net><span>tack41.net</span></a></li></ul></nav></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://blog.tack41.net/>Home</a></div><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2>アジャイル開発手法の適用を考える</h2></header><section class=entry-content><p>最近、アジャイル開発手法に関するセミナーや勉強会に参加している。
+同開発手法が既存の手法と比較して良い面を多数含んでいることは間違いないし、勉強会や記事などでの導入事例の多さがそれを物語っている。特にベンチャーであればアジャイル以外の手法は考えられないだろう。
+一方で、過去のソフトウェア資産、開発スタイルがある企業ではそう簡単な話ではない、と思っている。勉強会の参加者の話を聞くと、未だにバージョン管理も満足にできていない、という話も聞く。
+セミナーや勉強会で出てくる事例は、予算や人員をある程度確保できる環境だったり、前職でアジャイル開発していて獲得したノウハウを適用するような話だったりして、自分ができる気になるところまでいかない。 また、アジャイル手法のフルセットを紹介してここがゴールというような言われ方をしたり、あるいは自分で考えて取捨選択しなさいと言われることが多い。 開発者にとってバラ色の環境を構築するための実践的な方法を期待していって、がっかりして帰ってくることの繰り返して疲れてしまっている。
+現時点の自分の認識だが、アジャイル開発とは先人がまとめた優れた複数のベストプラクティスとなる開発手法である。それぞれに適用領域があり、前提条件、向いていない環境がある。ウォーターフォール開発がベスト、という環境だってある。 なので、それぞれの手法が生まれた経緯、解決する問題、前提条件を理解して自分が置かれている環境が適用可能なのかを個別に検討する必要がある。 参加する勉強会によってはこれらのいずれも示さずに、ただただ成功事例だけを提示して導入すればバラ色の未来が開けるような言い方をするところがある。多い。
+既存の資産、手法、人がいてスイッチング・コストが大きく、そのコストを小さくしてくれるような手法、事例をアドバイスしてくれる奇跡的な人でもいない限り、自分で考え抜くしかないのだと気付いた。今更だが…</p></section><footer class=entry-footer><span title="2018-07-23 00:00:00 +0900 +0900">July 23, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to アジャイル開発手法の適用を考える" href=https://blog.tack41.net/posts/2018/07/23_01/></a></article><article class=post-entry><header class=entry-header><h2>実行順序に依存する複数LINQ実行時の遅延評価による副作用</h2></header><section class=entry-content><p>例えば、LINQ1にて元データよりデータを抽出し、これをデータセット1とする。 次に、LINQ2にて、元データからデータセット1を除いたデータセットに対して抽出し、これをデータセット2とする。 これをLINQ3にて、元データからデータセット1とデータセット2を除いたデータセットに対して抽出し、これをデータ・セット3とする。 ….
+上記のような処理を1メソッドで行う。 後続のLINQで除外するために、除外するためのデータセットを例えばListとして保持する。
+LINQ2はLINQ1の結果が決まらないと決まらない。LINQ3はLINQ2, LINQ1の結果が決まらないと決まらない。だが、後続のLINQに対して結果を伝えるのは(LINQとは無関係の)Listオブジェクト。
+このような場合に、上記LINQを順番にコードで記載したとしても、除外Listの値は後続に伝わらない(ことがある?)。おそらく、プログラムの動作として最初にLINQ3の結果を参照した場合にLINQ1,LINQ2の結果を行ってから、という動きはしてくれず、結果、空の除外Listに対してLINQ3を実行してしまっているためと思われる。
+遅延されるのが問題なので、LINQの実行結果 IEnumerable型のオブジェクトに対してToList()を実行してやれば即時に確定してこのような副作用は発生しなくなる。遅延評価のメリットは当然なくなるが。</p></section><footer class=entry-footer><span title="2018-07-19 00:00:00 +0900 +0900">July 19, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to 実行順序に依存する複数LINQ実行時の遅延評価による副作用" href=https://blog.tack41.net/posts/2018/07/19_01/></a></article><article class=post-entry><header class=entry-header><h2>C#でExcelのバージョンに依存しないCOM経由での操作</h2></header><section class=entry-content><p>C#での社内プログラムでExcelを操作する際、大部分はClosedXMLを利用しているのだが、ActiveXを使用しているなどでうまく動作しない場合にはCOM経由で操作している。
+Visual Studioで参照ツリーにExcelのCOM参照を追加するのだが、その時点でPCにインストールされているOfficeのバージョンに対応したCOMを追加する形になる。
+ビルド時に参照ツリーにあるCOMを参照するため、参照追加時のPCとビルド時のPCでインストールされているOfficeのバージョンが異なると、ビルド時に警告、またはエラーとなる。
+参照追加時には2013、ビルド時に2016だったためにビルド時に警告が出て、そのまま実行すると該当箇所でRuntime Errorでコケる事象が発生した。 社内には、今後2013, 2016が混在する予定のため、どちらかだけしか対応できないとなると困るので、対応方法を調査した。
+参照ツリーに追加して開発する形式を事前バインディング、実行時にCOMの名前から該当のCOMを参照する形式を遅延(動的)バインディングというらしい。
+事前バインディング Visual StudioでCOMオブジェクトの仕様を把握しているため、補完が効いて開発効率が高い 型情報なども取得済みでコンパイルするため、実行速度は遅延バインディングと比較して速い 使用するOfficeのバージョンを指定する必要がある。 遅延バインディング 使用するOfficeのバージョンを指定する必要がない Visual Studioでの補完は効かず、各オブジェクト、メソッドの情報を調べながら呼び出す必要がある。大変。 実行時に型チェックを行うため、遅い。実行時エラーが出る可能性も。 遅延バインディングは、各メソッドをInvokeMemberで引数を調査しながら呼び出す必要があり、とても大変。以下のサイトにこの大変さをWrapするコードが公開されていた。
+https://zenmai.wordpress.com/2011/06/24/excel%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%9B%E3%81%9A%E3%81%ABexcel%E3%82%92%E4%BD%BF%E3%81%86c/
+とても素晴らしいのでぜひ利用しようと考えたのだが、(当然ながら)COMオブジェクトのすべてが実装されているわけではないので不足個所を追加実装する必要があり、結構大幅な追加が必要と思われた。
+で、たどり着いたのがこちらの記事。
+https://teratail.com/questions/109579
+なんと、dynamicという宣言に変更するだけで、ビルド時のチェックはやめて実行時に動的に呼び出してくれるとのこと。 (COMオブジェクトの生成部分は固有の書き方への変更が必要)。素晴らしい!!
+実際にdyamicに変更したところ、WorkbookオブジェクトへのReleaseComObject呼び出し時にエラーが発生。
+http://hiro-syumi.ldblog.jp/archives/36511362.html
+こちらの記事を参照させてもらってエラー箇所のみobject型へのキャスト処理を追加したところ、問題なく動作するようになった。
+このdynamicの利用だが、最初からこれを前提に行うと上記の通りVisualStudioによるサポートが効かないので開発効率はかなり落ちると思われる。今回のようにCOM参照を追加して事前バインディングで実装したうえで、dynamicに書き換えるという形が効率が良いと感じた。</p></section><footer class=entry-footer><span title="2018-07-04 00:00:00 +0900 +0900">July 4, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to C#でExcelのバージョンに依存しないCOM経由での操作" href=https://blog.tack41.net/posts/2018/07/04_01/></a></article><article class=post-entry><header class=entry-header><h2>Windows 2016でプログラムが起動しない</h2></header><section class=entry-content><p>当社で利用している手形管理のシステムにて、辞書の更新をしようとしたところ、なぜかexeをクリックしても起動しない症状が発生した。
+イベントログにて、以下のような内容が出力されている
+ProviderName : Microsoft-Windows-Immersive-Shell Id : 5973 Message : アプリ Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy:App.AppXc99k5qnnsvxj5szemm7fp3g7y08we5vm.mca のライセンス認証がエラーで失敗しました: このアプリは、ビルトイン Administrator ではアクティブ化できません。。詳しくは、Microsoft-Windows-TWinUI/Operational ログをご覧ください。 ググっては見たが、
+https://support.microsoft.com/ja-jp/help/3064045/windows-store-apps-may-not-open-and-event-id-5973-is-logged-in-the-app
+のように、ストアアプリを開くときの権限の問題しかヒットしない。 エクスプローラーからダブルクリックしているのだが、ひょっとしてストアアプリ起動と認識されてしまっているのかも、と思いコマンドプロンプトで起動したところ正常に起動した。
+Windows 2016の不具合なのだろうか?</p></section><footer class=entry-footer><span title="2018-05-15 00:00:00 +0900 +0900">May 15, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to Windows 2016でプログラムが起動しない" href=https://blog.tack41.net/posts/2018/05/15_01/></a></article><article class=post-entry><header class=entry-header><h2>thinクライアントとして使える古いPCの限界</h2></header><section class=entry-content><p>手元に、使わなくなったノートPCが2台あったため、Windowsにリモート接続するthinクライアントとして利用してみた。 1台はメモリ512MB, もう一台は768MBでPAE非対応というところからスペックはお察し…
+Linuxを探したのだが、2018/5現在、PAE非対応という時点でインストールできるディストリビューションはかなり限られる。 2,3年前はOKだったLubuntu,XubuntuですらNG。 PuppyLinuxは日本語サイトは情報が古かったため本家を見たが、PAEまたはUEFI必須のようだ… 今回はKona LinuxのLightをインストールした。
+時間はかかったがインストールは成功、最初からRemminaがインストールされていたためRDP接続もできた。 …が、遅い。キーボードの入力が画面に反映されるのにワンテンポ、タイミングによっては数秒遅れるため、作業が止まってしまう。 さすがに、この程度のスペックでは、Thinクライアントにはスペック不足ということのようだ。10年前にはストレスなく動作したはずなので、kernelが重くなったのか、Remminaが軽くないのか、RDPの通信量がそもそも少なくないのか…
+少なくともメモリは2GB、CPUは2つ以上、要は無印のKona Linuxがインストールできるくらいのスペックがないと再利用すらできないことを実感した。</p></section><footer class=entry-footer><span title="2018-05-03 00:00:00 +0900 +0900">May 3, 2018</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to thinクライアントとして使える古いPCの限界" href=https://blog.tack41.net/posts/2018/05/03_01/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.tack41.net/posts/page/15/>« Prev Page</a>
 <a class=next href=https://blog.tack41.net/posts/page/17/>Next Page »</a></nav></footer></main><footer class=footer><span>&copy; 2022 <a href=https://blog.tack41.net/>tack41's blog</a></span>
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

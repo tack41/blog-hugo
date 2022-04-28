@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>wsus on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/wsus/</link>
+    <description>Recent content in wsus on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 20 May 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/wsus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows10の機能更新プログラムの制御</title>
+      <link>https://blog.tack41.net/posts/2021/05/20_01/</link>
+      <pubDate>Thu, 20 May 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/05/20_01/</guid>
+      <description>Windows 10では半年に1回、「機能更新プログラム」という大型アップデートが配布されます。つい先日、2021年の1回目となる「21H1」が公開されました。
+機能更新プログラムは18か月間サポートされるため、過去2回分はスキップできるということになります。 https://docs.microsoft.com/ja-jp/lifecycle/announcements/windows-10-servicing-support-updates
+18か月ぎりぎりまで引き延ばすと問題が出た際の対応が大変となるので避けたいところですが、ある程度は様子を見たいところです。WSUSの場合、以下の運用で対応できます。
+ WSUS管理コンソールの[オプション]-[自動承認]-[更新規則]にて、Windows 10PCが対象となるすべてのルールで「Upgrades」への承認ルールが設定されている場合は解除します
+これで機能更新プログラムがWSUSに配布されても、PCには適用されない状態となります。 WSUS管理コンソールにて[オプション]-[製品と分類]-[分類]にて「Upgrades」のチェックをつける これで機能更新プログラムがWSUSサーバにダウンロードされるようになります。前述の承認ルールの設定によりPCへの適用はされません 機能更新プログラムの様子見が完了して適用するタイミングで、以下の手順で適用します。  先行して適用するPCと、様子見のPCで別のコンピューターグループを作成してPCを移動します。 WSUS管理コンソールの[更新プログラム]-[すべての更新プログラム] にて承認状態が[未承認]のものを検索すると機能更新プログラムが表示されるので、先行して適用するグループに対してのみ承認処理を行います 先行適用のPCに問題がなければ、様子見のPCを先行適用のコンピューターグループに移動して随時適用します。    </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -9,7 +9,42 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 03 Nov 2019 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jun 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MariaDBのWindow関数</title>
+      <link>https://blog.tack41.net/posts/2020/06/03_01/</link>
+      <pubDate>Wed, 03 Jun 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/06/03_01/</guid>
+      <description>MariaDB: 10.4.12 にて
+要約 MariaDB 10.4.12(2020/6/3時点で最新版の1マイナーバージョンだけ前)では、Window関数は ONLY_FULL_GROUP_BY で誤動作する。
+内容 MariaDBでROW_NUMBER(), SUM() OVER() 等のWindow関数を使用すると以下のようなエラーが出る。
+MySql.Data.MySqlClient.MySqlException: Mixing of GROUP columns (MIN(),MAX(),COUNT(),...) with no GROUP columns is illegal if there is no GROUP BY clause Window関数に使用している列をGROUP BYに指定して支障がないところであればそれでクリアできるのだが、そうでないところはどうにもならない。 Window関数自体は10.2から有効なはずなのだが、以下の記事によると、AVGなど一部のWindow関数以外はONLY_FULL_GROUP_BY に対応していないらしい。
+https://jira.mariadb.org/browse/MDEV-17785
+実際、AVG関数はONLY_FULL_GROUP_BY 制約のもと、GROUP BYで指定しなくても問題なく動作する。ROW_NUMBER(), SUM() はダメ。早く対応してほしい&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>LINQの遅延評価がマイナスに働くケース</title>
+      <link>https://blog.tack41.net/posts/2020/05/30_01/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/05/30_01/</guid>
+      <description>LINQに限らず遅延評価はパフォーマンスに対してプラスに働く、という説明が多いように思うが、劇的にマイナスに働くケースがあった。 商品の名前の先頭に応じてグループ分けし、残ったデータに対して同様にグループ分けする以下のようなコード
+IEnumerable&amp;lt;T&amp;gt; left = .... var sub1 = left.Where(l =&amp;gt; l.StartsWith(&amp;#34;AB&amp;#34;)) left = left.Where(l =&amp;gt; sub1.All(s =&amp;gt; s.ID != l.ID))  var sub2 = left.Where(l =&amp;gt; l.StartsWith(&amp;#34;A&amp;#34;) left = left.Where(l =&amp;gt; sub2.All(s =&amp;gt; s.ID != l.ID))  var sub3 = left.Where(l =&amp;gt; l.StartsWith(&amp;#34;B&amp;#34;) left = left.Where(l =&amp;gt; sub3.All(s =&amp;gt; s.ID != l.ID)) ... このような分類が20弱続くケースで、1分たっても応答が返ってこない。 leftの型をIListとし、left = left.Where(l =&amp;gt; sub1.All(s =&amp;gt; s.ID != l.ID)).ToList()のように即時評価に書き換えると1秒せずに返ってくる。
+デバッグ実行すると、left = left.Where(l =&amp;gt; sub1.All(s =&amp;gt; s.</description>
+    </item>
+    
+    <item>
+      <title>GROUP BY省略時の弊害(MariaDB)</title>
+      <link>https://blog.tack41.net/posts/2020/05/25_01/</link>
+      <pubDate>Mon, 25 May 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2020/05/25_01/</guid>
+      <description>MariaDB 10.4 にて
+SQLでSELECT句に集計関数のみを指定する場合、GROUP BYは指定しなくても実行できる。 が、ヒットするレコードがない場合に全データnullのデータが1件返されてしまう。 GROUP BYに指定すれば0件が返されるので、明らかにヒットする場合を除いてGROUP BYは明示的に指定したほうがよさそう。</description>
+    </item>
+    
     <item>
       <title>WindowsのMariaDBメジャーバージョンアップ後の運用の注意</title>
       <link>https://blog.tack41.net/posts/2019/11/03_01/</link>
