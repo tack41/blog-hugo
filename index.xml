@@ -21,6 +21,18 @@
     </item>
     
     <item>
+      <title>C#におけるIEnumerable,IEnumerator</title>
+      <link>https://blog.tack41.net/posts/2019/01/16_01/</link>
+      <pubDate>Wed, 16 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2019/01/16_01/</guid>
+      <description>IEnumerable(IEnumerator)はIListに比べると制約が多く、同じことをやろうとしても面倒、その分汎用性が高い、くらいに思ってました。
+実際には、IEnumerableには要素の編集が一切できないのが最も大きな違いだと思います。
+[https://stackoverflow.com/questions/1210295/how-can-i-add-an-item-to-a-ienumerablet-collection:embed:cite]
+System.Linqを参照に追加すればIEnumerable.Appendが利用できますが、これはIList.Addとは違い非破壊的メソッドで自身は変更せずに要素を追加した新しいオブジェクトへの参照を返すだけです。 逆に言うと、一度設定したら編集しないCollectionを利用する場合はIEnumerableとして公開すればそとから編集されないことを保証できます。</description>
+    </item>
+    
+    <item>
       <title>Java(Android)のService, Application(Context)</title>
       <link>https://blog.tack41.net/posts/2018/12/02_02/</link>
       <pubDate>Sun, 02 Dec 2018 01:00:00 +0000</pubDate>
@@ -53,7 +65,7 @@ Androidの各種メソッド・ライブラリには、この手のContext前提
       
       <guid>https://blog.tack41.net/posts/2018/11/30_02/</guid>
       <description>Chromeの自動更新をADのグループポリシーで行っている。
-[https://support.google.com/chrome/a/answer/6350036?hl=ja:embed:cite]
+https://support.google.com/chrome/a/answer/6350036?hl=ja
 を参考に設定したが、更新されない。 以下の設定を追加で変更したところ、うまく動作するようになった。
  [Google Update]-[Application]-[Google Chrome]  Allow installation: 未構成 → 有効   [Google Update]-[Preferences]  Auto-update check period override: 1400 → 60    </description>
     </item>

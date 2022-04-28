@@ -20,5 +20,17 @@
 通常の[ctrl + v]で直近の内容のペーストはできるので、同じ対応が上記コピー履歴からの貼り付けまでは対応していないようです。残念です。</description>
     </item>
     
+    <item>
+      <title>C#におけるIEnumerable,IEnumerator</title>
+      <link>https://blog.tack41.net/posts/2019/01/16_01/</link>
+      <pubDate>Wed, 16 Jan 2019 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2019/01/16_01/</guid>
+      <description>IEnumerable(IEnumerator)はIListに比べると制約が多く、同じことをやろうとしても面倒、その分汎用性が高い、くらいに思ってました。
+実際には、IEnumerableには要素の編集が一切できないのが最も大きな違いだと思います。
+[https://stackoverflow.com/questions/1210295/how-can-i-add-an-item-to-a-ienumerablet-collection:embed:cite]
+System.Linqを参照に追加すればIEnumerable.Appendが利用できますが、これはIList.Addとは違い非破壊的メソッドで自身は変更せずに要素を追加した新しいオブジェクトへの参照を返すだけです。 逆に言うと、一度設定したら編集しないCollectionを利用する場合はIEnumerableとして公開すればそとから編集されないことを保証できます。</description>
+    </item>
+    
   </channel>
 </rss>
