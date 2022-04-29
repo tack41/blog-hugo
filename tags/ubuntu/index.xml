@@ -9,7 +9,37 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 20 May 2020 01:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Sep 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自身のIPアドレスの重複検知</title>
+      <link>https://blog.tack41.net/posts/2021/09/09_01/</link>
+      <pubDate>Thu, 09 Sep 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/09/09_01/</guid>
+      <description>TL;DR Ubuntuサーバ20.04で、重複しているIPを持つサーバから重複しているかどうかを検知する場合は
+arping -I eth0 -0 -c 2 (IPアドレス) (eth0は適宜置き換え)を実行し、応答がある(戻り値:0)場合は重複あり、応答がない(戻り値:1)の場合は重複なしと判断します。
+経緯 Ubuntu20.04 サーバ上で使用しているIPアドレスが重複しているかどうかを、そのIPアドレスを使用するサーバから検知したいと考えました。
+arping, arp-scan等のコマンドを使うと説明するサイトが多数見つかるのですが、ほとんどが重複しているIPを持つ可能性のあるサーバとは別のサーバで実行することが前提のようで、うまくいきませんでした。
+自身が同じIPアドレスを持っていると、そのIPアドレスを対象としたARPリクエストを送ってくれないようでTIMEOUTになってしまいます。
+そこで、-0(数字のゼロ)オプションをつけると、ARPリクエストを送ってくれるようになりました。ただし、自分自身からは応答が帰ってきませんので、応答がある(戻り値:0)場合は重複あり、応答がない(戻り値:1)場合は重複なしと判断することになります。
+このオプションは、ARPリクエスト送信時の送信元IPアドレスを0.0.0.0にするもののようで、これによりARPリクエスト自体が送られない問題を回避できるようです。
+参考: Ubuntu20.04にインストールされるThomas Habetsさんのarpingのマニュアル</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu20.04 でのsecondary IPの設定</title>
+      <link>https://blog.tack41.net/posts/2021/06/24_01/</link>
+      <pubDate>Thu, 24 Jun 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/06/24_01/</guid>
+      <description>Ubuntu 20.04の2台構成で、サーバ固有のIPアドレスとは別にクラスタ用IPアドレスを割り振ることでクラスタを組もうとした際のメモ。
+通信の送信元はクラスタIPで行いたい。Ubuntuで複数IPを割り当てると一方がSecondaryとなり、通信の送信元にはSecondaryでない方が使用される。これはsshサーバに接続してログに表示される接続元IPで確認。
+サーバ固有のIPが192.168.1.191,クラスタIPが192.168.1.11の場合に、クラスタのマスタからメンバに降格してサーバ固有のIPのみ割り振られた状態で再度クラスタIPを追加すると、クラスタIPがSecondaryとなってしまう。/etc/netplan/99_config.yamlにて以下のように指定しているのだが。
+network:  version: 2  renderer: networkd  ethernets:  eth0:  dhcp4: false  dhcp6: false  addresses:  - 192.168.1.11/24  - 192.168.1.191/24  gateway4: 192.168.1.254  nameservers:  addresses: [192.168.1.254] IPアドレスの順番を変えてもダメ。どうも、追加したIPアドレスが必ずSecondaryになるという仕様らしい。対応として一旦クラスタIPアドレスのみ割り当て、サーバ固有のIPアドレスを追加するという手順を踏んだところ、クラスタIPアドレスがSecondaryでない設定をすることができた。
+&amp;hellip;と思っていたが、それでもうまくいかないケースが発生。 インストール時にサーバ固有IPを初期設定すると、/etc/netplan/00-installer-config.yamlに設定が書き込まれ、そちらも含めて設定しようとするらしく、/etc/netplan/99_config.yamlを書き換えてもサーバ固有IPが解放されない状態となった。これは/etc/netplan/00-installer-config.yamlを/etc/netplan/00-installer-config.yaml.disabledのようにリネームすることで解消した。
+/etc/netplan/00-installer-config.yamlを作成しろという記事はあるが、/etc/netplan/00-installer-config.yamlを無効化しろという記載がない記事が多いので、落とし穴かもしれない。</description>
+    </item>
+    
     <item>
       <title>Ubuntuのオンラインアカウント</title>
       <link>https://blog.tack41.net/posts/2020/05/20_02/</link>

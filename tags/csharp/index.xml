@@ -9,7 +9,21 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 18 Jun 2020 01:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jul 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Accessの通貨型にはSystem.Decimal</title>
+      <link>https://blog.tack41.net/posts/2021/07/21_01/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/07/21_01/</guid>
+      <description>TL;DR .Net FrameworkからAccessの通貨型の列に値を設定する場合は、System.Decimal型を利用する。
+経緯 伝票番号が11桁の数値となるシステムにて、値をSystem.Int64型に格納していた。最終的にAccessのテーブルに格納する必要があり、こちらは通貨型で整数部11桁で定義していた。
+OleDb経由でParameterを利用して(SQLにべた書きせずにobject型の変数として渡す)INSERTしたところ、何のエラーも吐かずにこけた。
+どうも、System.Int64(=long)が渡されるとAccess側ではLong型(-2,147,483,648 ～ 2,147,483,647)に変換しようとするらしい。ただ、該当の列に「1L」(System.Int64型)を与えるとこけるが、「1」(System.Int32)ではこけないので、値そのものではなく型の違いによるエラーなのだと思われる。DEBUG実行してもエラーをはかずにこけるので切り分けに時間がかかった&amp;hellip;
+相手が通貨型11桁なのでそれに合わせてよしなに変換してくれるものと思っていたが甘かった。が、前回同じコードを実行した際にはエラーは起きなかったはずなのだが&amp;hellip; 仕様が変わったのか?
+まぁ、特にAccessのような(レガシーな?)システムとの接続の際には、自動変換には期待せずこちらで必要な型が分かる場合は指定したほうが無難だと理解した。</description>
+    </item>
+    
     <item>
       <title>テスト対象プロジェクトのコンテンツファイルが必要なテスト実行時の注意</title>
       <link>https://blog.tack41.net/posts/2020/06/18_02/</link>

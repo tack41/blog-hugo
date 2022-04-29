@@ -20,5 +20,20 @@
 通常の[ctrl + v]で直近の内容のペーストはできるので、同じ対応が上記コピー履歴からの貼り付けまでは対応していないようです。残念です。</description>
     </item>
     
+    <item>
+      <title>Google Cloud Identity FreeでChromebook運用時の注意点</title>
+      <link>https://blog.tack41.net/posts/2021/11/26_01/</link>
+      <pubDate>Fri, 26 Nov 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/11/26_01/</guid>
+      <description>TL;DR Google Cloud Identity Freeで作ったアカウントをChromebookで利用すると、個人で作ったアカウントとは初期値等が異なります。
+経緯 リモート接続用の端末をコストを抑えて運用するため、Google Cloud Identity Freeでアカウントを作成してChromebookに利用しています。できることは制限されますが、紛失時にアカウントをロックして利用できなくするくらいのことはできます。
+個人でもChromebookを利用しているのですが、いくつか初期値などが異なっていました。
+Google Driveが利用できない Admin Consoleで、[アプリ]-[Google Workspace]-[サービスのステータス]で「ドライブとドキュメント」がオフになっていたので、オンにすることで利用できるようになります。Driveのファイルを操作するSpreadsheetやDocumentも同時に利用可能になります。
+PINログインが設定できない Admin Consoleで、[デバイス]-[Chrome]-[設定]-[ユーザーとブラウザ]で[セキュリティ]-[ロックのクイック解除]で「PIN」にチェックを入れると利用できるようになります。
+https://office-kabu.jp/chromebook/gsuite-pin-fingerprint-setting-01
+マルチログインで2番目にログインできない 初期値では、マルチログインで、最初のセッションとしてはログインできますが、2番めのセッションとしては指定できません。マルチログイン アクセスを管理するを実行します。</description>
+    </item>
+    
   </channel>
 </rss>

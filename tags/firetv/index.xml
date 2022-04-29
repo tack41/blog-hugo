@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>firetv on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/firetv/</link>
+    <description>Recent content in firetv on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 06 Jan 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/firetv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Cloud Identity FreeでChromebook運用時の注意点</title>
+      <link>https://blog.tack41.net/posts/2022/01/06_01/</link>
+      <pubDate>Thu, 06 Jan 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/01/06_01/</guid>
+      <description>TL;DR  物理的な質感はFire TVよりよい。 機能的にはちょい劣る 素のChromecast(with Google TVじゃない方)とは完全に上位互換 Googleへのこだわりがなく、Amazon Primeの機能を利用するのであればFire TVが無難か  経緯 現在2台のモニタにFire TV Stick(無印,4K)を利用しています。妻の実家に使用しなくなったChromecastを譲渡して使ってもらっているのですが、Google Photoの動画のキャスト時にかなりの確率で止まってしまう等パフォーマンスに難が出てきたので最新のChromecast with Google TVを買って解消できないかと思い購入しました。
+LANアダプタもセットで。計10,000ほどで、高かったかも。
+昨年Pixel6を購入していてクーポンが余っていたため、使ってしまおうという動機もありました。
+せっかくなので、手持ちのFire TV Stickとの比較もしてみました。自分の使用用途しか考慮していません。
+比較     Fire TV Stick Chromecast with Google TV Chromecast 備考     YouTube OK OK NG 機器単体での再生   AmazonPrime OK OK NG 機器単体での再生   GoogleCast AirReciever等でOK OK OK    Kids制限 OK OK -    複数アカウント OK OK -    AirPlay AirReciever等でOK AirReciever等でOK NG    写真の選択表示 OK(Amazon photos) NG(壁紙設定のみ) NG(同左)     実家でCastに利用しているのはiPhone,iPadなのでAirPlayで動画を再生できればよかったのですが、AirRecieverではそもそもGooglePhotoの画面を表示できませんでした。他のスマホの操作画面であれば映るのですが&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

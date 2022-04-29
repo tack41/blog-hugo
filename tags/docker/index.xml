@@ -9,7 +9,23 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 21 Oct 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Jul 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DockerコンテナのZabbixからDockerホストの監視</title>
+      <link>https://blog.tack41.net/posts/2021/07/02_01/</link>
+      <pubDate>Fri, 02 Jul 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/07/02_01/</guid>
+      <description>Ubuntu20.04で構築しているDocker環境にて
+Dockerコンテナで構築したZabbix serverでDockerホストにzabbix agentをインストールして監視する場合、Zabbix serverの接続元IPがDocker内部IPになってしまう。既定ではDockerコンテナのIPは毎回変わるため、zabbic agent側でzabbix serverのIPを指定できない(configファイルに記載が必須)。
+Dockerホスト1台で運用する環境であれば、内部IPを固定してしまえばよい。
+当方では、2台でActive-Standbyで運用しており、自サーバがActiveの場合は内部IPでアクセスが来るが、Standbyの場合には(自サーバでないActiveサーバの)外部IPでアクセスが来るため、serverとして2つのIPを指定したい。
+https://www.zabbix.com/forum/zabbix-help/379138-one-node-monitored-by-2-differents-zabbix-servers
+によると、configのSERVER値に複数のIPをカンマ区切りで指定することもできるらしい。
+一方で、SERVER値にはホスト名の指定もできるので、ホスト名に対するAレコードを複数登録して動作確認したところ、こちらも問題なく動作した。なお、PTRレコードは不要。
+環境によっては、IP直指定よりもDNSの方がよいというところもあるだろう。</description>
+    </item>
+    
     <item>
       <title>ZabbixのDockerイメージバージョンアップ時にtimezoneエラー</title>
       <link>https://blog.tack41.net/posts/2020/10/21_01/</link>

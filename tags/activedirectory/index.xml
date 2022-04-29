@@ -9,7 +9,20 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/activedirectory/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Mar 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/activedirectory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Active Directoryでログイン時にPowershell経由でexeを実行</title>
+      <link>https://blog.tack41.net/posts/2022/03/23_01/</link>
+      <pubDate>Wed, 23 Mar 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/03/23_01/</guid>
+      <description>TL;DR  Active Directoryでログイン時にexeファイルを実行する場合はStart-Processでの実行が必要  経緯 Emotetが流行っているので、EmocheckをActive Directory のログインスクリプトに仕込んでみていた。
+単体では実行できるので問題ないと考えていたが、どうもActive Directory のグループポリシーでログイン時に起動する設定をすると何故か実行されない。イベントログを見ると一応対象として認識されているのだが&amp;hellip;
+Powershell から外部ファイルを実行するにはいくつか方法があるが、以下のように実行するとダメなようだった。
+$proc = New-Object &amp;#34;System.Diagnostics.Process&amp;#34; $psi = New-Object &amp;#34;System.Diagnostics.ProcessStartInfo&amp;#34; $psi.FileName = $emocheck_Exe $psi.Arguments = &amp;#34;-output $reportDir -quiet -json&amp;#34; $psi.CreateNoWindow = $true; $psi.UseShellExecute = $false $psi.WindowStyle = [System.Diagnostics.ProcessWindowStyle]::Hidden  $proc.StartInfo = $psi $proc.Start() 以下のように設定することでログイン時に実行されるようになった。
+Start-Process -WindowStyle Hidden -FilePath $emocheck_Exe -ArgumentList &amp;#34;-output $reportDir -quiet -json&amp;#34; -WorkingDirectory $currentDir </description>
+    </item>
+    
     <item>
       <title>PowershellでActiveDirectory情報取得で原因不明の不具合</title>
       <link>https://blog.tack41.net/posts/2020/10/09_01/</link>

@@ -9,7 +9,21 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 13 Nov 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Mar 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>アルファメールプレミアでDBバックアップ</title>
+      <link>https://blog.tack41.net/posts/2022/03/26_01/</link>
+      <pubDate>Sat, 26 Mar 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/03/26_01/</guid>
+      <description>TL;DR  アルファメール(プレミア)ではshellの直接実行はできない。が、phpのexecを利用すればほぼ同じことができます。  経緯 自社のWEBサイトを大塚商会のアルファメールプレミアでMovable Typeを利用して運用しています。バックアップに関して、コンテンツファイルはFTP(over TLS)でCLIで取得できますが、DBに関してはphpMyAdminを利用してブラウザからボタンポチポチで取得していました。
+WEBコンソールのメニューの中に「cron設定」という項目があるのに気づいて調べたところ、拡張子が「.cgi」または「.php」のファイルの一覧から選んで指定時刻に実行してくれるということのようでした。
+こういうバッチ的な利用が可能なのであれば、execでOSコマンドも実行できるのでは、と思ってmysqldump叩いてみたところ実行できました。これはありがたいということで、AWS SDK for PHPのpackaged phar版をダウンロードしてS3へのアップロードまでできました。
+注意事項として、認証情報をファイルから取得する場合、そのファイルを含むパスに認証をかけないと危険です。
+定期的に実行したいというより、サイトを更新したときに実行できれば良いので、ブラウザで該当のphpファイルを直接呼び出しています。
+phpMyAdminから手動でダウンロードしてS3にアップというのは地味に面倒なので、ブラウザ呼び出し一発でできるようになって工数削減できました。</description>
+    </item>
+    
     <item>
       <title>MariaDBのON UPDATE CURRENT_TIMESTAMPに対するUPDATEの動作について</title>
       <link>https://blog.tack41.net/posts/2018/11/13_01/</link>

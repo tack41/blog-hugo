@@ -9,7 +9,26 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sun, 21 Feb 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Oct 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bootcampのセットアップは大変</title>
+      <link>https://blog.tack41.net/posts/2021/10/04_01/</link>
+      <pubDate>Mon, 04 Oct 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/10/04_01/</guid>
+      <description>TL;DR MacBook Air Mid 2013でbootcamp上でWindows 10を動かしてそれなりに動作させるのには、以下の作業が必要でした。
+ Windows 10 21H1のISOでBootcampをセットアップ コンピューターが予期せず再起動されたか...とエラーが表示されてセットアップが進まなくなるので、Shift+F10キーを押してコマンドプロンプトを起動し、regeditを起動してHKEY_LOCAL_MACHINE\SYSTEM\Setup\Status\ChildCompletionのsetup.exeの値を1から3に変更  この時点でNICが未認識   Mac側のBootcampアシスタントで[アクション]-[Windowsサポートソフトウェアをダウンロード]より一式ダウンロードしてUSBメモリに保存 Windows側でUSBメモリ内のSetup.exeを実行  この時点で英数、かなキーを認識できず日本語切り替えがうまくいかない   デバイスマネージャーでApple Keyboardをアンインストール。ドライバーのソフトウェアも削除  この時点で英語キーボードと認識され、記号の入力がキーボードの印字通りにならない   Windowsの[設定]-[時刻と言語]-[言語]の[優先する言語]にある「日本語」をクリックして[オプション]をクリック。ハードウェアキーボードレイアウトを「英語キーボード(101/102キー)」から「日本語キーボード(106/109キー)に変更  経緯 奥さんが利用しているMac Book Air(Mid 2013)が128GBで、容量不足で作業が滞るため、余っていた1TB SSDに交換しました。
+が、このモデル、現時点ではサポート終了で最新バージョンにアップグレードできない&amp;hellip; 最新のMac買えばと薦めたのですが、最近ほとんど使わないので要らないとのこと。もったいないのでBootcampでWindows 10を入れて2025年までは延命させようと作業しました。
+このモデルではHigh Sierraまでしかサポートされていません。この状態でBootcampアシスタントでWindows 10 21H1のISOを利用してBootcampを実行すると、途中ハードウェアの認識エラーにより先に進まなくなります。
+https://asterisk-works.com/how-to-install-boot-camp-on-macbook-nvme-ssd/
+を参考にレジストリ値を変更することでとりあえずエラーは回避。ですがこの状態だとドライバがまともに入っていないようで、NIC未認識によりアップデートもできない状態。
+Mac側でBootcampアシスタントで[アクション]-[Windowsサポートソフトウェアをダウンロード]より一式ダウンロードしてWindowsで認識できるFATフォーマットのUSBメモリに保存。3GB弱ありました。で、Windows側でSetup.exeを実行し、再起動させてNICをはじめ各種HWは認識されました。
+日本語変換がうまくいきません。IMEの設定で無変換キー、ひらがなキーにIME-OFF/ONの設定をしてもダメ。インストールされたキーボードドライバではキーの認識がうまくいっていないようでした。そこでデバイスマネージャーでApple Keyboradをアンインストール、ドライバーソフトウェアの削除のチェックボックスも入れて再起動すると、認識するようになりました。
+https://i-tsunagu.com/mac/keyboard-notrecognize/
+が、記号類の認識がおかしい。「@」を入力しようとするとShift+2を実行する必要がある状態。英語キーボードとして認識されているようなので、Windowsの[設定]-[時刻と言語]-[言語]の[優先する言語]にある「日本語」をクリックして[オプション]をクリック。ハードウェアキーボードレイアウトを「英語キーボード(101/102キー)」から「日本語キーボード(106/109キー)に変更してキーボードの印字通りに入力できるようになりました。
+いろんなサイトを調べながら結構大変な作業でした。これは素人では無理。最新でないHigh Sierraで実行したこともあるのかもしれませんが、Bootcampアシスタントというお手軽そうなツールがあるからと気軽に手を出すと痛い目を見るな(自分含め)と思いました。</description>
+    </item>
+    
     <item>
       <title>MacBook Air(2017)のSSD換装</title>
       <link>https://blog.tack41.net/posts/2021/02/21_01/</link>

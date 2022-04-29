@@ -9,7 +9,20 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 11 Jan 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Sep 2021 01:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOSでBluetoothイヤホンでリダイヤル無効</title>
+      <link>https://blog.tack41.net/posts/2021/09/22_02/</link>
+      <pubDate>Wed, 22 Sep 2021 01:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2021/09/22_02/</guid>
+      <description>TL;DR iOSでBluetoothイヤホン(ヘッドセット)を利用していて、リダイヤル等の電話機能を利用したくない場合は[設定]-[Face IDとパスコード]-[音声ダイヤル],[不在着信時にかけなおす]をオフにするとよいです。
+経緯 BluetoothヘッドセットとしてAFTERSHOKZ OPENMOVEを利用しています。自転車でも安心して利用できるし値段もお手頃で、主にPodcastを聞くのが目的な私には十分なものです。
+が、たまに押し間違えたり、誤検知でリダイヤルが実行されてしまうことがあります。感覚的に1-2週間に1回は発生している感覚で、めちゃくちゃ焦るし相手によってはお詫びの電話を入れる必要があるしで、何とかしたいと思っていました。
+同じような人は多いらしくて、例えば以下のサイトに対処方法が記載されていました。 https://ameblo.jp/nararinn/entry-12649433416.html
+[設定]-[Face IDとパスコード]より[音声ダイヤル],[不在着信にかけなおす]をオフにする どうも、Bluetooth機器によるボタン操作はiOS側では音声コントロールとして認識されているようですね。上記設定をすることでリダイヤルを誤爆することはなくなりました。</description>
+    </item>
+    
     <item>
       <title>iPhoneのすばらしさに気づく(いまさら)</title>
       <link>https://blog.tack41.net/posts/2018/01/11_01/</link>
