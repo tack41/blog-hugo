@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.tack41.net/posts/2022/05/19_01/</loc>
+    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/apple_business_manager/</loc>
+    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://blog.tack41.net/categories/</loc>
-    <lastmod>2022-04-28T00:00:00+09:00</lastmod>
+    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/ios/</loc>
+    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/</loc>
+    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/</loc>
+    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/</loc>
+    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/categories/tech/</loc>
+    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/tags/chromeos/</loc>
     <lastmod>2022-04-28T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2022/04/28_01/</loc>
-    <lastmod>2022-04-28T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/posts/</loc>
-    <lastmod>2022-04-28T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/</loc>
-    <lastmod>2022-04-28T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/</loc>
-    <lastmod>2022-04-28T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/categories/tech/</loc>
     <lastmod>2022-04-28T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/tags/azure/</loc>
@@ -97,9 +106,6 @@
   </url><url>
     <loc>https://blog.tack41.net/tags/mac/</loc>
     <lastmod>2021-10-04T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/ios/</loc>
-    <lastmod>2021-09-22T01:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2021/09/22_02/</loc>
     <lastmod>2021-09-22T01:00:00+09:00</lastmod>
