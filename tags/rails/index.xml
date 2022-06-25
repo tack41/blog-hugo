@@ -17,7 +17,7 @@
       
       <guid>https://blog.tack41.net/posts/2015/08/09_01/</guid>
       <description>さくらのVPS上にCentOS7.0でRails環境を構築したのでそのメモ。 一般ユーザーにて、必要に応じてsudoをかませて実行。
- ユーティリティプログラムをインストール git clone https://github.com/sstephenson/rbenv.git ~/.rbenv git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build echo &amp;#39;export PATH=&amp;#34;$HOME/.rbenv/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile echo &amp;#39;eval &amp;#34;$(rbenv init -)&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile exec $SHELL  必要なパッケージのインストール $ sudo yum install libffi-devel zlib zlib-devel openssl openssl-devel readline-devel sqlite-devel  ruby 2.2.0をインストール rbenv install 2.2.0 rbenv global 2.2.0  railsをインストール gem update --system gem install --no-ri --no-rdoc rails gem install bundler rbenv rehash rails -v  動作確認 rails s -b 0.</description>
+ユーティリティプログラムをインストール git clone https://github.com/sstephenson/rbenv.git ~/.rbenv git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build echo &amp;#39;export PATH=&amp;#34;$HOME/.rbenv/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile echo &amp;#39;eval &amp;#34;$(rbenv init -)&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile exec $SHELL 必要なパッケージのインストール $ sudo yum install libffi-devel zlib zlib-devel openssl openssl-devel readline-devel sqlite-devel ruby 2.2.0をインストール rbenv install 2.2.0 rbenv global 2.2.0 railsをインストール gem update --system gem install --no-ri --no-rdoc rails gem install bundler rbenv rehash rails -v 動作確認 rails s -b 0.0.0.0 </description>
     </item>
     
   </channel>

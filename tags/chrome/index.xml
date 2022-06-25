@@ -19,7 +19,7 @@
       <description>Chromeの自動更新をADのグループポリシーで行っている。
 https://support.google.com/chrome/a/answer/6350036?hl=ja
 を参考に設定したが、更新されない。 以下の設定を追加で変更したところ、うまく動作するようになった。
- [Google Update]-[Application]-[Google Chrome]  Allow installation: 未構成 → 有効   [Google Update]-[Preferences]  Auto-update check period override: 1400 → 60    </description>
+[Google Update]-[Application]-[Google Chrome] Allow installation: 未構成 → 有効 [Google Update]-[Preferences] Auto-update check period override: 1400 → 60 </description>
     </item>
     
   </channel>

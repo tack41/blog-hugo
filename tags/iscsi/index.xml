@@ -17,20 +17,20 @@
       
       <guid>https://blog.tack41.net/posts/2013/05/04_01/</guid>
       <description>オープンソースでiSCSIターゲットを実装可能なFreeNASを利用し、Windows 2012より利用する。
-1. 初期設定  FreeNAS 8.3.1のインストール  CPU: i5 2405S 1c MEM: 1GB Disk1: 30GB(OS Install) Disk2 :10GB(iSCSI Volume)   CUIにてNWアドレスを設定  2. iSCSI targetの設定  WebUIにてアクセス ボリュームの追加  [Volume]-[Volume Manager]にてボリュームを追加する。 上段[Servies]-[Core]にてiSCSIをオンにする
-   iSCSIポータルの設定
+1. 初期設定 FreeNAS 8.3.1のインストール CPU: i5 2405S 1c MEM: 1GB Disk1: 30GB(OS Install) Disk2 :10GB(iSCSI Volume) CUIにてNWアドレスを設定 2. iSCSI targetの設定 WebUIにてアクセス ボリュームの追加 [Volume]-[Volume Manager]にてボリュームを追加する。 上段[Servies]-[Core]にてiSCSIをオンにする
+iSCSIポータルの設定
 [iSCSI]-[ポータル]を選択し、アクセス制限を設定する(ここではオールOKとした)
- Initiatorの許可
+Initiatorの許可
 [iSCSI]-[Initiator]で接続元のInitiatorを制限する(下図では制限なし)
- ポータルの追加
+ポータルの追加
 [iSCSI]-[Portal]を選択し、ポータルを追加する(下図では全アクセスを許可)
- Initiatorの設定
-[iSCSI]-[Initiators]よりInitiatorのアクセス制限をかける。下図では制限なし。  ターゲットの追加
+Initiatorの設定
+[iSCSI]-[Initiators]よりInitiatorのアクセス制限をかける。下図では制限なし。 ターゲットの追加
 [iSCSI]-[Targets]を開き、[Add Target]ボタンをクリック
 すべて入力して[OK]をクリック。 ターゲットにエクステントを追加
 [iSCSI]-[Associated Targets]を開き、[Add Extend to Target]をクリックする
 これまで入力した内容を入力する
- WindowsやLinuxのiSCSI initiatorから接続できることを確認。  </description>
+WindowsやLinuxのiSCSI initiatorから接続できることを確認。 </description>
     </item>
     
     <item>
@@ -39,11 +39,10 @@
       <pubDate>Fri, 19 Apr 2013 02:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2013/04/19_02/</guid>
-      <description> [管理ツール]-[iSCSIイニシエーター]を起動 初回はサービス起動確認のダイアログが表示されるので[はい]をクリック
- [ターゲット]にiSCSI TargetサーバのIPアドレスを入力して[クイック接続]をクリック
- Targetが認識されているのを確認し、[完了]をクリックする。
- [ディスクの管理]にて作成したディスクが認識されていることを確認する。
-  </description>
+      <description>[管理ツール]-[iSCSIイニシエーター]を起動 初回はサービス起動確認のダイアログが表示されるので[はい]をクリック
+[ターゲット]にiSCSI TargetサーバのIPアドレスを入力して[クイック接続]をクリック
+Targetが認識されているのを確認し、[完了]をクリックする。
+[ディスクの管理]にて作成したディスクが認識されていることを確認する。</description>
     </item>
     
     <item>
@@ -54,28 +53,27 @@
       <guid>https://blog.tack41.net/posts/2013/04/19_01/</guid>
       <description>iSCSI target, initiator共にWindows Server 2012(Full)
 [iSCSI target]
- [ローカルサーバー]-[管理]-[役割と機能の追加]を選択
- [次へ]をクリック
- [役割ベースまたは機能ベースのインストール]を選択
- 自身のサーバを選択
- [ファイルサービスおよび記憶域サービス]-[ファイルサービスおよびiSCSIサービス]-[iSCSIターゲットサーバー]、[iSCSIターゲット記憶域プロバイダー]を選択
- 機能は追加せずに[次へ]をクリック
- [インストール]を選択
- [閉じる]を選択
- サーバマネージャーに戻り、[ファイルサービスと記憶域…]を選択
- [iSCSI]を選択
- [タスク]-[新しいiSCSI仮想ディスク]を選択
- ディスクを作成するボリュームを選択し、「次へ」をクリック。
- 適当な名前を入力し、次へをクリック
- 割り当て容量を入力し、次へをクリック
- [新しいiSCSIターゲット]を選択
- 適当な名前を入力し、[次へ]をクリック。
- [追加]をクリック
- iSCSI initiatorの情報を入力
- 必要に応じてCHAP, リバースCHAPを有効にする
- [作成]をクリックして完了する
- 正常に作成されたのを確認し、[閉じる]をクリック。
-  </description>
+[ローカルサーバー]-[管理]-[役割と機能の追加]を選択
+[次へ]をクリック
+[役割ベースまたは機能ベースのインストール]を選択
+自身のサーバを選択
+[ファイルサービスおよび記憶域サービス]-[ファイルサービスおよびiSCSIサービス]-[iSCSIターゲットサーバー]、[iSCSIターゲット記憶域プロバイダー]を選択
+機能は追加せずに[次へ]をクリック
+[インストール]を選択
+[閉じる]を選択
+サーバマネージャーに戻り、[ファイルサービスと記憶域…]を選択
+[iSCSI]を選択
+[タスク]-[新しいiSCSI仮想ディスク]を選択
+ディスクを作成するボリュームを選択し、「次へ」をクリック。
+適当な名前を入力し、次へをクリック
+割り当て容量を入力し、次へをクリック
+[新しいiSCSIターゲット]を選択
+適当な名前を入力し、[次へ]をクリック。
+[追加]をクリック
+iSCSI initiatorの情報を入力
+必要に応じてCHAP, リバースCHAPを有効にする
+[作成]をクリックして完了する
+正常に作成されたのを確認し、[閉じる]をクリック。</description>
     </item>
     
   </channel>

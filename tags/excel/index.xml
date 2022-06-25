@@ -18,9 +18,9 @@
       <guid>https://blog.tack41.net/posts/2018/11/30_01/</guid>
       <description>利用者が使い慣れたExcelでアンケートシートを作ろうとした際のこと。
 どれか1つを選択してほしい場合は、オプションボタンを使う。開発タブにあり、フォームコントロールとActiveXの2つがある。
-  フォームコントロール
- フォントの見た目がActiveXと比べればマシ。 グループ化するのに、グループポックスを使用しないといけない。  行や列の追加・削除でグループボックスに入ったり外れたりすると挙動が想定外となる レイアウト上、グループボックスが不要な場合は非表示にしないといけない。が、非表示にするとどこにあったかわからなくなる。 誤ってグループボックスが重なったりするとやはり想定外の挙動となる。      ActiveX
- グループ化するのにグループ名を指定できるので、フォームのように想定外の動作をすることはない フォントの見た目がひどい。クリックしたときとそうでないときで大きさが変わる? 項目Aを選択し、項目Bを選択してさらに項目Aを選択&amp;hellip;と繰り返すと、どんどんフォントが大きくなる(致命的)  プロパティ上のフォントサイズは変わっておらず、コントロールのサイズを変更すると直る。 当方では2013で発生。MSも認識はしているらしいが、対応作なし&amp;hellip;      https://support.microsoft.com/ja-jp/help/417966
+フォームコントロール
+フォントの見た目がActiveXと比べればマシ。 グループ化するのに、グループポックスを使用しないといけない。 行や列の追加・削除でグループボックスに入ったり外れたりすると挙動が想定外となる レイアウト上、グループボックスが不要な場合は非表示にしないといけない。が、非表示にするとどこにあったかわからなくなる。 誤ってグループボックスが重なったりするとやはり想定外の挙動となる。 ActiveX
+グループ化するのにグループ名を指定できるので、フォームのように想定外の動作をすることはない フォントの見た目がひどい。クリックしたときとそうでないときで大きさが変わる? 項目Aを選択し、項目Bを選択してさらに項目Aを選択&amp;hellip;と繰り返すと、どんどんフォントが大きくなる(致命的) プロパティ上のフォントサイズは変わっておらず、コントロールのサイズを変更すると直る。 当方では2013で発生。MSも認識はしているらしいが、対応作なし&amp;hellip; https://support.microsoft.com/ja-jp/help/417966
 ActiveXのフォントが大きくなる不具合は致命的なので、グループボックスの位置に注意しながらフォームコントロールを使うことにした。 どちらの場合もだが、オプションボックスをセル内に収まるようにしないと、セルの追加で配置がずれてしまうので注意。</description>
     </item>
     
@@ -46,7 +46,7 @@ Visual Studioで参照ツリーにExcelのCOM参照を追加するのだが、�
 ビルド時に参照ツリーにあるCOMを参照するため、参照追加時のPCとビルド時のPCでインストールされているOfficeのバージョンが異なると、ビルド時に警告、またはエラーとなる。
 参照追加時には2013、ビルド時に2016だったためにビルド時に警告が出て、そのまま実行すると該当箇所でRuntime Errorでコケる事象が発生した。 社内には、今後2013, 2016が混在する予定のため、どちらかだけしか対応できないとなると困るので、対応方法を調査した。
 参照ツリーに追加して開発する形式を事前バインディング、実行時にCOMの名前から該当のCOMを参照する形式を遅延(動的)バインディングというらしい。
- 事前バインディング  Visual StudioでCOMオブジェクトの仕様を把握しているため、補完が効いて開発効率が高い 型情報なども取得済みでコンパイルするため、実行速度は遅延バインディングと比較して速い 使用するOfficeのバージョンを指定する必要がある。   遅延バインディング  使用するOfficeのバージョンを指定する必要がない Visual Studioでの補完は効かず、各オブジェクト、メソッドの情報を調べながら呼び出す必要がある。大変。 実行時に型チェックを行うため、遅い。実行時エラーが出る可能性も。    遅延バインディングは、各メソッドをInvokeMemberで引数を調査しながら呼び出す必要があり、とても大変。以下のサイトにこの大変さをWrapするコードが公開されていた。
+事前バインディング Visual StudioでCOMオブジェクトの仕様を把握しているため、補完が効いて開発効率が高い 型情報なども取得済みでコンパイルするため、実行速度は遅延バインディングと比較して速い 使用するOfficeのバージョンを指定する必要がある。 遅延バインディング 使用するOfficeのバージョンを指定する必要がない Visual Studioでの補完は効かず、各オブジェクト、メソッドの情報を調べながら呼び出す必要がある。大変。 実行時に型チェックを行うため、遅い。実行時エラーが出る可能性も。 遅延バインディングは、各メソッドをInvokeMemberで引数を調査しながら呼び出す必要があり、とても大変。以下のサイトにこの大変さをWrapするコードが公開されていた。
 https://zenmai.wordpress.com/2011/06/24/excel%E3%81%AE%E5%8F%82%E7%85%A7%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%9B%E3%81%9A%E3%81%ABexcel%E3%82%92%E4%BD%BF%E3%81%86c/
 とても素晴らしいのでぜひ利用しようと考えたのだが、(当然ながら)COMオブジェクトのすべてが実装されているわけではないので不足個所を追加実装する必要があり、結構大幅な追加が必要と思われた。
 で、たどり着いたのがこちらの記事。
@@ -79,7 +79,10 @@ https://answers.microsoft.com/ja-jp/msoffice/forum/msoffice_excel-mso_winother-m
       <guid>https://blog.tack41.net/posts/2017/11/07_01/</guid>
       <description>C#でClosedXMLを使用してExcelに画像を追加する処理をしていた際、なぜかWorkbookの保存時にObjectDisposedExceptionが発生するという事態になりました。
 以下のようなコードです
- using (XLWorkbook wb = new XLWorkbook(filePath))  {  IXLWorksheet ws_src = wb.Worksheet(&amp;#34;Template&amp;#34;);   using (IXLWorksheet ws = ws_src.CopyTo(&amp;#34;1&amp;#34;))  {  var image = ws.AddPicture(imagePath1);  image.MoveTo(ws.Cell(3, 3).Address);  image.Scale(.5);   image = ws.AddPicture(imagePath2);  image.MoveTo(ws.Cell(20, 3).Address);  image.Scale(2);   }   using (IXLWorksheet ws = ws_src.CopyTo(&amp;#34;2&amp;#34;))  {  var image = ws.AddPicture(imagePath3);  image.MoveTo(ws.Cell(3, 3).Address);  image.Scale(.5);  }   ws_src.</description>
+using (XLWorkbook wb = new XLWorkbook(filePath)) { IXLWorksheet ws_src = wb.Worksheet(&amp;#34;Template&amp;#34;); using (IXLWorksheet ws = ws_src.CopyTo(&amp;#34;1&amp;#34;)) { var image = ws.AddPicture(imagePath1); image.MoveTo(ws.Cell(3, 3).Address); image.Scale(.5); image = ws.AddPicture(imagePath2); image.MoveTo(ws.Cell(20, 3).Address); image.Scale(2); } using (IXLWorksheet ws = ws_src.CopyTo(&amp;#34;2&amp;#34;)) { var image = ws.AddPicture(imagePath3); image.MoveTo(ws.Cell(3, 3).Address); image.Scale(.5); } ws_src.Delete(); wb.Save(); } wb.Save() を実行すると例外が発生します。imageの処理をコメントアウトするとエラーは発生しません。
+結論として、Worksheetを割り当てるusing句を外したところ、正常に動作するようになりました。エラー調査の際にOpenXMLのコードもちらっと見たのですが、おそらく画像を追加する際にいったんWorksheetの情報を更新して再割り当てするような処理が必要となります。usingを使っていると再割り当てができないのでエラーになったのではないかと。
+ただ、エラー箇所がusing句の中ではなく、Saveを実行した場所というのはよくわからないのですが&amp;hellip; 再割り当てできない状態で内部変数をいろいろいじくって、それをファイルに保存する際にそれが検知されてエラーとなる、とかではないかと。
+ClosedXMLのサンプルコードを見ていると、Workbookにusing句を使用するものはあるが、Worksheetに使用するものはほとんどない。WorkbookのDisposeで配下のすべてのリソースが解放されるので不要なのだろう。上記書き方が一般的ではないのかも。</description>
     </item>
     
   </channel>

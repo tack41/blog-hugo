@@ -43,7 +43,7 @@ Markdown上の表記と実際のリンク先が異なるのは気になるが、
       <guid>https://blog.tack41.net/posts/2018/04/17_01/</guid>
       <description>最近、マニュアル等を単体ではmarkdown、複数文書をまとめる必要がある場合はGitBookで作成している。
 GitBookで出版、のような記事も見受けられるため、かなりのことができるのかと思っていたのだが、タイトルにある以下の2件がどうしても解決できない
- フッターのカスタマイズ([現ページ]/[総ページ数]のような表示) 目次でページ数を表示  1点目は、book.jsonにカスタマイズを加える方法、
+フッターのカスタマイズ([現ページ]/[総ページ数]のような表示) 目次でページ数を表示 1点目は、book.jsonにカスタマイズを加える方法、
 https://qiita.com/nutti/items/96e7194c82b8d04382e2
 及び、_layouts/ebook/pdf_footer.htmlを作成する方法
 https://github.com/GitbookIO/gitbook/issues/1661

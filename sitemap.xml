@@ -2,28 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.tack41.net/categories/</loc>
+    <lastmod>2022-06-25T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/docker/</loc>
+    <lastmod>2022-06-25T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/2022/06/25_01/</loc>
+    <lastmod>2022-06-25T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/mariadb/</loc>
+    <lastmod>2022-06-25T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/</loc>
+    <lastmod>2022-06-25T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/</loc>
+    <lastmod>2022-06-25T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/</loc>
+    <lastmod>2022-06-25T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/categories/tech/</loc>
+    <lastmod>2022-06-25T00:00:00+09:00</lastmod>
+  </url><url>
     <loc>https://blog.tack41.net/posts/2022/05/19_01/</loc>
     <lastmod>2022-05-19T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/tags/apple_business_manager/</loc>
     <lastmod>2022-05-19T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://blog.tack41.net/categories/</loc>
-    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
-  </url><url>
     <loc>https://blog.tack41.net/tags/ios/</loc>
-    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/posts/</loc>
-    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/</loc>
-    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/</loc>
-    <lastmod>2022-05-19T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/categories/tech/</loc>
     <lastmod>2022-05-19T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/tags/chromeos/</loc>
@@ -164,9 +173,6 @@
     <loc>https://blog.tack41.net/tags/csharp/</loc>
     <lastmod>2021-07-21T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://blog.tack41.net/tags/docker/</loc>
-    <lastmod>2021-07-02T00:00:00+09:00</lastmod>
-  </url><url>
     <loc>https://blog.tack41.net/posts/2021/07/02_01/</loc>
     <lastmod>2021-07-02T00:00:00+09:00</lastmod>
   </url><url>
@@ -292,9 +298,6 @@
   </url><url>
     <loc>https://blog.tack41.net/posts/2020/06/08_01/</loc>
     <lastmod>2020-06-08T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/mariadb/</loc>
-    <lastmod>2020-06-03T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2020/06/03_01/</loc>
     <lastmod>2020-06-03T00:00:00+09:00</lastmod>

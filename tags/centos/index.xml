@@ -46,7 +46,7 @@ CentOS7 1804(minimal)で基本ディスク(xfs)でインストールすれば、
       
       <guid>https://blog.tack41.net/posts/2015/08/09_01/</guid>
       <description>さくらのVPS上にCentOS7.0でRails環境を構築したのでそのメモ。 一般ユーザーにて、必要に応じてsudoをかませて実行。
- ユーティリティプログラムをインストール git clone https://github.com/sstephenson/rbenv.git ~/.rbenv git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build echo &amp;#39;export PATH=&amp;#34;$HOME/.rbenv/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile echo &amp;#39;eval &amp;#34;$(rbenv init -)&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile exec $SHELL  必要なパッケージのインストール $ sudo yum install libffi-devel zlib zlib-devel openssl openssl-devel readline-devel sqlite-devel  ruby 2.2.0をインストール rbenv install 2.2.0 rbenv global 2.2.0  railsをインストール gem update --system gem install --no-ri --no-rdoc rails gem install bundler rbenv rehash rails -v  動作確認 rails s -b 0.</description>
+ユーティリティプログラムをインストール git clone https://github.com/sstephenson/rbenv.git ~/.rbenv git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build echo &amp;#39;export PATH=&amp;#34;$HOME/.rbenv/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile echo &amp;#39;eval &amp;#34;$(rbenv init -)&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bash_profile exec $SHELL 必要なパッケージのインストール $ sudo yum install libffi-devel zlib zlib-devel openssl openssl-devel readline-devel sqlite-devel ruby 2.2.0をインストール rbenv install 2.2.0 rbenv global 2.2.0 railsをインストール gem update --system gem install --no-ri --no-rdoc rails gem install bundler rbenv rehash rails -v 動作確認 rails s -b 0.0.0.0 </description>
     </item>
     
     <item>
@@ -57,7 +57,7 @@ CentOS7 1804(minimal)で基本ディスク(xfs)でインストールすれば、
       <guid>https://blog.tack41.net/posts/2012/4/01_01/</guid>
       <description>CentOS6.2にAdempiereインストール
 [前提条件]
- CentOS 6.2(x86_64) JDK1.6.0u31 Adempiere 3.6.0J_CE PostgreSQL管理者 postgres/postgrespw Adempiere用DBユーザ adempiere/adempierepw Adempiereインストールパス /opt/Adempiere3.6.0J_CE/ AdempiereKeystoreインストールパス /opt/Adempiere3.6.0J_CE/keystore Adempiere Keystore パスワード adempierekeypw   CentOS6.2 インストール(Minimal) PostgreSQLインストール yum install postgresql-server  PostgreSQL初期化 service postgresql initdb service postgresql start chkconfig postgresql on  PostgreSQL接続設定 service postgresql stop vi /var/lib/pgsql/data/pg_hba.conf ----- local all all trust host all all 127.0.0.1/32 trust host all all ::1/128 trust ----- vi /var/lib/pgsql/data/postgresql.conf ----- listen_address = &amp;#39;*&amp;#39; port = 5432 ----- service postgresql start  PostgreSQLユーザ設定 psql --u postgres ----- postgres=#ALTER USER postgres encrypted password &amp;#39;postgrespw&amp;#39;; postgres=#CREATE DATABASE adempiere; postgres=#CREATE USER adempiere WITH ENCRYPTED PASSWORD &amp;#39;adempierepw&amp;#39;; postgres=#\q -----  JDKインストール bash jdk-6u31-linux-x64-rpm.</description>
+CentOS 6.2(x86_64) JDK1.6.0u31 Adempiere 3.6.0J_CE PostgreSQL管理者 postgres/postgrespw Adempiere用DBユーザ adempiere/adempierepw Adempiereインストールパス /opt/Adempiere3.6.0J_CE/ AdempiereKeystoreインストールパス /opt/Adempiere3.6.0J_CE/keystore Adempiere Keystore パスワード adempierekeypw CentOS6.2 インストール(Minimal) PostgreSQLインストール yum install postgresql-server PostgreSQL初期化 service postgresql initdb service postgresql start chkconfig postgresql on PostgreSQL接続設定 service postgresql stop vi /var/lib/pgsql/data/pg_hba.conf ----- local all all trust host all all 127.0.0.1/32 trust host all all ::1/128 trust ----- vi /var/lib/pgsql/data/postgresql.conf ----- listen_address = &amp;#39;*&amp;#39; port = 5432 ----- service postgresql start PostgreSQLユーザ設定 psql --u postgres ----- postgres=#ALTER USER postgres encrypted password &amp;#39;postgrespw&amp;#39;; postgres=#CREATE DATABASE adempiere; postgres=#CREATE USER adempiere WITH ENCRYPTED PASSWORD &amp;#39;adempierepw&amp;#39;; postgres=#\q ----- JDKインストール bash jdk-6u31-linux-x64-rpm.</description>
     </item>
     
     <item>
@@ -69,8 +69,8 @@ CentOS7 1804(minimal)で基本ディスク(xfs)でインストールすれば、
       <description>インストール要件は以下のURLを参照。
 http://docs.oracle.com/cd/E17781_01/install.112/e18802/toc.htm#autoId3
 CentOS5.2にインストールする(vault.centos.orgより)。
- CentOSインストール  Desktop - GNOME Server Firewall無効 SELinux無効
-※swapを2006MB以上確保しないとoracleインストールチェックで弾かれるので注意   更新適用、再起動 yum update reboot  必要なパッケージがインストールされていることを確認 rpm -qa | grep -E &amp;#39;glibc|make|binutils|gcc|libaio&amp;#39;  VMWare Toolsインストール、再起動 Oracleインストール unzip oracle-xe-11.2.0-1.0.x86_64.rpm.zip rpm -ivh oracle-xe-11.2.0-1.0.x86_64.rpm  環境変数設定 cd /u01/app/oracle/product/11.2.0/xe/bin . ./oracle_env.sh bashrcに以下の行を追加 . /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh  リモートアクセスを可能にする sqlplus system SQL&amp;gt; EXEC DBMS_XDB.SETLISTENERLOCALACCESS(FALSE);   </description>
+CentOSインストール Desktop - GNOME Server Firewall無効 SELinux無効
+※swapを2006MB以上確保しないとoracleインストールチェックで弾かれるので注意 更新適用、再起動 yum update reboot 必要なパッケージがインストールされていることを確認 rpm -qa | grep -E &amp;#39;glibc|make|binutils|gcc|libaio&amp;#39; VMWare Toolsインストール、再起動 Oracleインストール unzip oracle-xe-11.2.0-1.0.x86_64.rpm.zip rpm -ivh oracle-xe-11.2.0-1.0.x86_64.rpm 環境変数設定 cd /u01/app/oracle/product/11.2.0/xe/bin . ./oracle_env.sh bashrcに以下の行を追加 . /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh リモートアクセスを可能にする sqlplus system SQL&amp;gt; EXEC DBMS_XDB.SETLISTENERLOCALACCESS(FALSE); </description>
     </item>
     
   </channel>

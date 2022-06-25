@@ -17,20 +17,20 @@
       
       <guid>https://blog.tack41.net/posts/2013/05/04_01/</guid>
       <description>オープンソースでiSCSIターゲットを実装可能なFreeNASを利用し、Windows 2012より利用する。
-1. 初期設定  FreeNAS 8.3.1のインストール  CPU: i5 2405S 1c MEM: 1GB Disk1: 30GB(OS Install) Disk2 :10GB(iSCSI Volume)   CUIにてNWアドレスを設定  2. iSCSI targetの設定  WebUIにてアクセス ボリュームの追加  [Volume]-[Volume Manager]にてボリュームを追加する。 上段[Servies]-[Core]にてiSCSIをオンにする
-   iSCSIポータルの設定
+1. 初期設定 FreeNAS 8.3.1のインストール CPU: i5 2405S 1c MEM: 1GB Disk1: 30GB(OS Install) Disk2 :10GB(iSCSI Volume) CUIにてNWアドレスを設定 2. iSCSI targetの設定 WebUIにてアクセス ボリュームの追加 [Volume]-[Volume Manager]にてボリュームを追加する。 上段[Servies]-[Core]にてiSCSIをオンにする
+iSCSIポータルの設定
 [iSCSI]-[ポータル]を選択し、アクセス制限を設定する(ここではオールOKとした)
- Initiatorの許可
+Initiatorの許可
 [iSCSI]-[Initiator]で接続元のInitiatorを制限する(下図では制限なし)
- ポータルの追加
+ポータルの追加
 [iSCSI]-[Portal]を選択し、ポータルを追加する(下図では全アクセスを許可)
- Initiatorの設定
-[iSCSI]-[Initiators]よりInitiatorのアクセス制限をかける。下図では制限なし。  ターゲットの追加
+Initiatorの設定
+[iSCSI]-[Initiators]よりInitiatorのアクセス制限をかける。下図では制限なし。 ターゲットの追加
 [iSCSI]-[Targets]を開き、[Add Target]ボタンをクリック
 すべて入力して[OK]をクリック。 ターゲットにエクステントを追加
 [iSCSI]-[Associated Targets]を開き、[Add Extend to Target]をクリックする
 これまで入力した内容を入力する
- WindowsやLinuxのiSCSI initiatorから接続できることを確認。  </description>
+WindowsやLinuxのiSCSI initiatorから接続できることを確認。 </description>
     </item>
     
     <item>
@@ -39,18 +39,21 @@
       <pubDate>Tue, 11 Dec 2012 00:00:00 +0000</pubDate>
       
       <guid>https://blog.tack41.net/posts/2012/12/11_01/</guid>
-      <description>任意のユーザーにアクセス許可を与える場合  CDにてインストール 初回起動後、コンソールにてIPアドレス、DNSを設定 Webコンソールにて[Storage]-[Active Volumes]-[Volume Manager]を選択
- 対象のボリュームを選択し、必要な情報を入力して[Add Volume]をクリック
- [Storage]にて先ほど作成した「Volume1」にて[Change Permissions]をクリック。
- Owner(user/group)にて適切な所有者を指定する。今回は全ユーザーに許可を与えるためnobodyをOwnerに指定している。
- [Shares]-[Windows(CIFS)]-[Add Windows(CIFS) Share]をクリック。
- 必要な情報を入力する。ポイントは以下の通り。  [Path]には前で作成したボリューム(/mnt/Volume1)を入力する。 以下のチェックボックスにチェックを入れる。  Browsable to Network Clients Allow Guests Access Only Allow Guest Access      CIFSサービスを起動するかどうか確認ダイアログが表示されるので、Yesをクリックする。
- [Services]にて[CIFS]が[ON]になっていることを確認し、右にあるスパナのアイコンをクリックする。
- CIFSの各種設定を行う。ポイントは以下の通り。  Authentication Modelは「Local User」を指定する。「Anonymous」を指定するとファイルを作成できるが変更・削除ができなくなる。 DOS charsetは「CP932」を指定。 上記以外はデフォルトのまま
-   Explorerにて上記で作成したフォルダが見えることを確認。
- ファイルやフォルダを作成できることを確認。   特定ユーザーにアクセス許可を与える場合 (上記任意のユーザーにアクセス許可を与える作業は実施済みとする)
- [Account]-[Users]-[Add User]にてアクセス許可を与えるユーザーを作成する。 [Shares]-[Windows(CIFS)]にて作成済みの共有フォルダの[Edit]ボタンをクリックする。
- 最下部の「Allow Guest Access」「Only Allow Guest Access」のチェックを外して[OK]ボタンをクリックする。</description>
+      <description>任意のユーザーにアクセス許可を与える場合 CDにてインストール 初回起動後、コンソールにてIPアドレス、DNSを設定 Webコンソールにて[Storage]-[Active Volumes]-[Volume Manager]を選択
+対象のボリュームを選択し、必要な情報を入力して[Add Volume]をクリック
+[Storage]にて先ほど作成した「Volume1」にて[Change Permissions]をクリック。
+Owner(user/group)にて適切な所有者を指定する。今回は全ユーザーに許可を与えるためnobodyをOwnerに指定している。
+[Shares]-[Windows(CIFS)]-[Add Windows(CIFS) Share]をクリック。
+必要な情報を入力する。ポイントは以下の通り。 [Path]には前で作成したボリューム(/mnt/Volume1)を入力する。 以下のチェックボックスにチェックを入れる。 Browsable to Network Clients Allow Guests Access Only Allow Guest Access CIFSサービスを起動するかどうか確認ダイアログが表示されるので、Yesをクリックする。
+[Services]にて[CIFS]が[ON]になっていることを確認し、右にあるスパナのアイコンをクリックする。
+CIFSの各種設定を行う。ポイントは以下の通り。 Authentication Modelは「Local User」を指定する。「Anonymous」を指定するとファイルを作成できるが変更・削除ができなくなる。 DOS charsetは「CP932」を指定。 上記以外はデフォルトのまま
+Explorerにて上記で作成したフォルダが見えることを確認。
+ファイルやフォルダを作成できることを確認。 特定ユーザーにアクセス許可を与える場合 (上記任意のユーザーにアクセス許可を与える作業は実施済みとする)
+[Account]-[Users]-[Add User]にてアクセス許可を与えるユーザーを作成する。 [Shares]-[Windows(CIFS)]にて作成済みの共有フォルダの[Edit]ボタンをクリックする。
+最下部の「Allow Guest Access」「Only Allow Guest Access」のチェックを外して[OK]ボタンをクリックする。
+[Services]にてCIFSサービスを再起動する。 エクスプローラにて該当フォルダにアクセスすると認証ダイアログが表示される。
+ID欄には「(ワークグループ名)\(ユーザー名)」の形で入力する。
+アクセスが許可され、任意のファイル、フォルダを作成できることを確認する。</description>
     </item>
     
   </channel>

@@ -16,10 +16,10 @@
       <pubDate>Wed, 23 Mar 2022 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2022/03/23_01/</guid>
-      <description>TL;DR  Active Directoryでログイン時にexeファイルを実行する場合はStart-Processでの実行が必要  経緯 Emotetが流行っているので、EmocheckをActive Directory のログインスクリプトに仕込んでみていた。
+      <description>TL;DR Active Directoryでログイン時にexeファイルを実行する場合はStart-Processでの実行が必要 経緯 Emotetが流行っているので、EmocheckをActive Directory のログインスクリプトに仕込んでみていた。
 単体では実行できるので問題ないと考えていたが、どうもActive Directory のグループポリシーでログイン時に起動する設定をすると何故か実行されない。イベントログを見ると一応対象として認識されているのだが&amp;hellip;
 Powershell から外部ファイルを実行するにはいくつか方法があるが、以下のように実行するとダメなようだった。
-$proc = New-Object &amp;#34;System.Diagnostics.Process&amp;#34; $psi = New-Object &amp;#34;System.Diagnostics.ProcessStartInfo&amp;#34; $psi.FileName = $emocheck_Exe $psi.Arguments = &amp;#34;-output $reportDir -quiet -json&amp;#34; $psi.CreateNoWindow = $true; $psi.UseShellExecute = $false $psi.WindowStyle = [System.Diagnostics.ProcessWindowStyle]::Hidden  $proc.StartInfo = $psi $proc.Start() 以下のように設定することでログイン時に実行されるようになった。
+$proc = New-Object &amp;#34;System.Diagnostics.Process&amp;#34; $psi = New-Object &amp;#34;System.Diagnostics.ProcessStartInfo&amp;#34; $psi.FileName = $emocheck_Exe $psi.Arguments = &amp;#34;-output $reportDir -quiet -json&amp;#34; $psi.CreateNoWindow = $true; $psi.UseShellExecute = $false $psi.WindowStyle = [System.Diagnostics.ProcessWindowStyle]::Hidden $proc.StartInfo = $psi $proc.Start() 以下のように設定することでログイン時に実行されるようになった。
 Start-Process -WindowStyle Hidden -FilePath $emocheck_Exe -ArgumentList &amp;#34;-output $reportDir -quiet -json&amp;#34; -WorkingDirectory $currentDir </description>
     </item>
     
@@ -31,7 +31,7 @@ Start-Process -WindowStyle Hidden -FilePath $emocheck_Exe -ArgumentList &amp;#34
       <guid>https://blog.tack41.net/posts/2020/10/09_01/</guid>
       <description>Active Directoryの情報をPowershellで取得し、管理資料に起こすスクリプトを作成。せっかくなので定期的にスクリプトを実行して差分がないかタスクスケジューラで定期実行してチェックする運用を構築していた時に問題が発生。
 手動で実行する分には問題ないのだが、タスクスケジューラを通して実行するとなぜか以下問題が発生
- ADのオブジェクトのSort-Objectでの並び替えが効かない Get-GPOReportで出力した一部XMLに差分が検知される。実際に比較してみると差分はないのだが&amp;hellip;  https://social.technet.microsoft.com/Forums/ja-JP/a7e363fa-4553-4468-b123-a1e971c68a78/12525124641245812501123751239012356124271251812540124701254012?forum=powershellja
+ADのオブジェクトのSort-Objectでの並び替えが効かない Get-GPOReportで出力した一部XMLに差分が検知される。実際に比較してみると差分はないのだが&amp;hellip; https://social.technet.microsoft.com/Forums/ja-JP/a7e363fa-4553-4468-b123-a1e971c68a78/12525124641245812501123751239012356124271251812540124701254012?forum=powershellja
 によると、手動実行とタスクスケジューラからの実行時で既定のモジュールパスが異なるということなので、それによるのかもしれない。が、プログラムがこけているわけではないので、原因はどれなのか得的できず、どれをロードすればよいのかわからない。
 実行の都度生成されるファイルが変わってしまうようではチェックには使えないということで、タスクスケジューラによるチェックは断念した。
 Powershellをタスクスケジューラから呼び出す処理はほかに多数書いており、問題になったことはない。Active Directoryを操作する際にはImport-Moduleで専用のモジュールを読み込んで処理をするのだが、こういった書き方をする場合に問題となるのかもしれない。 原因は不明。</description>

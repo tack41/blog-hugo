@@ -17,7 +17,7 @@
       
       <guid>https://blog.tack41.net/posts/2017/11/30_01/</guid>
       <description>社内DBを試行錯誤しているため、DB間データ移行の前段としてテーブル定義をコピーしたいことがある。 大抵のDBでは無料でもツールが充実しており、ODBCライブラリを入れればよっぽど問題ないと思うのだが&amp;hellip;
- MySQL &amp;hellip; Workbench Oracle &amp;hellip; SQL Developer SQL Server &amp;hellip; SQL Server Management Studio(SSMS)  Windows 10 Pro 64bitで、SSMSからOracleにアクセスしようとしたところ、どうにもエラーでうまく行かない。64bitのInstant Client + ODBCをインストールし、OSのODBC管理ツールでテスト接続は成功しているのだが&amp;hellip;
+MySQL &amp;hellip; Workbench Oracle &amp;hellip; SQL Developer SQL Server &amp;hellip; SQL Server Management Studio(SSMS) Windows 10 Pro 64bitで、SSMSからOracleにアクセスしようとしたところ、どうにもエラーでうまく行かない。64bitのInstant Client + ODBCをインストールし、OSのODBC管理ツールでテスト接続は成功しているのだが&amp;hellip;
 で、こういう時はAccessでODBC経由でリンクを貼る分にはまず失敗しない。この状態でテーブルをAccessにテーブル定義のみコピーし、そのAccessのテーブルをSSMSでインポートするとうまくいく。</description>
     </item>
     
@@ -30,8 +30,8 @@
       <description>インストール要件は以下のURLを参照。
 http://docs.oracle.com/cd/E17781_01/install.112/e18802/toc.htm#autoId3
 CentOS5.2にインストールする(vault.centos.orgより)。
- CentOSインストール  Desktop - GNOME Server Firewall無効 SELinux無効
-※swapを2006MB以上確保しないとoracleインストールチェックで弾かれるので注意   更新適用、再起動 yum update reboot  必要なパッケージがインストールされていることを確認 rpm -qa | grep -E &amp;#39;glibc|make|binutils|gcc|libaio&amp;#39;  VMWare Toolsインストール、再起動 Oracleインストール unzip oracle-xe-11.2.0-1.0.x86_64.rpm.zip rpm -ivh oracle-xe-11.2.0-1.0.x86_64.rpm  環境変数設定 cd /u01/app/oracle/product/11.2.0/xe/bin . ./oracle_env.sh bashrcに以下の行を追加 . /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh  リモートアクセスを可能にする sqlplus system SQL&amp;gt; EXEC DBMS_XDB.SETLISTENERLOCALACCESS(FALSE);   </description>
+CentOSインストール Desktop - GNOME Server Firewall無効 SELinux無効
+※swapを2006MB以上確保しないとoracleインストールチェックで弾かれるので注意 更新適用、再起動 yum update reboot 必要なパッケージがインストールされていることを確認 rpm -qa | grep -E &amp;#39;glibc|make|binutils|gcc|libaio&amp;#39; VMWare Toolsインストール、再起動 Oracleインストール unzip oracle-xe-11.2.0-1.0.x86_64.rpm.zip rpm -ivh oracle-xe-11.2.0-1.0.x86_64.rpm 環境変数設定 cd /u01/app/oracle/product/11.2.0/xe/bin . ./oracle_env.sh bashrcに以下の行を追加 . /u01/app/oracle/product/11.2.0/xe/bin/oracle_env.sh リモートアクセスを可能にする sqlplus system SQL&amp;gt; EXEC DBMS_XDB.SETLISTENERLOCALACCESS(FALSE); </description>
     </item>
     
   </channel>

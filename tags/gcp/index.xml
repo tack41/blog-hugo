@@ -16,8 +16,8 @@
       <pubDate>Mon, 04 Apr 2022 01:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2022/04/04_02/</guid>
-      <description>TL;DR  公開されている手順通りには行かないなぁ  経緯 Google Cloud Identity Freeで作成したWorkspaceのアカウントに対し、Azure ADをIdPとしたSSO設定を行いました。故あって2回行いましたが、2回とも試行錯誤したので今後のためにメモ
- Azure ADにて[Enterprise Application]-&amp;gt;[New Application]より「Google Cloud / G Suite Connector by Microsoft」を追加 [Manage]-[Single sign-on]より、[Basic configuration]-[Edit]をクリック 以下のとおり入力して保存する(ドメイン名を「example.com」とする)  Identifier (Entity ID)  google.com/a/example.com https://google.com/a/example.com https://google.com google.com   Reply URL (Assertion Consumer Service URL)  https://google.com/a/example.com https://www.google.com/ (Default)   Sign on URL  https://www.google.com/a/example.com/ServiceLogin?continue=https://console.cloud.google.com     [Attributes &amp;amp; Claims]-[Edit]をクリック [Additional claims]を4つとも削除する [SAML Signing Certificate]より「Certificate (Base64)」(※1)をダウンロード [Set up Google Cloud / G Suite Connector by Microsoft]のLogin URLの内容をコピー [Manage]-[Users and groups]にてSSO対象とするユーザーアカウントを登録 Google Adminにログインし、[Security]-[Authentication]-[SSO with third party IdP]をクリック [Thirt-party SSO profile for your organization]の編集アイコンをクリックし、以下のように設定して保存する  Set up SSO with third-party identity provider: ON Sign-in URL: (※2を貼り付け) Sign-out URL: https://login.</description>
+      <description>TL;DR 公開されている手順通りには行かないなぁ 経緯 Google Cloud Identity Freeで作成したWorkspaceのアカウントに対し、Azure ADをIdPとしたSSO設定を行いました。故あって2回行いましたが、2回とも試行錯誤したので今後のためにメモ
+Azure ADにて[Enterprise Application]-&amp;gt;[New Application]より「Google Cloud / G Suite Connector by Microsoft」を追加 [Manage]-[Single sign-on]より、[Basic configuration]-[Edit]をクリック 以下のとおり入力して保存する(ドメイン名を「example.com」とする) Identifier (Entity ID) google.com/a/example.com https://google.com/a/example.com https://google.com google.com Reply URL (Assertion Consumer Service URL) https://google.com/a/example.com https://www.google.com/ (Default) Sign on URL https://www.google.com/a/example.com/ServiceLogin?continue=https://console.cloud.google.com [Attributes &amp;amp; Claims]-[Edit]をクリック [Additional claims]を4つとも削除する [SAML Signing Certificate]より「Certificate (Base64)」(※1)をダウンロード [Set up Google Cloud / G Suite Connector by Microsoft]のLogin URLの内容をコピー [Manage]-[Users and groups]にてSSO対象とするユーザーアカウントを登録 Google Adminにログインし、[Security]-[Authentication]-[SSO with third party IdP]をクリック [Thirt-party SSO profile for your organization]の編集アイコンをクリックし、以下のように設定して保存する Set up SSO with third-party identity provider: ON Sign-in URL: (※2を貼り付け) Sign-out URL: https://login.</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Mon, 04 Apr 2022 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2022/04/04_01/</guid>
-      <description>TL;DR  クラウドの設定変更には時間がかかる場合があります。設定変更が反映されることを前提に後続の作業を行う場合は、最低でも2日待って後続の作業をしたほうが良いです。  経緯 Google Cloud Identity FreeでWorkspaceと最初の管理者アカウント(ここではuser@example.comとする)を作成しました。次にadmin@example.comアカウントを作成し、Super Admin権限を付与しました。さらに最初に作成したuser@example.comのSuper Admin権限を削除しました。user@example.comアカウントのSuper Admin権限をadmin@example.comに移動した形です。
+      <description>TL;DR クラウドの設定変更には時間がかかる場合があります。設定変更が反映されることを前提に後続の作業を行う場合は、最低でも2日待って後続の作業をしたほうが良いです。 経緯 Google Cloud Identity FreeでWorkspaceと最初の管理者アカウント(ここではuser@example.comとする)を作成しました。次にadmin@example.comアカウントを作成し、Super Admin権限を付与しました。さらに最初に作成したuser@example.comのSuper Admin権限を削除しました。user@example.comアカウントのSuper Admin権限をadmin@example.comに移動した形です。
 次に、Azure ADをIdPとしたSSOを行いました。user@example.comアカウントでうまくログインできないため、Google側の設定を見ようと思い、admin.google.comにadmin@example.comでログインしようとすると、SSO先のAzureログイン画面に転送されてしまい、ログインできません。当然user@example.comも同様です。つみました&amp;hellip;
 最初、SSOの設定は既定で全アカウントに適用されるのかと思いました。が、だとしたらこのような事例が頻発するはずで、実際Googleのドキュメントを見ると、管理者アカウントはSSOから除外されるとありました。
 となると、最初に行った管理者権限の移動が反映されていない可能性がありそう。権限を移動してから12時間程度だったため、クラウドの設定は1日¥見ておいたほうが良いとするとありうる話。念のためサポートから問い合わせを入れましたが無料での利用のため、期待薄。

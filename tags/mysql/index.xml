@@ -16,7 +16,7 @@
       <pubDate>Sat, 26 Mar 2022 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2022/03/26_01/</guid>
-      <description>TL;DR  アルファメール(プレミア)ではshellの直接実行はできない。が、phpのexecを利用すればほぼ同じことができます。  経緯 自社のWEBサイトを大塚商会のアルファメールプレミアでMovable Typeを利用して運用しています。バックアップに関して、コンテンツファイルはFTP(over TLS)でCLIで取得できますが、DBに関してはphpMyAdminを利用してブラウザからボタンポチポチで取得していました。
+      <description>TL;DR アルファメール(プレミア)ではshellの直接実行はできない。が、phpのexecを利用すればほぼ同じことができます。 経緯 自社のWEBサイトを大塚商会のアルファメールプレミアでMovable Typeを利用して運用しています。バックアップに関して、コンテンツファイルはFTP(over TLS)でCLIで取得できますが、DBに関してはphpMyAdminを利用してブラウザからボタンポチポチで取得していました。
 WEBコンソールのメニューの中に「cron設定」という項目があるのに気づいて調べたところ、拡張子が「.cgi」または「.php」のファイルの一覧から選んで指定時刻に実行してくれるということのようでした。
 こういうバッチ的な利用が可能なのであれば、execでOSコマンドも実行できるのでは、と思ってmysqldump叩いてみたところ実行できました。これはありがたいということで、AWS SDK for PHPのpackaged phar版をダウンロードしてS3へのアップロードまでできました。
 注意事項として、認証情報をファイルから取得する場合、そのファイルを含むパスに認証をかけないと危険です。
@@ -42,7 +42,7 @@ MySQLでON UPDATE CURRENT_TIMESTAMP で更新時にタイムスタンプを自�
       
       <guid>https://blog.tack41.net/posts/2017/11/30_01/</guid>
       <description>社内DBを試行錯誤しているため、DB間データ移行の前段としてテーブル定義をコピーしたいことがある。 大抵のDBでは無料でもツールが充実しており、ODBCライブラリを入れればよっぽど問題ないと思うのだが&amp;hellip;
- MySQL &amp;hellip; Workbench Oracle &amp;hellip; SQL Developer SQL Server &amp;hellip; SQL Server Management Studio(SSMS)  Windows 10 Pro 64bitで、SSMSからOracleにアクセスしようとしたところ、どうにもエラーでうまく行かない。64bitのInstant Client + ODBCをインストールし、OSのODBC管理ツールでテスト接続は成功しているのだが&amp;hellip;
+MySQL &amp;hellip; Workbench Oracle &amp;hellip; SQL Developer SQL Server &amp;hellip; SQL Server Management Studio(SSMS) Windows 10 Pro 64bitで、SSMSからOracleにアクセスしようとしたところ、どうにもエラーでうまく行かない。64bitのInstant Client + ODBCをインストールし、OSのODBC管理ツールでテスト接続は成功しているのだが&amp;hellip;
 で、こういう時はAccessでODBC経由でリンクを貼る分にはまず失敗しない。この状態でテーブルをAccessにテーブル定義のみコピーし、そのAccessのテーブルをSSMSでインポートするとうまくいく。</description>
     </item>
     
