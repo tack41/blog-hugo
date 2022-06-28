@@ -9,7 +9,21 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Jun 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Raspbian 11でapt経由でzabbixを利用する際はnginx利用不可</title>
+      <link>https://blog.tack41.net/posts/2022/06/28_01/</link>
+      <pubDate>Tue, 28 Jun 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/06/28_01/</guid>
+      <description>TL;DR Raspbian 11でapt経由でzabbix6をインストールする場合、nginxは事実上利用できずapache2を利用することになる。 zabbix-nginx-confパッケージをインストールするとなぜかapache2がインストールされてしまう。 経緯 Raspberry Pi 4(8GB)にRaspbian OS 11 Liteをインストールしてzabbixサーバを構築しようとした。リポジトリを追加するためのパッケージは以下
+https://repo.zabbix.com/zabbix/6.0/raspbian/pool/main/z/zabbix-release/zabbix-release_6.0-3+debian11_all.deb
+Raspbian 10の時と同じ手順で進める。Webサーバはnginx。設定は問題なく完了するのだが、Webを見に行くと、Apache2の既定のメッセージが出てしまう。
+実際、サービスを確認するとnginxのほかにapahce2が起動しており、apache2はポートをbindできずにエラーとなっている。
+が、途中でapache2を入れた記憶はない。よくよく調べていくとdpkg rdepends zabbix-nginx-confでなぜかapache2をインストールしているっぽい。nginxはインストールしないのに。
+明らかな不具合だと思い、forumに報告。ひとまずはapache2で構築した。</description>
+    </item>
+    
     <item>
       <title>DockerコンテナのMariaDBのメジャーバージョンアップ</title>
       <link>https://blog.tack41.net/posts/2022/06/25_01/</link>
