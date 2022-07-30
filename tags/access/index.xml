@@ -9,7 +9,19 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 21 Jul 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/access/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jul 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/access/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Accessでグラフ</title>
+      <link>https://blog.tack41.net/posts/2022/07/30_02/</link>
+      <pubDate>Sat, 30 Jul 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/07/30_02/</guid>
+      <description>TL;DR AccessのグラフはModernとClassicの2種類。細かい要件は無くて手っ取り早くきれいなグラフを作るならModern、調整が必要な場合はClassic。(Classicならどんなグラフも可能とは言ってない) 経緯 Accessでグラフを作ることになり調査。最新のMS365のAccessでは、ModernとClassicの2つがあることが分かった。
+Modernは、今どきのおしゃれな感じのグラフがパッとできる。が、マーカーのサイズを調整したりとか、凡例の位置を微調整したりとか、細かいところができない。
+一方Classicは、見た目は古臭くて野暮ったいが、かなり細かい調整ができる。
+MicrosoftとしてはModernを売っていきたいのだろが、Classic出ないとできないことがまだ結構ある印象。それでも長期的にはModernに統一される可能性はあるので、Modernで十分な場合は採用し、そうでない場合のみClassicとするのがよいだろう。</description>
+    </item>
+    
     <item>
       <title>Accessの通貨型にはSystem.Decimal</title>
       <link>https://blog.tack41.net/posts/2021/07/21_01/</link>
