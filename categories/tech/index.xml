@@ -9,7 +9,26 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 28 Jun 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Jul 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Growiで相対リンク</title>
+      <link>https://blog.tack41.net/posts/2022/07/30_01/</link>
+      <pubDate>Sat, 30 Jul 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/07/30_01/</guid>
+      <description>TL;DR GROWIで相対リンクを記述する際はPukiwiki like linkerを使おう リンクは[[こちら&amp;gt;./link_to_page]] 経緯 社内のマニュアル等の共有にGROWIを利用している。日本語の全文検索ができ、Markdownの記述ができるので過去のGitBook形式からの移行が容易というのがポイントだった。
+が、文書間の相対リンクがうまくいかない。例えば、/manuals/topページにて/manuals/top/system-Aへのリンクを張りたい場合、自分のパスも含めて以下のように記載する必要がある。
+[System-Aのマニュアル](./top/system-A) いまいちだなぁと思いつつ、仕様とあきらめて利用していた。ところが、最新バージョン5.0がリリースされ、これまでパス形式のリンクが既定のところがID形式に変更された。
+この結果、/manuals/topにアクセスした際にブラウザに表示されるURLが、バージョンアップ前は
+https://docs.example.com/manuals/top と表示されているところが
+https://docs.example.com/62b3acabcd2f9c94de9c3b20f のようなID表示となってしまった。すると上記の相対リンクは
+https://docs.example.com/top/system-A へのリンクと解釈され、文書が存在しないと表示されてしまう&amp;hellip;
+で、本家のLinkの貼り方に関する説明を確認し、方法は3種類あり、Pukiwiki like linkerがもっとも柔軟性があるとのことだったので試したところ、特に何もインストールせずに利用でき、自分のパスを含めずに相対パスを作成することができた
+[[System-Aのマニュアル&amp;gt;./system-A]] ただ、当然GitBookとの互換性はなくなる。
+今回は互換性よりも相対パスを記載できないことによる文書構造の硬直化がイヤだったのでPukiwiki like linkerを採用した。
+Markdown標準方式でも同様の記述ができるようになるとよいのだが。</description>
+    </item>
+    
     <item>
       <title>Raspbian 11でapt経由でzabbixを利用する際はnginx利用不可</title>
       <link>https://blog.tack41.net/posts/2022/06/28_01/</link>
