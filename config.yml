@@ -2,6 +2,7 @@ baseURL: "https://blog.tack41.net/"
 title: "tack41's blog"
 paginate: 5
 theme: PaperMod
+disqusShortname: blog-hugo-tack41
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -128,5 +129,3 @@ menu:
 #         guessSyntax: true
 #         lineNos: true
 #         style: monokai
-
-disqusShortname: blog-hugo-tack41
