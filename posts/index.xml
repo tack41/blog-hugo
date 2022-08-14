@@ -12,10 +12,10 @@
     <lastBuildDate>Mon, 15 Aug 2022 07:37:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo PaperModにDisqusコメント機能を追加</title>
-      <link>https://blog.tack41.net/posts/2022/08/30_02/</link>
+      <link>https://blog.tack41.net/posts/2022/08/15_01/</link>
       <pubDate>Mon, 15 Aug 2022 07:37:00 +0900</pubDate>
       
-      <guid>https://blog.tack41.net/posts/2022/08/30_02/</guid>
+      <guid>https://blog.tack41.net/posts/2022/08/15_01/</guid>
       <description>TL;DR Hugo PaperModeテーマにDisqusによるコメント機能を追加するには以下を実施する。画面に反映されるまで数分かかる? config.yml 以下を追加 ... disqusShortname: blog-hugo-tack41 ... params: ... comments: true ... layouts/partials/comments.htmlを以下の内容で作成 {{ template &amp;#34;_internal/disqus.html&amp;#34; . }} 経緯 ブログは、過去に書いてきたものも含めてこのHugo(PaperModテーマ)に移行している。
 過去のブログは、コメントがあるものもあるのでそのまま残しているのだが、一部いまだにコメントを頂けるものがある。
 コメントがあると、見てもらえているという実感がわき、やる気が出る。ということで本ブログも遅まきながらコメント機能を追加した。
