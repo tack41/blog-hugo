@@ -26,7 +26,9 @@ https://docs.example.com/top/system-A へのリンクと解釈され、文書が
 で、本家のLinkの貼り方に関する説明を確認し、方法は3種類あり、Pukiwiki like linkerがもっとも柔軟性があるとのことだったので試したところ、特に何もインストールせずに利用でき、自分のパスを含めずに相対パスを作成することができた
 [[System-Aのマニュアル&amp;gt;./system-A]] ただ、当然GitBookとの互換性はなくなる。
 今回は互換性よりも相対パスを記載できないことによる文書構造の硬直化がイヤだったのでPukiwiki like linkerを採用した。
-Markdown標準方式でも同様の記述ができるようになるとよいのだが。</description>
+Markdown標準方式でも同様の記述ができるようになるとよいのだが。
+[2022.8.16追記]
+Slackにて不具合委報告したところ、5.1.1より修正されました。</description>
     </item>
     
   </channel>
