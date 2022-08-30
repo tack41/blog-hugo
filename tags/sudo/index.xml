@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>sudo on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/sudo/</link>
+    <description>Recent content in sudo on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 30 Aug 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/sudo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sudoでNOPASSWD設定しても反映されない場合は最終行に</title>
+      <link>https://blog.tack41.net/posts/2022/08/30_01/</link>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/08/30_01/</guid>
+      <description>TL;DR sudoでNOPASSWD設定しても有効にならない場合は、最終行に記述するとうまくいく。なぜ&amp;hellip; 経緯 sudo時に毎回パスワードを入力するのが手間なため、visudoコマンドでNOPASSWDを設定してもなぜか反映されない。 ユーザー名がt-tack41のようにハイフンが含まれているのだが、vimのシンタックスハイライトでハイフンの前のtまでしかユーザー名として認識されていないように見えたため、ダブルクォーテーション、シングルクォーテーションで囲ったり、ハイフンの前にバックスラッシュでエスケープしてもダメ。
+&amp;quot;t-tack41&amp;quot; &#39;t-tack41&#39; t\-tack41 &amp;quot;t\-tack41&amp;quot; そこで色々調べている最中にhilotter氏のブログ記事を発見。
+sudoでNOPASSWD設定しても反映されない現象に遭遇
+この記事は2015年7月の記事で、この記事自身も馬場氏の2010年1月のブログ記事 sudoでNOPASSWDが効かない時の対応方法にある内容を実行したらなぜか直ったとある。
+その方法は、NOPASSWDの設定行を設定ファイルの一番後ろに書けばよいということ。理由に関する記載はない。
+いや、まさかね～、そんな古い記事だし、そんな理由で直るわけが&amp;hellip;. と思ってやってみたら見事に直った!!!
+その後、上記記事のタイトルなどでググると同様の記事が多数あり、その中のteratailの記事で原因が判明。sudoersの設定は最終行に近い方が優先されるので、所属するグループでパスワードを有効にしない設定が下にあればそちらが優先されてしまうとのこと。
+sudo をパスワードなしで実行できるようにしたい
+実際、今回記載した下の方にグループに対するパスワード有効の設定があったため、そのグループから抜けたうえで再度試したところパスワードなしの設定が有効になった。ユーザー名のハイフンは関係なかったです。</description>
+    </item>
+    
+  </channel>
+</rss>
