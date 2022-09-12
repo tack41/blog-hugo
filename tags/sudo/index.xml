@@ -9,7 +9,18 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 30 Aug 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/sudo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Sep 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/sudo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python3 メール送信時に本文なしだと弾かれる</title>
+      <link>https://blog.tack41.net/posts/2022/09/12_01/</link>
+      <pubDate>Mon, 12 Sep 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/09/12_01/</guid>
+      <description>TL;DR python3(3.7.3)環境でMIMETextを使ってメール本文を作成する場合に、メールが送信されない → 本文を追加 or 件名変更でなぜか解決&amp;hellip; 経緯 python3(3.7.3)の環境で、Pythonによるスクリプトの実行結果をメール通知している。あるメールアドレスに集約しているのだが、一部のメールが届かない。
+そのホストから送信している別の件名のメールは届いている 通知メールは本文空文字でMIMETextで作成している 本文に適当な文字を入れると届く、空白ではだめ 件名を変えると届く 送信ホストのメールログを見ると、送信処理自体は正常終了している。 件名の変更、または本文の追加で解消されることから、利用しているメールサーバによるウィルスチェックに引っかかったのではないかと推測しているが、詳細は非公開のため不明。
+メール本文は何か設定しておいた方が無難ということか。</description>
+    </item>
+    
     <item>
       <title>sudoでNOPASSWD設定しても反映されない場合は最終行に</title>
       <link>https://blog.tack41.net/posts/2022/08/30_01/</link>
