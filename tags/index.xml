@@ -9,7 +9,25 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 12 Sep 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Sep 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python</title>
+      <link>https://blog.tack41.net/tags/python/</link>
+      <pubDate>Wed, 21 Sep 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>selenium</title>
+      <link>https://blog.tack41.net/tags/selenium/</link>
+      <pubDate>Wed, 21 Sep 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/selenium/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>sudo</title>
       <link>https://blog.tack41.net/tags/sudo/</link>
@@ -529,15 +547,6 @@
       <pubDate>Mon, 27 Aug 2018 01:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/tags/ci/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://blog.tack41.net/tags/python/</link>
-      <pubDate>Wed, 15 Aug 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/python/</guid>
       <description></description>
     </item>
     

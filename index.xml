@@ -9,7 +9,17 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 12 Sep 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Sep 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>pythonでSeleniumを利用する際の注意事項</title>
+      <link>https://blog.tack41.net/posts/2022/09/21_01/</link>
+      <pubDate>Wed, 21 Sep 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/09/21_01/</guid>
+      <description>TL;DR pythonのDockerコンテナでSeleniumを実行したスクレイピングで色々はまった。 経緯 とあるサイトにログインして表示される情報をcronで取得したいと思い、pythonのDockerコンテナを利用してChrome,ライブラリ等をインストールしてプログラムを作成した。結構はまったポイントがあったので備忘のため記録する。
+オプションが必要 --headless: まぁ当然 --no-sandbox: 利用するDockerコンテナがrootで動くために必要 --disable-dev-shm-usage: /dev/shmの容量不足でクラッシュするのを防ぐために必要(https://stackoverflow.com/questions/53902507/unknown-error-session-deleted-because-of-page-crash-from-unknown-error-cannot) --user-agent=Mozilla...: 今回アクセスしたサイトでは、ユーザーエージェントを変えないとForbiddenが返ってきた XPathによるアクセスはやめた方がよい 階層が深いと何やってるのかわからなくなるし、調査するのも大変。 find_element(By.ID,&amp;quot;...&amp;quot;)を使う。IDあればID、なければクラス名とか、AタグであればLINK_TEXTとか 該当のターゲットだけで一位にならないのであれば、一位となる上位の要素を取得してそこからfind_elementするとか 画面の描画をsleepで待つのはやめた方がよい 対象の要素があれば、以下のように取得する from selenium.webdriver.support.wait import WebDriverWait ele_email: WebElement = WebDriverWait(driver, timeout=TIMEOUT_PAGE_LOAD).until( lambda d: d.find_element(By.NAME,&amp;#34;some_name&amp;#34;)) 画面の描画完了待ちであれば、以下のように記述する WebDriverWait(driver, TIMEOUT_PAGE_LOAD).until( lambda d: d.execute_script(&amp;#39;return document.readyState&amp;#39;) == &amp;#39;complete&amp;#39;) sourceを確認しながら1画面ずつ進める 処理が進んでたと思ったらエラーページでした、だとつらいので。 logger.debug(driver.page_source) </description>
+    </item>
+    
     <item>
       <title>python3 メール送信時に本文なしだと弾かれる</title>
       <link>https://blog.tack41.net/posts/2022/09/12_01/</link>
