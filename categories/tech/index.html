@@ -4,7 +4,7 @@
 【起動5秒】ChromebookでVSCodeを超快適に使う
 上記記事はCoderという会社が開発、公開しているようでしたが、本家Microsoftのものに関する記事を見つけ、インストールしました。ひょっとしたら両者同じものなのかもしれませんが、調べきれていません。
 VS Code Serverの使い方
-記事にある通り、wget -O- https://aka.ms/install-vscode-server/setup.sh | shを実行してインストールし、code-serverを実行して表示されるローカルホストのURLにアクセスするとVSCodeが起動しました。すごい!! 全画面表示すれば違いがほとんどわかりません。
+記事にある通り、wget -O- https://aka.ms/install-vscode-server/setup.sh | shを実行してインストールし、code-server serve-localを実行して表示されるローカルホストのURLにアクセスするとVSCodeが起動しました。すごい!! 全画面表示すれば違いがほとんどわかりません。
 現時点ではローカルホストへの接続のみ一般公開されているようですが、将来的には外部サーバで稼働してブラウザでリモートからアクセスして編集、といったことができるかもしれません。そうなると、バックグラウンド問題で開発作業と相性が悪いiPadにも日の目が当たるかもしれません。
 バックエンド側は以前と同様Linux環境で動いているのですが、不安定な日本語切り替えを含むフロント部分がChromeOS側で動くため安定しており、今のところ快適です。</p></div><footer class=entry-footer><span title='2022-09-27 16:20:00 +0900 +0900'>September 27, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to ChromebookでVisual Studio Code Server" href=https://blog.tack41.net/posts/2022/09/27_04/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>Ansible Moleculeでテスト</h2></header><div class=entry-content><p>TL;DR Ansible Moleculeでのテストの実装はコツがいる 経緯 Ansible MoleculeでAnsibleのroleをテストしたが、結構コツがいるようだったので、メモ。
 まず、現時点(2022/9/27)で日本語で言及している記事自体が少ない。以下は参照にさせていただいた。
