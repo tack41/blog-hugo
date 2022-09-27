@@ -9,7 +9,22 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 04 Oct 2018 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Sep 2022 16:20:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChromebookでVisual Studio Code Server</title>
+      <link>https://blog.tack41.net/posts/2022/09/27_04/</link>
+      <pubDate>Tue, 27 Sep 2022 16:20:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/09/27_04/</guid>
+      <description>TL;DR ChromebookでVScodeを使うのであればVisual Studio Code Serverが良いかも。 LinuxではなくChromeブラウザ上で動作するため、日本語変換の不安定さが解消されているように見える。 経緯 前の記事でChromebookのcrostiniによるLinux VMにインストールしたVS Codeの日本語変換の切り替えの不安定さに絶望していたのですが、以下の記事を見つけました。
+【起動5秒】ChromebookでVSCodeを超快適に使う
+上記記事はCoderという会社が開発、公開しているようでしたが、本家Microsoftのものに関する記事を見つけ、インストールしました。ひょっとしたら両者同じものなのかもしれませんが、調べきれていません。
+VS Code Serverの使い方
+記事にある通り、wget -O- https://aka.ms/install-vscode-server/setup.sh | shを実行してインストールし、code-serverを実行して表示されるローカルホストのURLにアクセスするとVSCodeが起動しました。すごい!! 全画面表示すれば違いがほとんどわかりません。
+現時点ではローカルホストへの接続のみ一般公開されているようですが、将来的には外部サーバで稼働してブラウザでリモートからアクセスして編集、といったことができるかもしれません。そうなると、バックグラウンド問題で開発作業と相性が悪いiPadにも日の目が当たるかもしれません。
+バックエンド側は以前と同様Linux環境で動いているのですが、不安定な日本語切り替えを含むフロント部分がChromeOS側で動くため安定しており、今のところ快適です。</description>
+    </item>
+    
     <item>
       <title>Visual Studio CodeでMarkdownのPreviewカスタマイズ</title>
       <link>https://blog.tack41.net/posts/2018/10/04_01/</link>

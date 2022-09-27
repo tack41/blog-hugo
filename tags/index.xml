@@ -9,11 +9,29 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 27 Sep 2022 12:33:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Sep 2022 16:20:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>chromebook</title>
+      <link>https://blog.tack41.net/tags/chromebook/</link>
+      <pubDate>Tue, 27 Sep 2022 16:20:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/chromebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vscode</title>
+      <link>https://blog.tack41.net/tags/vscode/</link>
+      <pubDate>Tue, 27 Sep 2022 16:20:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>mariadb</title>
       <link>https://blog.tack41.net/tags/mariadb/</link>
-      <pubDate>Tue, 27 Sep 2022 12:33:00 +0900</pubDate>
+      <pubDate>Tue, 27 Sep 2022 15:48:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/tags/mariadb/</guid>
       <description></description>
@@ -22,18 +40,9 @@
     <item>
       <title>mysql</title>
       <link>https://blog.tack41.net/tags/mysql/</link>
-      <pubDate>Tue, 27 Sep 2022 12:33:00 +0900</pubDate>
+      <pubDate>Tue, 27 Sep 2022 15:48:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/tags/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>chromebook</title>
-      <link>https://blog.tack41.net/tags/chromebook/</link>
-      <pubDate>Tue, 27 Sep 2022 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/chromebook/</guid>
       <description></description>
     </item>
     
@@ -502,15 +511,6 @@
       <pubDate>Thu, 04 Oct 2018 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/tags/markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vscode</title>
-      <link>https://blog.tack41.net/tags/vscode/</link>
-      <pubDate>Thu, 04 Oct 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/vscode/</guid>
       <description></description>
     </item>
     

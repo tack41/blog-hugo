@@ -9,7 +9,34 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 27 Sep 2022 12:33:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Sep 2022 16:20:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChromebookでVisual Studio Code Server</title>
+      <link>https://blog.tack41.net/posts/2022/09/27_04/</link>
+      <pubDate>Tue, 27 Sep 2022 16:20:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/09/27_04/</guid>
+      <description>TL;DR ChromebookでVScodeを使うのであればVisual Studio Code Serverが良いかも。 LinuxではなくChromeブラウザ上で動作するため、日本語変換の不安定さが解消されているように見える。 経緯 前の記事でChromebookのcrostiniによるLinux VMにインストールしたVS Codeの日本語変換の切り替えの不安定さに絶望していたのですが、以下の記事を見つけました。
+【起動5秒】ChromebookでVSCodeを超快適に使う
+上記記事はCoderという会社が開発、公開しているようでしたが、本家Microsoftのものに関する記事を見つけ、インストールしました。ひょっとしたら両者同じものなのかもしれませんが、調べきれていません。
+VS Code Serverの使い方
+記事にある通り、wget -O- https://aka.ms/install-vscode-server/setup.sh | shを実行してインストールし、code-serverを実行して表示されるローカルホストのURLにアクセスするとVSCodeが起動しました。すごい!! 全画面表示すれば違いがほとんどわかりません。
+現時点ではローカルホストへの接続のみ一般公開されているようですが、将来的には外部サーバで稼働してブラウザでリモートからアクセスして編集、といったことができるかもしれません。そうなると、バックグラウンド問題で開発作業と相性が悪いiPadにも日の目が当たるかもしれません。
+バックエンド側は以前と同様Linux環境で動いているのですが、不安定な日本語切り替えを含むフロント部分がChromeOS側で動くため安定しており、今のところ快適です。</description>
+    </item>
+    
+    <item>
+      <title>Ansible Moleculeでテスト</title>
+      <link>https://blog.tack41.net/posts/2022/09/27_03/</link>
+      <pubDate>Tue, 27 Sep 2022 15:48:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/09/27_03/</guid>
+      <description>TL;DR Ansible Moleculeでのテストの実装はコツがいる 経緯 Ansible MoleculeでAnsibleのroleをテストしたが、結構コツがいるようだったので、メモ。
+まず、現時点(2022/9/27)で日本語で言及している記事自体が少ない。以下は参照にさせていただいた。
+MoleculeでAnsibleのRoleをテストする - その１ Molecule 3を試す ポイントは以下。
+以下の流れで行う(https://molecule.readthedocs.io/en/latest/getting-started.html#run-test-sequence-commands) molecule create (1.Dockerコンテナの生成、起動) molecule converge (2.対象ののロールの実行) molecule verify (3.テスト) molecule destroy molecule testで一連の動作をまとめて実行できるとの記載があるが、自分の環境ではverifyがされていないので利用していない 途中でコケたら、molecule loginでコンテナにログインして実際のコマンドを実行するなどして確認する 1.Dockerコンテナの生成、起動 molecule.ymlを設定する imageにてDockerコンテナのタグを指定する 例えばubuntu:22.04を指定した場合、python3がインストールされていないためにansibleの各種タスクが実行できずにコケる。また、sudoもインストールされていないため、該当のタスクがbecome: yesを指定しているとやはりコケる。対策としてcommandを指定する。 platforms: - name: instance image: ubuntu:22.04 command: - &amp;#34;apt update&amp;#34; - &amp;#34;apt install -y sudo python3&amp;#34; pre_build_image: true 2.対象ののロールの実行 converge.ymlを設定する&amp;hellip;が、通常初期値で問題ないはず。他のタスクも実行したい場合は修正が必要なのかも 3.テスト verify.ymlを設定する。 assertタグでうまくいけばTrueとなるよう設定する。ファイルの存在をチェックする場合は以下のような感じ - name: Register if file exists stat: path: &amp;#34;/path/to/file&amp;#34; register: path_to_file - name: Check if file exists ansible.</description>
+    </item>
+    
     <item>
       <title>MariaDB(MySQL)の設定ファイルは.cnf</title>
       <link>https://blog.tack41.net/posts/2022/09/27_02/</link>
