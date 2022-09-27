@@ -9,7 +9,34 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 21 Sep 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Sep 2022 12:33:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MariaDB(MySQL)の設定ファイルは.cnf</title>
+      <link>https://blog.tack41.net/posts/2022/09/27_02/</link>
+      <pubDate>Tue, 27 Sep 2022 12:33:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/09/27_02/</guid>
+      <description>TL;DR MySQL(MariaDB)の設定ファイルの拡張子は.cnf .confではだめ。includedirでもだめ。 経緯 サーバに直接インストールしていたZabbixを、Raspberry Pi4上のDockerコンテナに移行しました。以前x64上のDockerコンテナで稼働していたことがあるので構築はかんたんに済み、移行もOK。が、併せてZabbixのメジャーバージョンアップを行うとupgrade処理の途中でコケる。日本語を含むデータの変換で失敗している。
+show variable like &#39;%char%&#39;を実行すると、system,clinentがlatinになってる&amp;hellip; 設定ファイルにはutf8mb4を設定しているのになぜか反映されない。
+設定ファイルconf/custom.confを/etc/mysql/conf.dにマウントしていたのだが、VScodede拡張子を.cnfに変えるとVScode上でファイルの認識が変わり、コンテナを再起動すると文字コードが正しく認識された。
+公式サイトを見ればわかる話ではあるのですが、htmlファイルを.html,.htmのどちらでも認識するのと同じ感覚で&amp;hellip;また、includedirに指定されたフォルダにおいていたので、読んでくれるだろうと思いこんでました。
+この設定ファイルは以前Dockerコンテナで運用していた際に使用していたものでしたが、当時からバージョンアップがうまく行かない問題があり、これが原因だった可能性があります。
+ちゃんと公式サイトを見ましょうというお話でした。</description>
+    </item>
+    
+    <item>
+      <title>Chromebook CM5500を買って後悔</title>
+      <link>https://blog.tack41.net/posts/2022/09/27_01/</link>
+      <pubDate>Tue, 27 Sep 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/09/27_01/</guid>
+      <description>TL;DR Chromebook CM5500買って後悔してる Chrome内ですべて作業ができるなら、という判断基準はそのとおり。Linux環境でのCLIでの開発もヘビーにやると厳しい。 次買うなら、Windowsでテンキーなしモデルかな 経緯 メインパソコンとして、ASUS Chromebook Flip CM5 (CM5500)を買って使っています。もともとメインで使っていた中古のMacbook Airが基盤不良で修理代が高額となったため買い替えました。もう中古は懲り懲りということで新品でした。
+検討ポイントは以下
+Chromebook 今はやっているので、使ってみたい。Linux環境はあるようなので、Windows上のWSLと同様な感じで開発環境は整備できるはず それなりのスペック Chromebookには安価なモデルも多数ありますが、いくらOSが軽量とはいえ開発作業に師匠が出ると嫌なので、それなりのスペックのものを選びました AMD Ryzen 5 3500C/2.1GHz/4コア 8GBメモリ M.2 SSD 8GB Windowsの同スペックと比較すると、割高? 買ってしばらくはたまにしか使わず、まずまず使えるといった感じでした。
+画面が360度回転し、タッチ対応のため、タブレットとしても使える その用途ではほとんど使ってないけど 外付けキーボードを利用する際に、テントモードであればモニタの近くで使えるのもよいです がっつり使うようになると、以下の点が気になりました。
+キーボードの動作がおかしいことがある OS上は日本語キーボードとして認識しているはずなのに、VScodeで入力時にコロン、セミコロンあたりが英語キーボード入力となり、yaml,json入力時にイラッとします。 VScodeで、英数キーによるIME OFF, かなキーによるIME ONが動作せず、かな英数キーを押さないといけないことがあります 必ず発生するわけでもなく、発生してもしばらくすると何故か治るのも謎。 テンキーが邪魔 テンキーは使わないので不要なのですが、このサイズのノートパソコンだとどうしてもついてきてしまいます。EnterやBackspaceの押し間違いが発生してイラッとします。 モニターが光沢液晶 最大の誤算でした。大抵そこまで明るくないところで使うので問題ないのですが、明るい部屋で使う際にはかなりのストレスです。 非光沢シート調達中 非対応アプリ多数 Windows,Macは対応していて、Linuxはギリ対応していても、Chromebookには全然対応してない、ということはしょっちゅうです。rootとってごにょごにょすればできるかもしれないけど面倒だし、Linuxにインストールするにしても、毎回Linuxを起動してアプリ起動するのは面倒だし、アプリ間連携も全くできません とはいえ買ってしまったので、なんとか非光沢液晶シート、外付けキーボードで使い倒そうとは思っています。が、よほどのケースでない限り、他人にはおすすめできないですね。</description>
+    </item>
+    
     <item>
       <title>pythonでSeleniumを利用する際の注意事項</title>
       <link>https://blog.tack41.net/posts/2022/09/21_01/</link>

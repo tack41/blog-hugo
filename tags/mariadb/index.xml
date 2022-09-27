@@ -9,7 +9,21 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 27 Sep 2022 12:33:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MariaDB(MySQL)の設定ファイルは.cnf</title>
+      <link>https://blog.tack41.net/posts/2022/09/27_02/</link>
+      <pubDate>Tue, 27 Sep 2022 12:33:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/09/27_02/</guid>
+      <description>TL;DR MySQL(MariaDB)の設定ファイルの拡張子は.cnf .confではだめ。includedirでもだめ。 経緯 サーバに直接インストールしていたZabbixを、Raspberry Pi4上のDockerコンテナに移行しました。以前x64上のDockerコンテナで稼働していたことがあるので構築はかんたんに済み、移行もOK。が、併せてZabbixのメジャーバージョンアップを行うとupgrade処理の途中でコケる。日本語を含むデータの変換で失敗している。
+show variable like &#39;%char%&#39;を実行すると、system,clinentがlatinになってる&amp;hellip; 設定ファイルにはutf8mb4を設定しているのになぜか反映されない。
+設定ファイルconf/custom.confを/etc/mysql/conf.dにマウントしていたのだが、VScodede拡張子を.cnfに変えるとVScode上でファイルの認識が変わり、コンテナを再起動すると文字コードが正しく認識された。
+公式サイトを見ればわかる話ではあるのですが、htmlファイルを.html,.htmのどちらでも認識するのと同じ感覚で&amp;hellip;また、includedirに指定されたフォルダにおいていたので、読んでくれるだろうと思いこんでました。
+この設定ファイルは以前Dockerコンテナで運用していた際に使用していたものでしたが、当時からバージョンアップがうまく行かない問題があり、これが原因だった可能性があります。
+ちゃんと公式サイトを見ましょうというお話でした。</description>
+    </item>
+    
     <item>
       <title>DockerコンテナのMariaDBのメジャーバージョンアップ</title>
       <link>https://blog.tack41.net/posts/2022/06/25_01/</link>
