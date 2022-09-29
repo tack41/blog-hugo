@@ -9,7 +9,24 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 27 Sep 2022 16:20:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChromebookでVisual Studio Code Server</title>
+      <link>https://blog.tack41.net/posts/2022/09/29_01/</link>
+      <pubDate>Thu, 29 Sep 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/09/29_01/</guid>
+      <description>TL;DR Ansibleでvariableの存在チェックをしたい場合は var1 is defined and var1 is not none and var1 | length &amp;gt; 0 経緯 Ansibleのwhenで変数が定義されていて値が存在していたら実行したいケースがありました。
+まず注意しなければいけないのは、この評価はPythonではなく、Jinja2で実行されるということ。このため
+var1.length &amp;gt; 0 という表現は使えず
+var1 | length &amp;gt; 0 とする必要があります。同様に
+var1 is not None という表現は使えず(Jinja2エンジンではisはテストを指定するキーワードで、Noneというテストは存在しない。noneなら存在する)
+var 1 is not none と指定する必要がある。
+最初は、
+var1 is defined and var1 | length &amp;gt; 0 くらいでやっていたのですが、変数は定義されているが値が未設定、という場合にvar1はNoneTypeという型になり、lengthが使えないため、最終的に
+var1 is defined and var1 is not none and var1 | length &amp;gt; 0 という書き方に落ち着きました。</description>
+    </item>
+    
     <item>
       <title>ChromebookでVisual Studio Code Server</title>
       <link>https://blog.tack41.net/posts/2022/09/27_04/</link>

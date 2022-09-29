@@ -9,7 +9,34 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 27 Sep 2022 16:20:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ansible</title>
+      <link>https://blog.tack41.net/tags/ansible/</link>
+      <pubDate>Thu, 29 Sep 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jinja</title>
+      <link>https://blog.tack41.net/tags/jinja/</link>
+      <pubDate>Thu, 29 Sep 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/jinja/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://blog.tack41.net/tags/python/</link>
+      <pubDate>Thu, 29 Sep 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/python/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>chromebook</title>
       <link>https://blog.tack41.net/tags/chromebook/</link>
@@ -43,15 +70,6 @@
       <pubDate>Tue, 27 Sep 2022 15:48:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/tags/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://blog.tack41.net/tags/python/</link>
-      <pubDate>Wed, 21 Sep 2022 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/python/</guid>
       <description></description>
     </item>
     
@@ -223,15 +241,6 @@
       <pubDate>Thu, 06 Jan 2022 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/tags/firetv/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ansible</title>
-      <link>https://blog.tack41.net/tags/ansible/</link>
-      <pubDate>Thu, 25 Nov 2021 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/ansible/</guid>
       <description></description>
     </item>
     
