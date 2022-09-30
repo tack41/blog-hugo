@@ -16,8 +16,8 @@
       <pubDate>Fri, 30 Sep 2022 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/posts/2022/09/30_01/</guid>
-      <description>TL;DR Ansibleで複数の変数の存在チェック、文字列の場合は空のチェックをしたい場合は ansible.builtin.fail: msg: Varialbe &amp;#39;{{ item }}&amp;#39; is not defined or empty. when: &amp;gt; item is not defined or item is none or ( item is string and item | length == 0 ) loop: - var1 - var2 #nolog: true # Hide credencials, but suppress message. 経緯 Ansibleで引数が定義されていて、空でないかどうかチェックしたい。1個ずつやるのもだるいのでloopでまとめて。 以下でできるかと思ったのだが&amp;hellip;
-ansible.builtin.fail: msg: Varialbe &amp;#39;{{ item }}&amp;#39; is not defined or empty. when: &amp;gt; item is not defined or item is none or item | length == 0 loop: - var1 - var2 これだと、変数に数字が設定されていると型がstringにはならず、lengthの実行でlen()メソッドがないと言われてこけてしまう。このため、以下のように型がstringかチェックしたうえでlengthチェックさせる。また、内容がパスワードなどを含む場合はno_log: trueとするとよい。ただしその場合エラー時のメッセージも簡略化されてどの変数でこけたのか、別途調査が必要となる。</description>
+      <description>TL;DR Ansibleで複数の変数の存在チェック、文字列の場合は空のチェックをしたい場合は ansible.builtin.fail: msg: Varialbe &amp;#39;{{ item }}&amp;#39; is not defined or empty. when: &amp;gt; item is not defined or item is none or ( item is string and item | length == 0 ) loop: - &amp;#39;{{ var1 }}&amp;#39; - &amp;#39;{{ var2 }}&amp;#39; #nolog: true # Hide credencials, but suppress message. 経緯 Ansibleで引数が定義されていて、空でないかどうかチェックしたい。1個ずつやるのもだるいのでloopでまとめて。 以下でできるかと思ったのだが&amp;hellip;
+ansible.builtin.fail: msg: Varialbe &amp;#39;{{ item }}&amp;#39; is not defined or empty. when: &amp;gt; item is not defined or item is none or item | length == 0 loop: - &amp;#39;{{ var1 }}&amp;#39; - &amp;#39;{{ var2 }}&amp;#39; これだと、変数に数字が設定されていると型がstringにはならず、lengthの実行でlen()メソッドがないと言われてこけてしまう。このため、以下のように型がstringかチェックしたうえでlengthチェックさせる。また、内容がパスワードなどを含む場合はno_log: trueとするとよい。ただしその場合エラー時のメッセージも簡略化されてどの変数でこけたのか、別途調査が必要となる。</description>
     </item>
     
     <item>
