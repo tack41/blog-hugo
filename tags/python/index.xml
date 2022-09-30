@@ -9,7 +9,17 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 29 Sep 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Sep 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible変数未定義、または空の場合にfailさせる</title>
+      <link>https://blog.tack41.net/posts/2022/09/30_01/</link>
+      <pubDate>Fri, 30 Sep 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/09/30_01/</guid>
+      <description>TL;DR Ansibleで複数の変数の存在チェック、文字列の場合は空のチェックをしたい場合は ansible.builtin.fail: msg: Varialbe &amp;#39;{{ item }}&amp;#39; is not defined or empty. when: &amp;gt; item is not defined or item is none or ( item is string and item | length == 0 ) loop: - var1 - var2 #nolog: true # Hide credencials, but suppress message. 経緯 Ansibleで引数が定義されていて、空でないかどうかチェックしたい。1個ずつやるのもだるいのでloopでまとめて。 以下でできるかと思ったのだが&amp;hellip;
+ansible.builtin.fail: msg: Varialbe &amp;#39;{{ item }}&amp;#39; is not defined or empty. when: &amp;gt; item is not defined or item is none or item | length == 0 loop: - var1 - var2 これだと、変数に数字が設定されていると型がstringにはならず、lengthの実行でlen()メソッドがないと言われてこけてしまう。このため、以下のように型がstringかチェックしたうえでlengthチェックさせる。また、内容がパスワードなどを含む場合はno_log: trueとするとよい。ただしその場合エラー時のメッセージも簡略化されてどの変数でこけたのか、別途調査が必要となる。</description>
+    </item>
+    
     <item>
       <title>Ansibleで変数の存在チェック</title>
       <link>https://blog.tack41.net/posts/2022/09/29_01/</link>
@@ -35,16 +45,6 @@ when: &amp;gt; var1 is defined and var1 is not none and var1 | length &amp;gt; 0
       <guid>https://blog.tack41.net/posts/2022/09/21_01/</guid>
       <description>TL;DR pythonのDockerコンテナでSeleniumを実行したスクレイピングで色々はまった。 経緯 とあるサイトにログインして表示される情報をcronで取得したいと思い、pythonのDockerコンテナを利用してChrome,ライブラリ等をインストールしてプログラムを作成した。結構はまったポイントがあったので備忘のため記録する。
 オプションが必要 --headless: まぁ当然 --no-sandbox: 利用するDockerコンテナがrootで動くために必要 --disable-dev-shm-usage: /dev/shmの容量不足でクラッシュするのを防ぐために必要(https://stackoverflow.com/questions/53902507/unknown-error-session-deleted-because-of-page-crash-from-unknown-error-cannot) --user-agent=Mozilla...: 今回アクセスしたサイトでは、ユーザーエージェントを変えないとForbiddenが返ってきた XPathによるアクセスはやめた方がよい 階層が深いと何やってるのかわからなくなるし、調査するのも大変。 find_element(By.ID,&amp;quot;...&amp;quot;)を使う。IDあればID、なければクラス名とか、AタグであればLINK_TEXTとか 該当のターゲットだけで一位にならないのであれば、一位となる上位の要素を取得してそこからfind_elementするとか 画面の描画をsleepで待つのはやめた方がよい 対象の要素があれば、以下のように取得する from selenium.webdriver.support.wait import WebDriverWait ele_email: WebElement = WebDriverWait(driver, timeout=TIMEOUT_PAGE_LOAD).until( lambda d: d.find_element(By.NAME,&amp;#34;some_name&amp;#34;)) 画面の描画完了待ちであれば、以下のように記述する WebDriverWait(driver, TIMEOUT_PAGE_LOAD).until( lambda d: d.execute_script(&amp;#39;return document.readyState&amp;#39;) == &amp;#39;complete&amp;#39;) sourceを確認しながら1画面ずつ進める 処理が進んでたと思ったらエラーページでした、だとつらいので。 logger.debug(driver.page_source) </description>
-    </item>
-    
-    <item>
-      <title>Ansible変数未定義、または空の場合にfailさせる</title>
-      <link>https://blog.tack41.net/posts/2022/09/30_01/</link>
-      <pubDate>Tue, 20 Sep 2022 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/posts/2022/09/30_01/</guid>
-      <description>TL;DR Ansibleで複数の変数の存在チェック、文字列の場合は空のチェックをしたい場合は ansible.builtin.fail: msg: Varialbe &amp;#39;{{ item }}&amp;#39; is not defined or empty. when: &amp;gt; item is not defined or item is none or ( item is string and item | length == 0 ) loop: - var1 - var2 #nolog: true # Hide credencials, but suppress message. 経緯 Ansibleで引数が定義されていて、空でないかどうかチェックしたい。1個ずつやるのもだるいのでloopでまとめて。 以下でできるかと思ったのだが&amp;hellip;
-ansible.builtin.fail: msg: Varialbe &amp;#39;{{ item }}&amp;#39; is not defined or empty. when: &amp;gt; item is not defined or item is none or item | length == 0 loop: - var1 - var2 これだと、変数に数字が設定されていると型がstringにはならず、lengthの実行でlen()メソッドがないと言われてこけてしまう。このため、以下のように型がstringかチェックしたうえでlengthチェックさせる。また、内容がパスワードなどを含む場合はno_log: trueとするとよい。ただしその場合エラー時のメッセージも簡略化されてどの変数でこけたのか、別途調査が必要となる。</description>
     </item>
     
     <item>
