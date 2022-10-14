@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>dns on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/dns/</link>
+    <description>Recent content in dns on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Thu, 13 Oct 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/dns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FortigateのDNSは配下のサーバに設定しちゃダメ</title>
+      <link>https://blog.tack41.net/posts/2022/10/13_01/</link>
+      <pubDate>Thu, 13 Oct 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/10/13_01/</guid>
+      <description>TL;DR FortigateのDNSに配下のサーバを設定しちゃダメ。Fortigate標準がよい。 経緯 Fortigateのファームウェアを6.2.xから6.4.xにバージョンアップしました。直後にインターネットに繋がらなくなってしまいました。
+Fortigateはtransparenteモードで使っており、Fortigateを外すと解消するので原因がFortigateであることは特定できました。
+調査すると、まず名前解決に失敗しているように見えました。ルータ配下にFortigateを経由してPCやサーバにつながる構成になっています。PPPoEでプロバイダに接続しているルータでは名前解決はできてました。YAMAHA RTXシリーズを利用しており、SSHでログインしてnslookupで確認できます。
+ですが、社内に設置したWindowsのAD兼DNSサーバでは名前解決に失敗しています。FortigateのDNSはこのWindowsサーバを指定していたため同様に名前解決ができず、FortiCloudが参照できないと警告が出ていました。
+そこで、DNS設定をFortigate標準のものに変えたところ、警告が解消され、他のPCでもインターネットに接続できるようになりました。
+今回の現象に対する推測ですが、Fortigateのバージョンアップにより、FortiCloudから最新のデータを取得できるまで通信をブロックする動きだったのではないかと。FortiCloudと通信するためにDNSで名前解決しようとしたところ、参照するDNSサーバ(AD兼DNSのWindowsサーバ)がFortigateの配下にあるため通信出来なかったと思われます。
+その後、FortigateのDNSをForigate標準にしたことで、事前設定されたForitigateのDNSサーバに通信する形となってブロックされずに通信でき、FortiCloudの設定が完了してブロックが解除されたのではないかとおもわれる。
+Fortigateが参照するDNSを配下のサーバにすると、今回のように通信ブロックをきっかけにFortigate自身が動作不能となる恐れがあることがわかった。Fortigate標準の設定やGoogleの8.8.8.8など、インターネット側の信頼できるサーバを指定すべきということだろう。</description>
+    </item>
+    
+  </channel>
+</rss>
