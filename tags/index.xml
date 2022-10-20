@@ -9,7 +9,16 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 13 Oct 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>win11</title>
+      <link>https://blog.tack41.net/tags/win11/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/win11/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>dns</title>
       <link>https://blog.tack41.net/tags/dns/</link>

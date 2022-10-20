@@ -9,7 +9,22 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 13 Oct 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Oct 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 11 22H2更新後にHyper-Vゲストがネットワーク接続不可</title>
+      <link>https://blog.tack41.net/posts/2022/10/21_01/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/10/21_01/</guid>
+      <description>TL;DR Windows 11 22H2更新後にHyper-Vの外部ネットワークへの接続が不通に。仮想スイッチを新規作成して物理NICを新しい方に付け替えてVMに割り当てると解決した 経緯 Windows 11 22H2に更新しました。Windows Updateでは出てこなかったので、アップグレードアシスタントをダウンロードして手動で適用しました。
+再起動せずに使用していたその日は問題なかったのですが、翌日、Hyper-Vのゲストがネットワークにつながらない&amp;hellip;ネットワークにつながっていると認識はしているが、他と一切通信できないのかDHCPでのIP取得ができない
+ひとまず、ゲストOS上でNICの無効→有効、OSの再起動をしても状況変わらず。原因はOSの更新以外に思い当たらないため、「windows 22H2 Hyper-V Guest cannot connect」あたりでGoogle検索したところ、以下の記事を発見。
+https://learn.microsoft.com/en-us/answers/questions/881974/windows-11-22h2-broke-custom-virtual-switches-in-h.html
+6月の記事なのでもう解消している可能性はあるが、仮想スイッチが壊れて同様の症状が発生したとのことで、該当のゲストを別の仮想スイッチに割り当てて解消したとのこと。
+問題のゲストは、External設定でホストの物理NICを割り当てた仮想スイッチを割り当てていました。新規にExternal仮想スイッチを作成して、問題の仮想スイッチはInternalに変更。ホストの物理NICを新規仮想スイッチに割り当ててゲストに割り当てたところ、ネットワークに接続できるようになりました。
+まだまだ不具合があるのかもしれませんので、この辺のトラブルシューティングを楽しむぐらいでないと22H2はまだ早いのかも。</description>
+    </item>
+    
     <item>
       <title>FortigateのDNSは配下のサーバに設定しちゃダメ</title>
       <link>https://blog.tack41.net/posts/2022/10/13_01/</link>
