@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>echo_buds on tack41&#39;s blog</title>
+    <link>https://blog.tack41.net/tags/echo_buds/</link>
+    <description>Recent content in echo_buds on tack41&#39;s blog</description>
+    <image>
+      <url>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 02 Dec 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/echo_buds/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Echo Budsの充電問題</title>
+      <link>https://blog.tack41.net/posts/2022/12/02_01/</link>
+      <pubDate>Fri, 02 Dec 2022 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2022/12/02_01/</guid>
+      <description>TL;DR Amazon Echo Budsはケースのバッテリーがなくなると操作不可。ケースのバッテリーはケースを開けた状態のLEDで判別 経緯 Amazon Echo Budsを利用して、すぐにバッテリーがなくなると思うことが多かった。前回使った際に接続先のスマホでは十分なバッテリー残量が表示されていた気がするのに、いざ使おうとケースから取り出すと、バッテリー切れのためかケースもイヤホンも反応しない。
+さすがにおかしいと思い、スマホのAlexaアプリに接続したところ、イヤホンのバッテリーは十分だがケースのバッテリーがわずかだとわかった。おそらく、以下のような話と思われる。
+イヤホンとは別にケースにもバッテリーがある ケースのバッテリーが切れると、イヤホンも操作できない 充電時には、まずイヤホン、次にケースが充電される 充電時にケースを閉じていると(普通そうだと思うが&amp;hellip;)、イヤホンの充電ができた時点で(充電OKを示す)緑色のランプが点灯する 2点目はあまりに残念。フォーラムで回答されていることから仕様なのだと思われる。他社のイヤホンをそれほど使ったことはないのだが、そういうものなのだろうか?
+https://jp.amazonforum.com/s/question/0D56Q0000AKLLhdSQH
+またそれと相まって4点目が罠。ケースも充電されたら緑になればよいと思うのだが、仕様としては蓋を閉じているときはイヤホン、開けたときはケースのバッテリーを示すということのよう。</description>
+    </item>
+    
+  </channel>
+</rss>
