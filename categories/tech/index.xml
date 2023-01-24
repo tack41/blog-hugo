@@ -9,7 +9,20 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 02 Dec 2022 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Jan 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Echo Budsの充電問題</title>
+      <link>https://blog.tack41.net/posts/2023/01/24_01/</link>
+      <pubDate>Tue, 24 Jan 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2023/01/24_01/</guid>
+      <description>TL;DR Microsoftよりログインを求められるアカウントには「個人アカウント」と「組織アカウント」の2種類がある。どちらかしか利用できないサービスがあるので注意 経緯 職場では、クライアントは基本Windows10で構築していますが、自分のPCのみ先行してWindows11をインストールしています。
+Windows 11のMicrosoftストアでAmazonアプリストアが使えるようになったため、使ってみようとしたところ、結構苦戦しました。
+Amazonアプリストアが利用できるようになった当初は、私の環境ではMicrosoftアカウントでのログインが必須でした。当時、会社のドメインで個人と組織の2種類のアカウントを持っていて、どちらを使ってもダメという状況でした。その後いろいろ調べて以下のことが分かってきました。
+Microsoftのサービスにログインするアカウントには2種類ある([Microsoftアカウント]と[職場または学校アカウント]の違い) 個人アカウント(Microsoftアカウント)&amp;hellip;個人が自身のメールアドレスで作成するアカウント。 組織アカウント(職場または学校アカウント)&amp;hellip;企業の管理者が作成するアカウント 以前は同一アカウント名で両者を別に作成できていたが、今は組織アカウントがある状態では個人アカウントは作成できない。 MS365はどちらのアカウント向けにもサービスがあるが、後述の通りどちらか一方しか対応しないものもある。 Windowsの設定で紐づけるアカウントについて OneDriveなどに連携するため、利用するMS365のアカウントを使う必要がある ADログインしている場合、個人アカウントを利用できない? 私の環境ではそのように見えましたが未検証です。 Microsoftストアのアカウントについて 少なくともWeb版においては、組織アカウントでは決済情報を登録できず、購入ができません。別途個人アカウントが必要です。 Visual Studioを購入する際に気づきました Windows内のMicrosoft Storeでは、Windowsのアカウントが職場アカウントである状態でMicrosoft Storeのアカウントを個人アカウントにしようとすると、いくら認証情報を入れても元に戻る現象が発生して処理が進みません。 WindowsとMicrosoft Storeで同じアカウントを利用する必要があるのかもしれません。 とてもややこしかったです。また忘れそうなので備忘のためにメモ。
+なお、2023年1月現在、私の環境ではMicrosoftストアへのログインなしにAmazonストアアプリがインストールできました。</description>
+    </item>
+    
     <item>
       <title>Echo Budsの充電問題</title>
       <link>https://blog.tack41.net/posts/2022/12/02_01/</link>
