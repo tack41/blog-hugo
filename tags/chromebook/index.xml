@@ -9,7 +9,21 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 27 Sep 2022 16:20:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/chromebook/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Mar 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/chromebook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChrostiniでVSCodeが惜しい</title>
+      <link>https://blog.tack41.net/posts/2023/03/18_01/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2023/03/18_01/</guid>
+      <description>TL;DR ChromebookのChrostini環境でVSCodeが安定して使えます。ただし、ASUS CM5500ではTerminalが正常に動作しません。 経緯 以前の記事で、ChromebookでChrostini上のVSCodeを直接使うとIME(Chrostini(Debian)にインストールしたfcitx)が不安定なため、VSCode Server経由での利用が良いと記事にしていました。ですが、やっぱり毎回起動するのは面倒です。Windowsにリモート接続してVSCode使って回避していました。
+最近、以下の記事を見つけ、再度トライしました。
+ChromeOS IME on Crostini
+上記URLに従ってcrostini-ime-supportを有効にし、Linux環境を再作成してVSCodeをインストールしたところ、普通にChromeOSのIMEが使えました!!! fcitxのインストール等の面倒な手順が必要なくなりました!!
+ですが、なぜかASUS CM5500だと、VSCode内のTerminalで文字を入力すると2重で入力されてしまいます。「a」と入力すると、「aa」と出るのです。出たあとは1文字ずつ消せるのですが。VSCodeのTerminalのEcho設定あたりを見て色々やってみましたが、だめでした。
+不思議なことに、もう1つChromebookとして持っているASUS CM3000では問題ありませんでした。CM5500はx64系、CM3000はARM64系なのでインストールされるパッケージが違うので、そのあたりが原因かもしれません。まぁ、TerminalはChromeOS標準のものを使えば良いので、以前よりは使えると思っています。</description>
+    </item>
+    
     <item>
       <title>ChromebookでVisual Studio Code Server</title>
       <link>https://blog.tack41.net/posts/2022/09/27_04/</link>

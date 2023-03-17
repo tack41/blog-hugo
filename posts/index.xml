@@ -9,7 +9,38 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 24 Jan 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Mar 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChrostiniでVSCodeが惜しい</title>
+      <link>https://blog.tack41.net/posts/2023/03/18_01/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2023/03/18_01/</guid>
+      <description>TL;DR ChromebookのChrostini環境でVSCodeが安定して使えます。ただし、ASUS CM5500ではTerminalが正常に動作しません。 経緯 以前の記事で、ChromebookでChrostini上のVSCodeを直接使うとIME(Chrostini(Debian)にインストールしたfcitx)が不安定なため、VSCode Server経由での利用が良いと記事にしていました。ですが、やっぱり毎回起動するのは面倒です。Windowsにリモート接続してVSCode使って回避していました。
+最近、以下の記事を見つけ、再度トライしました。
+ChromeOS IME on Crostini
+上記URLに従ってcrostini-ime-supportを有効にし、Linux環境を再作成してVSCodeをインストールしたところ、普通にChromeOSのIMEが使えました!!! fcitxのインストール等の面倒な手順が必要なくなりました!!
+ですが、なぜかASUS CM5500だと、VSCode内のTerminalで文字を入力すると2重で入力されてしまいます。「a」と入力すると、「aa」と出るのです。出たあとは1文字ずつ消せるのですが。VSCodeのTerminalのEcho設定あたりを見て色々やってみましたが、だめでした。
+不思議なことに、もう1つChromebookとして持っているASUS CM3000では問題ありませんでした。CM5500はx64系、CM3000はARM64系なのでインストールされるパッケージが違うので、そのあたりが原因かもしれません。まぁ、TerminalはChromeOS標準のものを使えば良いので、以前よりは使えると思っています。</description>
+    </item>
+    
+    <item>
+      <title>Excelで謎の肥大化</title>
+      <link>https://blog.tack41.net/posts/2023/03/18_02/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2023/03/18_02/</guid>
+      <description>TL;DR Excelの容量肥大化では、以下の順に切り分けましょう 見た目で明らかにオブジェクトが詰め込まれていないか Ctrl+Endで、想定以上に広い範囲が指定されていないか [ホーム]-[選択]-[オブジェクトの選択と表示]で、想定以上のオブジェクトが表示されないか ちょっとしたプログラムをぱっと作るのにChatGPTは便利 経緯 あるExcelファイルが開くと動作が遅いのでなんとかならないかと問い合わせがありました。とりあえずファイル送ってもらい、調べました。
+１ファイルで容量が3MBを超えており、かなり大きいです。数式が重いか、データが重いかで原因を考えていましたが、少なくとも後者は原因になりそうです。
+シート数は2つ。行は1000近くまで行っているので小さくはないがそれほどでもない感じ。中にあるのは工程表で、罫線の表に線オブジェクトが多数という感じでむちゃくちゃ多いというほどでもない感じ。
+この手の肥大化でよくあるのは、利用者が気づかないうちにデータが入力されているセルの範囲が広がってしまっているケース。この場合はスクロールバーがパット見の工程表の範囲よりも広く設定されいるかどうかでわかりますが、どうもそうではなさそうでしｇた。
+一方のシートが見た目上データが多く、こちらのシートが原因かなと思い、少しずつ行を削除して切り分けていこうと考えました。が、とにかく動作が重い。別の画面にフォーカスを移して戻ってくるだけでマウスがくるくる回ります&amp;hellip; 上下にスクロールするのもしんどい感じ。
+なんとか頑張って、複数ある工程表のうち、最初のものだけ残して他を削除しましたが、容量は大きいまま。で、この表を削除してもまだ容量は大きいままでした。オブジェクトの範囲選択で怪しそうな場所を選択しても、それらしいオブジェクトは無し。
+そこで改めて[ホーム]-[選択]-[オブジェクトの選択と表示]を見ようとしたところ、表示までに5-10分かかり、大量のテキストボックスが表示されました、これだ&amp;hellip; 通常であればここで1つを選択した状態でCtrl+Aですべての図形を選択できるようなのですが、重すぎていつまで立っても選択が終わりません&amp;hellip;
+色々試行錯誤したのですが、VBAでテキストボックスを削除してしまうのが手っ取り早そうだと考えました。こういったときに使ってみようと思ったのがChatGPT。Bingで使えるようになっているので、すべてのテキストボックスのオブジェクトを削除するVBAを聞いて返ってきた内容を微調整したのが以下
+Sub DeleteTextBoxes() Dim ws As Worksheet Dim shp As Shape Dim n As Long Application.ScreenUpdating = False Application.Calculation = xlCalculationManual For Each ws In ThisWorkbook.Worksheets For Each shp In ws.Shapes Debug.Print &amp;#34;[&amp;#34; &amp;amp;ws.Name &amp;amp; &amp;#34;シートの処理を開始&amp;#34; &amp;amp; &amp;#34;]&amp;#34; If shp.Type = msoTextBox Then shp.Delete n = n + 1 Debug.Print n &amp;amp; &amp;#34;個目のテキストボックスを削除しました&amp;#34; Else Debug.</description>
+    </item>
+    
     <item>
       <title>Microsoftアカウントの種類</title>
       <link>https://blog.tack41.net/posts/2023/01/24_01/</link>

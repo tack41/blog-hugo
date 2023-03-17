@@ -9,7 +9,52 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 24 Jan 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Mar 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>chatgpt</title>
+      <link>https://blog.tack41.net/tags/chatgpt/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/chatgpt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chromebook</title>
+      <link>https://blog.tack41.net/tags/chromebook/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/chromebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>excel</title>
+      <link>https://blog.tack41.net/tags/excel/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/excel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vba</title>
+      <link>https://blog.tack41.net/tags/vba/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/vba/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vscode</title>
+      <link>https://blog.tack41.net/tags/vscode/</link>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/vscode/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>id</title>
       <link>https://blog.tack41.net/tags/id/</link>
@@ -88,24 +133,6 @@
       <pubDate>Fri, 07 Oct 2022 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>chromebook</title>
-      <link>https://blog.tack41.net/tags/chromebook/</link>
-      <pubDate>Tue, 27 Sep 2022 16:20:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/chromebook/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vscode</title>
-      <link>https://blog.tack41.net/tags/vscode/</link>
-      <pubDate>Tue, 27 Sep 2022 16:20:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/vscode/</guid>
       <description></description>
     </item>
     
@@ -542,15 +569,6 @@
     </item>
     
     <item>
-      <title>excel</title>
-      <link>https://blog.tack41.net/tags/excel/</link>
-      <pubDate>Fri, 30 Nov 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/excel/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>prism</title>
       <link>https://blog.tack41.net/tags/prism/</link>
       <pubDate>Tue, 09 Oct 2018 00:00:00 +0900</pubDate>
@@ -601,15 +619,6 @@
       <pubDate>Thu, 13 Sep 2018 01:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>vba</title>
-      <link>https://blog.tack41.net/tags/vba/</link>
-      <pubDate>Mon, 10 Sep 2018 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/vba/</guid>
       <description></description>
     </item>
     

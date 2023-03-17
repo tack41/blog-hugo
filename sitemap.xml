@@ -3,24 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.tack41.net/categories/</loc>
-    <lastmod>2023-01-24T00:00:00+09:00</lastmod>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/chatgpt/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/chromebook/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/2023/03/18_01/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/excel/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/2023/03/18_02/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/categories/tech/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/vba/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/vscode/</loc>
+    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/tags/id/</loc>
     <lastmod>2023-01-24T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2023/01/24_01/</loc>
-    <lastmod>2023-01-24T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/posts/</loc>
-    <lastmod>2023-01-24T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/</loc>
-    <lastmod>2023-01-24T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/</loc>
-    <lastmod>2023-01-24T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/categories/tech/</loc>
     <lastmod>2023-01-24T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2022/12/02_01/</loc>
@@ -65,13 +86,7 @@
     <loc>https://blog.tack41.net/posts/2022/09/29_01/</loc>
     <lastmod>2022-09-29T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://blog.tack41.net/tags/chromebook/</loc>
-    <lastmod>2022-09-27T16:20:00+09:00</lastmod>
-  </url><url>
     <loc>https://blog.tack41.net/posts/2022/09/27_04/</loc>
-    <lastmod>2022-09-27T16:20:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/vscode/</loc>
     <lastmod>2022-09-27T16:20:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2022/09/27_03/</loc>
@@ -503,9 +518,6 @@
     <loc>https://blog.tack41.net/tags/grouppolicy/</loc>
     <lastmod>2018-11-30T01:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://blog.tack41.net/tags/excel/</loc>
-    <lastmod>2018-11-30T00:00:00+09:00</lastmod>
-  </url><url>
     <loc>https://blog.tack41.net/posts/2018/11/30_01/</loc>
     <lastmod>2018-11-30T00:00:00+09:00</lastmod>
   </url><url>
@@ -550,9 +562,6 @@
   </url><url>
     <loc>https://blog.tack41.net/posts/2018/09/13_01/</loc>
     <lastmod>2018-09-13T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/vba/</loc>
-    <lastmod>2018-09-10T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2018/09/10_01/</loc>
     <lastmod>2018-09-10T00:00:00+09:00</lastmod>

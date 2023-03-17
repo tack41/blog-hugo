@@ -7,7 +7,7 @@
 https://stackoverflow.com/questions/8078167/printf-in-bash-09-and-08-are-invalid-numbers-07-and-06-are-fine
 同じようなことは過去してきたと思ったのだが、今回初めて遭遇してかなりびっくりした。</p></div><footer class=entry-footer><span title='2021-08-02 00:00:00 +0900 +0900'>August 2, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to 7月に動作していた処理が8月にエラー" href=https://blog.tack41.net/posts/2021/08/02_01/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>bashのfunctionの戻り値とexit status</h2></header><div class=entry-content><p>bashで戻り値とexit statusがごっちゃになっていたのでメモ。
 [参考] https://www.shell-tips.com/bash/functions/ https://eng-entrance.com/linux-shellscript-function
-戻り値 function func1(){ echo "2" echo "err" >&2 return 1 } return_value=`func1` rc=$? 上記コードでreturn_valueに格納される値「2」。function内で標準出力に出力した内容がすべて格納される。標準エラー出力に出力した内容は含まれない。
+戻り値 function func1(){ echo "2" echo "err" >&amp;2 return 1 } return_value=`func1` rc=$? 上記コードでreturn_valueに格納される値「2」。function内で標準出力に出力した内容がすべて格納される。標準エラー出力に出力した内容は含まれない。
 exit status 上記コードでrcに含まれる値「1」。8bitの範囲である0-255の範囲しか指定できない。</p></div><footer class=entry-footer><span title='2021-06-23 00:00:00 +0900 +0900'>June 23, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;tack41</footer><a class=entry-link aria-label="post link to bashのfunctionの戻り値とexit status" href=https://blog.tack41.net/posts/2021/06/23_01/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>rm /* やってしまった</h2></header><div class=entry-content><p>やってしまいました。
 rm ${HOGE}/* HOGEが未定義のため、ルートディレクトリのファイルが全削除。 幸い、rfオプションは付けていなかったので、消されたのはファイルのみ。
 CentOS7において、ルートディレクトリに存在するファイルは以下のシンボリックリンク。
