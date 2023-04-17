@@ -9,7 +9,23 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 18 Mar 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Apr 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MariaDBで実行計画、SQL組み立ての修正</title>
+      <link>https://blog.tack41.net/posts/2023/04/17_01/</link>
+      <pubDate>Mon, 17 Apr 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2023/04/17_01/</guid>
+      <description>TL;DR SQLは明らかにあっているのに動作が遅い、与えるパラメータによって変わるといった状況ではEXPLAINで実行計画を確認しましょう 意図しない駆動順になっていることがあります 経緯 仕事での話のため詳細なSQLの内容はかけないが、MariaDB(10.6.12)でざっくりと以下のようなSQLで特定の伝票番号を指定した場合に応答が遅くてタイムアウトする事象が発生ました。
+SELECT ... FROM ( ( A INNER JOIN B ON B.PRODUCT_CD = A.PRODUCT_CD ) LEFT OUTER JOIN C ON C.CUSTOMER_CD = A.CUSTOMER_CD C.PRODUCT_CD = A.PRODUCT_CD AND C.SIZE = A.SIZE ) LEFT OUTER JOIN C AS D ON D.CUSTOMER_CD = A.CUSTOMER_CD D.PRODUCT_CD = A.PRODUCT_CD AND D.SIZE = 0 WHERE A.SLIP_NO = 123456789 本当はもっと多数のテーブルをJOINしていましたが、最小限の要素だけ引っ張ってきてます。 それぞれの結合条件は主キーを使用しています。
+で、WHERE句に指定した伝票番号が特定の番号の場合に、応答が返ってこずにタイムアウトになる事象が発生しました。ほかの伝票番号を指定するとすぐ返ってくるので、SQLに文法エラーはないです。
+最後のC AS Dの外部結合を外すとすぐ帰ってくるのですが、そもそもこのテーブルの結合条件にマッチするデータがないので、この伝票番号の場合にデータが多くなる、というわけでもないです。
+今までこの手の問題に当たったことがなかったので使わずに済んでいた、これまで避けていたEXPLAIN文を使って実行計画を見てみました。
+すると、駆動表が以下の順番になっていました。
+A(PK) C(PK) D(PK) B(Null) カッコ内はキーです。A,C,Dは主キーで結合できていますが、BはNULLとなってしまっていました。
+ここからは推測になりますが、テーブルB,C,DのいずれもテーブルAから結合できるので、統計データの不足なども絡んだ結果、上記のような結合順になったのではないかと考えています。</description>
+    </item>
+    
     <item>
       <title>ChrostiniでVSCodeが惜しい</title>
       <link>https://blog.tack41.net/posts/2023/03/18_01/</link>
