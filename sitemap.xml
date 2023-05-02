@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.tack41.net/categories/</loc>
-    <lastmod>2023-04-17T00:00:00+09:00</lastmod>
+    <lastmod>2023-05-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/excel/</loc>
+    <lastmod>2023-05-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/2023/05/02_01/</loc>
+    <lastmod>2023-05-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/posts/</loc>
+    <lastmod>2023-05-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/</loc>
+    <lastmod>2023-05-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/tags/</loc>
+    <lastmod>2023-05-02T00:00:00+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.tack41.net/categories/tech/</loc>
+    <lastmod>2023-05-02T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2023/04/17_01/</loc>
     <lastmod>2023-04-17T00:00:00+09:00</lastmod>
@@ -11,19 +29,7 @@
     <loc>https://blog.tack41.net/tags/mariasql/</loc>
     <lastmod>2023-04-17T00:00:00+09:00</lastmod>
   </url><url>
-    <loc>https://blog.tack41.net/posts/</loc>
-    <lastmod>2023-04-17T00:00:00+09:00</lastmod>
-  </url><url>
     <loc>https://blog.tack41.net/tags/sql/</loc>
-    <lastmod>2023-04-17T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/</loc>
-    <lastmod>2023-04-17T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/</loc>
-    <lastmod>2023-04-17T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/categories/tech/</loc>
     <lastmod>2023-04-17T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/tags/chatgpt/</loc>
@@ -33,9 +39,6 @@
     <lastmod>2023-03-18T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2023/03/18_01/</loc>
-    <lastmod>2023-03-18T00:00:00+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.tack41.net/tags/excel/</loc>
     <lastmod>2023-03-18T00:00:00+09:00</lastmod>
   </url><url>
     <loc>https://blog.tack41.net/posts/2023/03/18_02/</loc>
