@@ -9,7 +9,24 @@
       <link>https://blog.tack41.net/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 27 Sep 2022 15:48:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 May 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ZabbixをDockerコンテナで運用時の主キー設定</title>
+      <link>https://blog.tack41.net/posts/2023/05/09_01/</link>
+      <pubDate>Tue, 09 May 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2023/05/09_01/</guid>
+      <description>TL;DR Zabbixは6.0よりhistoryテーブルに主キーを使うようになりました。server,frontendのパフォーマンス向上とテーブルサイズ削減が見込めるようです。 https://www.zabbix.com/whats_new_6_0#performance_improvements 公式のDockerコンテナを運用している場合、DBコンテナは別なので/usr/share/zabbix-sql-scripts/mysql/history_pk_prepare.sqlがなく、以下から取得したところ、うまくいきました。 https://git.zabbix.com/projects/ZT/repos/rsm-scripts/browse/database/mysql/history_pk_prepare.sql 経緯 Zabbixのダッシュボードのシステム情報に、「データベースのヒストリテーブルが主キーを使用: いいえ」と表示されていることに気づきました。
+調べたところ、Zabbix 6.0よりhistoryテーブルの主キーの使用に対応しているとのことでした。
+https://www.zabbix.com/whats_new_6_0#performance_improvements
+新規に6.0以降をインストールすれば自動で主キーが設定されるが、以前のバージョンのアップグレードの場合は手動で対応する必要があるようです。
+https://www.zabbix.com/documentation/6.0/en/manual/appendix/install/db_primary_keys
+弊社の環境は公式のDockerコンテナで運用してて、DBはMariaDBの公式Dockerコンテナを使用しています。「MySQL 8.0+ with mysqlsh」の手順に従って進めたところ、途中で指定されている「/usr/share/zabbix-sql-scripts/mysql/history_pk_prepare.sql」が見つかりません。
+この手順は1つのサーバーにweb,server,DBをインストールする想定と思われます。公式のDockerコンテナのweb,serverをマウントしてファイル名で検索しても見つからず。
+単体のZabbixサーバを構築してファイルを取り出すのも面倒だったのでいろいろ検索し、公式のリポジトリと思われる以下よりダウンロードして流し込んだところ、うまくいきました。
+https://git.zabbix.com/projects/ZT/repos/rsm-scripts/browse/database/mysql/history_pk_prepare.sql</description>
+    </item>
+    
     <item>
       <title>Ansible Moleculeでテスト</title>
       <link>https://blog.tack41.net/posts/2022/09/27_03/</link>
