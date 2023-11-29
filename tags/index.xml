@@ -10,25 +10,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>csharp</title>
-      <link>https://blog.tack41.net/tags/csharp/</link>
-      <pubDate>Wed, 29 Nov 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/csharp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>windows</title>
-      <link>https://blog.tack41.net/tags/windows/</link>
-      <pubDate>Wed, 29 Nov 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/tags/windows/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Tue, 09 May 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mariadb</title>
       <link>https://blog.tack41.net/tags/mariadb/</link>
@@ -372,6 +354,15 @@
     </item>
     
     <item>
+      <title>windows</title>
+      <link>https://blog.tack41.net/tags/windows/</link>
+      <pubDate>Thu, 25 Nov 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>hyperv</title>
       <link>https://blog.tack41.net/tags/hyperv/</link>
       <pubDate>Wed, 10 Nov 2021 00:00:00 +0900</pubDate>
@@ -440,6 +431,15 @@
       <pubDate>Sun, 01 Aug 2021 00:00:00 +0900</pubDate>
       
       <guid>https://blog.tack41.net/tags/amazon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>csharp</title>
+      <link>https://blog.tack41.net/tags/csharp/</link>
+      <pubDate>Wed, 21 Jul 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/tags/csharp/</guid>
       <description></description>
     </item>
     

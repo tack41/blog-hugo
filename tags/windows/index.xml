@@ -10,22 +10,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/windows/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Windows 11 22H2以降の印刷設定ダイアログ</title>
-      <link>https://blog.tack41.net/posts/2023/11/29_01/</link>
-      <pubDate>Wed, 29 Nov 2023 00:00:00 +0900</pubDate>
-      
-      <guid>https://blog.tack41.net/posts/2023/11/29_01/</guid>
-      <description>TL;DR Windows 11 22H2より印刷設定ダイアログで「設定」ベースの「Win32アプリケーションから印刷しています」という画面が表示されるようになった。 レジストリの設定変更により旧ダイアログに戻せる 経緯 VisualStudio(C#)のプログラムでReportViewerを使っているところがあります。印刷時に以下の設定が必要で、プログラムからこれらを設定していました。
-プリンター名 用紙設定 トレイ(手差しトレイを使用) 印刷設定画面を経由しますが、上記が設定済みのため何も変更せずに実行すれば正しく印刷されていました。
-Windows 11にバージョンアップ後、印刷設定画面がWindowsの「設定」ベースのモダンな感じに変わってしまい、上記の設定が引き継がれなくなってしまいました。
-色々調べたところ、レジストリを以下のように設定すればもとの印刷ダイアログに戻るということがわかり、実際確認できました。
-ハイブ: HKEY_CURRENT_USER キーのパス: SOFTWARE\Microsoft\Print\UnifiedPrintDialog 値の名前: PreferLegacyPrintDialog 値の種類: REG_DWORD 値のデータ: 1 [参考] https://answers.microsoft.com/ja-jp/windows/forum/all/win-32/77e2e4de-9d07-4ee9-9967-3c3aa3d60ede
-AD環境ですべての端末に反映したかったので、グループポリシーの[ユーザーの構成]-[基本設定]-[Windowsの設定]-[レジストリ]にて上記の項目を「更新」で登録し、全ユーザーに配布したところ、症状が解消されました。
-配布対象にはWindows10の利用者もいましたが、問題なく利用できています。</description>
-    </item>
-    
+    <lastBuildDate>Thu, 25 Nov 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AD環境のWindowsをAnsibleで操作する(非AD環境)</title>
       <link>https://blog.tack41.net/posts/2021/11/25_01/</link>
@@ -148,6 +133,21 @@ Microsoft.Win32.RegistryKey key_base, key; key_base = RegistryKey.OpenBaseKey(Re
 \\SVRNAME でアクセスできない。 \\SVRNAME.domain.name のようなFQDNでもダメ 他のサーバに対しての\\SVRNAME2 のアクセスは可能。ダメなのは1台のサーバのみ(?) ping SVRNAME は通る(!?) \\IPアドレス であれば該当のサーバでもアクセスできる NetBIOS over TCP/IPは有効になっている %WINDIR%\system32\drivers\etc にあるhosts, lmhosts にエントリはない 上から見ていって、1,2番目まではよくあるNetBIOSの名前解決エラーかと思ったのだが、3,4番目あたりからどうも様子が違う&amp;hellip;
 結果は、Windowsのコンパネ-[ユーザーアカウント]-[資格情報マネージャ]に、サーバー名で認証情報が登録されており、指定されたアカウントが無効となっていたため。 こんなところで指定しなくてもADログインすれば自動で認証するので、登録情報を削除したところアクセス可能となった。
 Windows は奥が深い #いい意味ではない</description>
+    </item>
+    
+    <item>
+      <title>Windows 11 22H2以降の印刷設定ダイアログ</title>
+      <link>https://blog.tack41.net/posts/2023/11/29_01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2023/11/29_01/</guid>
+      <description>TL;DR Windows 11 22H2より印刷設定ダイアログで「設定」ベースの「Win32アプリケーションから印刷しています」という画面が表示されるようになった。 レジストリの設定変更により旧ダイアログに戻せる 経緯 VisualStudio(C#)のプログラムでReportViewerを使っているところがあります。印刷時に以下の設定が必要で、プログラムからこれらを設定していました。
+プリンター名 用紙設定 トレイ(手差しトレイを使用) 印刷設定画面を経由しますが、上記が設定済みのため何も変更せずに実行すれば正しく印刷されていました。
+Windows 11にバージョンアップ後、印刷設定画面がWindowsの「設定」ベースのモダンな感じに変わってしまい、上記の設定が引き継がれなくなってしまいました。
+色々調べたところ、レジストリを以下のように設定すればもとの印刷ダイアログに戻るということがわかり、実際確認できました。
+ハイブ: HKEY_CURRENT_USER キーのパス: SOFTWARE\Microsoft\Print\UnifiedPrintDialog 値の名前: PreferLegacyPrintDialog 値の種類: REG_DWORD 値のデータ: 1 [参考] https://answers.microsoft.com/ja-jp/windows/forum/all/win-32/77e2e4de-9d07-4ee9-9967-3c3aa3d60ede
+AD環境ですべての端末に反映したかったので、グループポリシーの[ユーザーの構成]-[基本設定]-[Windowsの設定]-[レジストリ]にて上記の項目を「更新」で登録し、全ユーザーに配布したところ、症状が解消されました。
+配布対象にはWindows10の利用者もいましたが、問題なく利用できています。</description>
     </item>
     
   </channel>
