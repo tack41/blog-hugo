@@ -10,7 +10,22 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 09 May 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0900</lastBuildDate><atom:link href="https://blog.tack41.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 11 22H2以降の印刷設定ダイアログ</title>
+      <link>https://blog.tack41.net/posts/2023/11/29_01/</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2023/11/29_01/</guid>
+      <description>TL;DR Windows 11 22H2より印刷設定ダイアログで「設定」ベースの「Win32アプリケーションから印刷しています」という画面が表示されるようになった。 レジストリの設定変更により旧ダイアログに戻せる 経緯 VisualStudio(C#)のプログラムでReportViewerを使っているところがあります。印刷時に以下の設定が必要で、プログラムからこれらを設定していました。
+プリンター名 用紙設定 トレイ(手差しトレイを使用) 印刷設定画面を経由しますが、上記が設定済みのため何も変更せずに実行すれば正しく印刷されていました。
+Windows 11にバージョンアップ後、印刷設定画面がWindowsの「設定」ベースのモダンな感じに変わってしまい、上記の設定が引き継がれなくなってしまいました。
+色々調べたところ、レジストリを以下のように設定すればもとの印刷ダイアログに戻るということがわかり、実際確認できました。
+ハイブ: HKEY_CURRENT_USER キーのパス: SOFTWARE\Microsoft\Print\UnifiedPrintDialog 値の名前: PreferLegacyPrintDialog 値の種類: REG_DWORD 値のデータ: 1 [参考] https://answers.microsoft.com/ja-jp/windows/forum/all/win-32/77e2e4de-9d07-4ee9-9967-3c3aa3d60ede
+AD環境ですべての端末に反映したかったので、グループポリシーの[ユーザーの構成]-[基本設定]-[Windowsの設定]-[レジストリ]にて上記の項目を「更新」で登録し、全ユーザーに配布したところ、症状が解消されました。
+配布対象にはWindows10の利用者もいましたが、問題なく利用できています。</description>
+    </item>
+    
     <item>
       <title>ZabbixをDockerコンテナで運用時の主キー設定</title>
       <link>https://blog.tack41.net/posts/2023/05/09_01/</link>
@@ -2377,21 +2392,6 @@ Windows Server 2008 R2ではSQL Server 2008をインストールする際はServ
 ※ SQL Server 2008 R2をインストールする場合、SCOMインストール時に下記URLにあるとおり手動作業が必要となる。 http://engineer-memo.com/blogs/engineer-memo/archive/2010/10/27/sql-server-2008-r2-opsmgr.aspx 役割の追加にて「Webサーバ(IIS)」をインストールし、以下のURLにあるとおり、以下の項目を有効にする。
 http://support.microsoft.com/kb/973451/ja [役割サービス] ページで、[HTTP 基本機能] を展開し、以下のチェック ボックスをオンにします。 [静的なコンテンツ] [既定のドキュメント] [ディレクトリの参照] [HTTP エラー] [HTTP リダイレクション] [アプリケーション開発] を展開し、以下のチェック ボックスをオンにします。 [ASP.NET] [.NET 拡張性] [ASP] [ISAPI 拡張] [ISAPI フィルタ]
 注 : 必要な役割サービスを追加するように求めるメッセージが表示されたら、[OK] をクリックします。 [状態と診断] を展開し、以下のチェック ボックスをオンにします。 [HTTP ログ] [要求の監視] [セキュリティ] を展開し、以下のチェック ボックスをオンにします。 [Windows 認証] [要求フィルタ] [管理ツール] を展開し、以下のチェック ボックスをオンにします。 [IIS 管理コンソール] [IIS 6 管理互換] さらに [IIS 6 管理互換] を展開し、以下のチェック ボックスをオンにします。 [IIS 6 メタベース互換] [IIS 6 WMI 互換] [IIS 6 スクリプトツール] [IIS 6 管理コンソール] ASP.</description>
-    </item>
-    
-    <item>
-      <title>Windows 11 22H2以降の印刷設定ダイアログ</title>
-      <link>https://blog.tack41.net/posts/2023/11/29_01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.tack41.net/posts/2023/11/29_01/</guid>
-      <description>TL;DR Windows 11 22H2より印刷設定ダイアログで「設定」ベースの「Win32アプリケーションから印刷しています」という画面が表示されるようになった。 レジストリの設定変更により旧ダイアログに戻せる 経緯 VisualStudio(C#)のプログラムでReportViewerを使っているところがあります。印刷時に以下の設定が必要で、プログラムからこれらを設定していました。
-プリンター名 用紙設定 トレイ(手差しトレイを使用) 印刷設定画面を経由しますが、上記が設定済みのため何も変更せずに実行すれば正しく印刷されていました。
-Windows 11にバージョンアップ後、印刷設定画面がWindowsの「設定」ベースのモダンな感じに変わってしまい、上記の設定が引き継がれなくなってしまいました。
-色々調べたところ、レジストリを以下のように設定すればもとの印刷ダイアログに戻るということがわかり、実際確認できました。
-ハイブ: HKEY_CURRENT_USER キーのパス: SOFTWARE\Microsoft\Print\UnifiedPrintDialog 値の名前: PreferLegacyPrintDialog 値の種類: REG_DWORD 値のデータ: 1 [参考] https://answers.microsoft.com/ja-jp/windows/forum/all/win-32/77e2e4de-9d07-4ee9-9967-3c3aa3d60ede
-AD環境ですべての端末に反映したかったので、グループポリシーの[ユーザーの構成]-[基本設定]-[Windowsの設定]-[レジストリ]にて上記の項目を「更新」で登録し、全ユーザーに配布したところ、症状が解消されました。
-配布対象にはWindows10の利用者もいましたが、問題なく利用できています。</description>
     </item>
     
   </channel>
