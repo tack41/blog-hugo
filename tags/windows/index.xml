@@ -27,6 +27,19 @@ AD環境ですべての端末に反映したかったので、グループポリ
     </item>
     
     <item>
+      <title>Windows 11でChrome Remote Desktopで右Shiftが効かない</title>
+      <link>https://blog.tack41.net/posts/2023/12/07_01/</link>
+      <pubDate>Wed, 29 Nov 2023 00:00:00 +0900</pubDate>
+      
+      <guid>https://blog.tack41.net/posts/2023/12/07_01/</guid>
+      <description>TL;DR Windows 11でChrome Remote Desktopを利用して別PCに接続すると、右側のShiftキーの信号が接続先に渡らない。 「以前のバージョンのMicrosoft IMEを有効にする」を有効にすると解消される。 経緯 Windows 11のPCよりChrone Remote Dekstopで別のWindowsに接続時、なぜかパスワード認証が通らない事象が発生。
+入力した内容を確認すると、一部大文字で入力したはずの文字が小文字のまま。意図せず小文字となった文字は一部。どうも、キーボードの右側のShiftキーを使って大文字にしようとしている文字が小文字になっていると判明。
+ググってみると、いくつかの場所で報告されている
+Right shift not recognised when using Chrome Remote Desktop #1631(mRemoteNG) Chromeリモートデスクトップで右Shiftキーが効かない(まめのプラモデル工房) Chrome Remote Desktopのキーマップ設定で右Shiftを左Shiftにマップしたが、解消せず。PowerToysで解消するという記事もあったが、それだけのためにインストールするのも&amp;hellip; と思い、Windows IMEの設定を以前のバージョンに戻したところ、症状が解消した。
+mRemoteNGのサイトに本障害が報告されたのが2019年なので、もう解消する気はないのかもしれない&amp;hellip; Google側はMicrosoft IMEの問題と認識し、Microsoftは逆、とかかな&amp;hellip;</description>
+    </item>
+    
+    <item>
       <title>AD環境のWindowsをAnsibleで操作する(非AD環境)</title>
       <link>https://blog.tack41.net/posts/2021/11/25_01/</link>
       <pubDate>Thu, 25 Nov 2021 00:00:00 +0900</pubDate>
